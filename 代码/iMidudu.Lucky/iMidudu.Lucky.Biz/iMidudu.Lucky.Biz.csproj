@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemUserBiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iMidudu.Lucky.Data\iMidudu.Lucky.Data.csproj">
