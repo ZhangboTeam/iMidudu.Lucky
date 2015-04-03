@@ -129,20 +129,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\iMidudu.Lucky.Biz\iMidudu.Lucky.Biz.csproj">
-      <Project>{34f567c0-d476-484a-80b3-a90e983355f1}</Project>
-      <Name>iMidudu.Lucky.Biz</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\iMidudu.Lucky.Data\iMidudu.Lucky.Data.csproj">
-      <Project>{4c87cdc2-10e0-4dcd-a763-5e2b3310c19f}</Project>
-      <Name>iMidudu.Lucky.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SuuSee.Data\SuuSee.Data.csproj">
-      <Project>{55a1e894-0a62-4cd2-ade8-9bcd52ed130b}</Project>
-      <Name>SuuSee.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
