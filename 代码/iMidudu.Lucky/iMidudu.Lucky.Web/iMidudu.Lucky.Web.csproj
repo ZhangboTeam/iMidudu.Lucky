@@ -142,10 +142,6 @@
       <Project>{55a1e894-0a62-4cd2-ade8-9bcd52ed130b}</Project>
       <Name>SuuSee.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SuuSee.WeChat\SuuSee.WeChat.csproj">
-      <Project>{d47b51ab-b429-4b52-9402-0f6a8b27230d}</Project>
-      <Name>SuuSee.WeChat</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

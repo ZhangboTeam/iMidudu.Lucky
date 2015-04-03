@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22609.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuuSee.WeChat", "SuuSee.WeChat\SuuSee.WeChat.csproj", "{D47B51AB-B429-4B52-9402-0F6A8B27230D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iMidudu.Lucky.Web", "iMidudu.Lucky.Web\iMidudu.Lucky.Web.csproj", "{D3C78604-85A0-4BA6-8ED8-CC0747A54686}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iMidudu.Lucky.Biz", "iMidudu.Lucky.Biz\iMidudu.Lucky.Biz.csproj", "{34F567C0-D476-484A-80B3-A90E983355F1}"
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D47B51AB-B429-4B52-9402-0F6A8B27230D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D47B51AB-B429-4B52-9402-0F6A8B27230D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D47B51AB-B429-4B52-9402-0F6A8B27230D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D47B51AB-B429-4B52-9402-0F6A8B27230D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3C78604-85A0-4BA6-8ED8-CC0747A54686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3C78604-85A0-4BA6-8ED8-CC0747A54686}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3C78604-85A0-4BA6-8ED8-CC0747A54686}.Release|Any CPU.ActiveCfg = Release|Any CPU
