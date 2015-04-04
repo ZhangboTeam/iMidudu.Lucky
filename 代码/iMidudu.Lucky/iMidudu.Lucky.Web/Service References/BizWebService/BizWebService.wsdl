@@ -17,6 +17,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SaveWXUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:WXUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WXUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OpenId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NickName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pic" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sex" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="WXCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WXProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WXCountry" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegisterDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastActiveTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveWXUserResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -32,10 +55,20 @@
   <wsdl:message name="ActivityByCodeSoapOut">
     <wsdl:part name="parameters" element="tns:ActivityByCodeResponse" />
   </wsdl:message>
+  <wsdl:message name="SaveWXUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveWXUser" />
+  </wsdl:message>
+  <wsdl:message name="SaveWXUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveWXUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="BizWebServiceSoap">
     <wsdl:operation name="ActivityByCode">
       <wsdl:input message="tns:ActivityByCodeSoapIn" />
       <wsdl:output message="tns:ActivityByCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveWXUser">
+      <wsdl:input message="tns:SaveWXUserSoapIn" />
+      <wsdl:output message="tns:SaveWXUserSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BizWebServiceSoap" type="tns:BizWebServiceSoap">
@@ -49,11 +82,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SaveWXUser">
+      <soap:operation soapAction="http://tempuri.org/SaveWXUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BizWebServiceSoap12" type="tns:BizWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ActivityByCode">
       <soap12:operation soapAction="http://tempuri.org/ActivityByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveWXUser">
+      <soap12:operation soapAction="http://tempuri.org/SaveWXUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

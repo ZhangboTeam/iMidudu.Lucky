@@ -459,6 +459,10 @@ namespace iMidudu.Lucky.Web.WeChatWebService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WeChatWebService.WeChatWebServiceSoap")]
     public interface WeChatWebServiceSoap {
         
+        // CODEGEN: Generating message contract since element name AccessTokenResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AccessToken", ReplyAction="*")]
+        iMidudu.Lucky.Web.WeChatWebService.AccessTokenResponse AccessToken(iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequest request);
+        
         // CODEGEN: Generating message contract since element name code from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getOpenId", ReplyAction="*")]
         iMidudu.Lucky.Web.WeChatWebService.getOpenIdResponse getOpenId(iMidudu.Lucky.Web.WeChatWebService.getOpenIdRequest request);
@@ -470,6 +474,67 @@ namespace iMidudu.Lucky.Web.WeChatWebService {
         // CODEGEN: Generating message contract since element name Url from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Config", ReplyAction="*")]
         iMidudu.Lucky.Web.WeChatWebService.ConfigResponse Config(iMidudu.Lucky.Web.WeChatWebService.ConfigRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AccessTokenRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AccessToken", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequestBody Body;
+        
+        public AccessTokenRequest() {
+        }
+        
+        public AccessTokenRequest(iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AccessTokenRequestBody {
+        
+        public AccessTokenRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AccessTokenResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AccessTokenResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.WeChatWebService.AccessTokenResponseBody Body;
+        
+        public AccessTokenResponse() {
+        }
+        
+        public AccessTokenResponse(iMidudu.Lucky.Web.WeChatWebService.AccessTokenResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AccessTokenResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string AccessTokenResult;
+        
+        public AccessTokenResponseBody() {
+        }
+        
+        public AccessTokenResponseBody(string AccessTokenResult) {
+            this.AccessTokenResult = AccessTokenResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -701,6 +766,18 @@ namespace iMidudu.Lucky.Web.WeChatWebService {
         
         public WeChatWebServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iMidudu.Lucky.Web.WeChatWebService.AccessTokenResponse iMidudu.Lucky.Web.WeChatWebService.WeChatWebServiceSoap.AccessToken(iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequest request) {
+            return base.Channel.AccessToken(request);
+        }
+        
+        public string AccessToken() {
+            iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequest inValue = new iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequest();
+            inValue.Body = new iMidudu.Lucky.Web.WeChatWebService.AccessTokenRequestBody();
+            iMidudu.Lucky.Web.WeChatWebService.AccessTokenResponse retVal = ((iMidudu.Lucky.Web.WeChatWebService.WeChatWebServiceSoap)(this)).AccessToken(inValue);
+            return retVal.Body.AccessTokenResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
