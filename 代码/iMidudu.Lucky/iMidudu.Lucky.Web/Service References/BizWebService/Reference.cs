@@ -183,6 +183,272 @@ namespace iMidudu.Lucky.Web.BizWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ScanHistory", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class ScanHistory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Guid ScanHistoryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OpenIdField;
+        
+        private System.Nullable<System.Guid> PrizeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IPField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProvinceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DistrictField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LineTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AgentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OsField;
+        
+        private System.DateTime ScanDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TicketUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TicketNumberField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Guid ScanHistoryId {
+            get {
+                return this.ScanHistoryIdField;
+            }
+            set {
+                if ((this.ScanHistoryIdField.Equals(value) != true)) {
+                    this.ScanHistoryIdField = value;
+                    this.RaisePropertyChanged("ScanHistoryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string OpenId {
+            get {
+                return this.OpenIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OpenIdField, value) != true)) {
+                    this.OpenIdField = value;
+                    this.RaisePropertyChanged("OpenId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.Nullable<System.Guid> PrizeId {
+            get {
+                return this.PrizeIdField;
+            }
+            set {
+                if ((this.PrizeIdField.Equals(value) != true)) {
+                    this.PrizeIdField = value;
+                    this.RaisePropertyChanged("PrizeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string IP {
+            get {
+                return this.IPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IPField, value) != true)) {
+                    this.IPField = value;
+                    this.RaisePropertyChanged("IP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string Country {
+            get {
+                return this.CountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
+                    this.CountryField = value;
+                    this.RaisePropertyChanged("Country");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string Province {
+            get {
+                return this.ProvinceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProvinceField, value) != true)) {
+                    this.ProvinceField = value;
+                    this.RaisePropertyChanged("Province");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string Area {
+            get {
+                return this.AreaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AreaField, value) != true)) {
+                    this.AreaField = value;
+                    this.RaisePropertyChanged("Area");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string District {
+            get {
+                return this.DistrictField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DistrictField, value) != true)) {
+                    this.DistrictField = value;
+                    this.RaisePropertyChanged("District");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string LineType {
+            get {
+                return this.LineTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LineTypeField, value) != true)) {
+                    this.LineTypeField = value;
+                    this.RaisePropertyChanged("LineType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string Agent {
+            get {
+                return this.AgentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AgentField, value) != true)) {
+                    this.AgentField = value;
+                    this.RaisePropertyChanged("Agent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        public string Os {
+            get {
+                return this.OsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OsField, value) != true)) {
+                    this.OsField = value;
+                    this.RaisePropertyChanged("Os");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public System.DateTime ScanDate {
+            get {
+                return this.ScanDateField;
+            }
+            set {
+                if ((this.ScanDateField.Equals(value) != true)) {
+                    this.ScanDateField = value;
+                    this.RaisePropertyChanged("ScanDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string TicketUrl {
+            get {
+                return this.TicketUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TicketUrlField, value) != true)) {
+                    this.TicketUrlField = value;
+                    this.RaisePropertyChanged("TicketUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public string TicketNumber {
+            get {
+                return this.TicketNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TicketNumberField, value) != true)) {
+                    this.TicketNumberField = value;
+                    this.RaisePropertyChanged("TicketNumber");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BizWebService.BizWebServiceSoap")]
     public interface BizWebServiceSoap {
@@ -194,6 +460,13 @@ namespace iMidudu.Lucky.Web.BizWebService {
         // CODEGEN: Generating message contract since element name user from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveWXUser", ReplyAction="*")]
         iMidudu.Lucky.Web.BizWebService.SaveWXUserResponse SaveWXUser(iMidudu.Lucky.Web.BizWebService.SaveWXUserRequest request);
+        
+        // CODEGEN: Generating message contract since element name History from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertScanHistory", ReplyAction="*")]
+        iMidudu.Lucky.Web.BizWebService.InsertScanHistoryResponse InsertScanHistory(iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateScanHistory", ReplyAction="*")]
+        void UpdateScanHistory(System.Guid ScanHistoryId, System.Guid PrizeId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -325,6 +598,67 @@ namespace iMidudu.Lucky.Web.BizWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class InsertScanHistoryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertScanHistory", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequestBody Body;
+        
+        public InsertScanHistoryRequest() {
+        }
+        
+        public InsertScanHistoryRequest(iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class InsertScanHistoryRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.ScanHistory History;
+        
+        public InsertScanHistoryRequestBody() {
+        }
+        
+        public InsertScanHistoryRequestBody(iMidudu.Lucky.Web.BizWebService.ScanHistory History) {
+            this.History = History;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class InsertScanHistoryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertScanHistoryResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.InsertScanHistoryResponseBody Body;
+        
+        public InsertScanHistoryResponse() {
+        }
+        
+        public InsertScanHistoryResponse(iMidudu.Lucky.Web.BizWebService.InsertScanHistoryResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class InsertScanHistoryResponseBody {
+        
+        public InsertScanHistoryResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface BizWebServiceSoapChannel : iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -375,6 +709,22 @@ namespace iMidudu.Lucky.Web.BizWebService {
             inValue.Body = new iMidudu.Lucky.Web.BizWebService.SaveWXUserRequestBody();
             inValue.Body.user = user;
             iMidudu.Lucky.Web.BizWebService.SaveWXUserResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).SaveWXUser(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iMidudu.Lucky.Web.BizWebService.InsertScanHistoryResponse iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap.InsertScanHistory(iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequest request) {
+            return base.Channel.InsertScanHistory(request);
+        }
+        
+        public void InsertScanHistory(iMidudu.Lucky.Web.BizWebService.ScanHistory History) {
+            iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequest inValue = new iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequest();
+            inValue.Body = new iMidudu.Lucky.Web.BizWebService.InsertScanHistoryRequestBody();
+            inValue.Body.History = History;
+            iMidudu.Lucky.Web.BizWebService.InsertScanHistoryResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).InsertScanHistory(inValue);
+        }
+        
+        public void UpdateScanHistory(System.Guid ScanHistoryId, System.Guid PrizeId) {
+            base.Channel.UpdateScanHistory(ScanHistoryId, PrizeId);
         }
     }
 }
