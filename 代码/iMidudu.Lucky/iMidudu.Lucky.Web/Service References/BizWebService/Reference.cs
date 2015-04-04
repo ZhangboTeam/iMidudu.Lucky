@@ -449,6 +449,255 @@ namespace iMidudu.Lucky.Web.BizWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int stateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string msgField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private iMidudu.Lucky.Web.BizWebService.UserInfoData dataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserAgentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OSField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int state {
+            get {
+                return this.stateField;
+            }
+            set {
+                if ((this.stateField.Equals(value) != true)) {
+                    this.stateField = value;
+                    this.RaisePropertyChanged("state");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string msg {
+            get {
+                return this.msgField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.msgField, value) != true)) {
+                    this.msgField = value;
+                    this.RaisePropertyChanged("msg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public iMidudu.Lucky.Web.BizWebService.UserInfoData data {
+            get {
+                return this.dataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.dataField, value) != true)) {
+                    this.dataField = value;
+                    this.RaisePropertyChanged("data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string UserAgent {
+            get {
+                return this.UserAgentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserAgentField, value) != true)) {
+                    this.UserAgentField = value;
+                    this.RaisePropertyChanged("UserAgent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string OS {
+            get {
+                return this.OSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OSField, value) != true)) {
+                    this.OSField = value;
+                    this.RaisePropertyChanged("OS");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfoData", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class UserInfoData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ipField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string countryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string areaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string provinceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string districtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string linetypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ip {
+            get {
+                return this.ipField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ipField, value) != true)) {
+                    this.ipField = value;
+                    this.RaisePropertyChanged("ip");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string country {
+            get {
+                return this.countryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.countryField, value) != true)) {
+                    this.countryField = value;
+                    this.RaisePropertyChanged("country");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string area {
+            get {
+                return this.areaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.areaField, value) != true)) {
+                    this.areaField = value;
+                    this.RaisePropertyChanged("area");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string province {
+            get {
+                return this.provinceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.provinceField, value) != true)) {
+                    this.provinceField = value;
+                    this.RaisePropertyChanged("province");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string city {
+            get {
+                return this.cityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cityField, value) != true)) {
+                    this.cityField = value;
+                    this.RaisePropertyChanged("city");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string district {
+            get {
+                return this.districtField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.districtField, value) != true)) {
+                    this.districtField = value;
+                    this.RaisePropertyChanged("district");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string linetype {
+            get {
+                return this.linetypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.linetypeField, value) != true)) {
+                    this.linetypeField = value;
+                    this.RaisePropertyChanged("linetype");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BizWebService.BizWebServiceSoap")]
     public interface BizWebServiceSoap {
@@ -467,6 +716,10 @@ namespace iMidudu.Lucky.Web.BizWebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateScanHistory", ReplyAction="*")]
         void UpdateScanHistory(System.Guid ScanHistoryId, System.Guid PrizeId);
+        
+        // CODEGEN: Generating message contract since element name CurrentUserResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CurrentUser", ReplyAction="*")]
+        iMidudu.Lucky.Web.BizWebService.CurrentUserResponse CurrentUser(iMidudu.Lucky.Web.BizWebService.CurrentUserRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -659,6 +912,67 @@ namespace iMidudu.Lucky.Web.BizWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CurrentUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CurrentUser", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.CurrentUserRequestBody Body;
+        
+        public CurrentUserRequest() {
+        }
+        
+        public CurrentUserRequest(iMidudu.Lucky.Web.BizWebService.CurrentUserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class CurrentUserRequestBody {
+        
+        public CurrentUserRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class CurrentUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="CurrentUserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.CurrentUserResponseBody Body;
+        
+        public CurrentUserResponse() {
+        }
+        
+        public CurrentUserResponse(iMidudu.Lucky.Web.BizWebService.CurrentUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class CurrentUserResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.UserInfo CurrentUserResult;
+        
+        public CurrentUserResponseBody() {
+        }
+        
+        public CurrentUserResponseBody(iMidudu.Lucky.Web.BizWebService.UserInfo CurrentUserResult) {
+            this.CurrentUserResult = CurrentUserResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface BizWebServiceSoapChannel : iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -725,6 +1039,18 @@ namespace iMidudu.Lucky.Web.BizWebService {
         
         public void UpdateScanHistory(System.Guid ScanHistoryId, System.Guid PrizeId) {
             base.Channel.UpdateScanHistory(ScanHistoryId, PrizeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iMidudu.Lucky.Web.BizWebService.CurrentUserResponse iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap.CurrentUser(iMidudu.Lucky.Web.BizWebService.CurrentUserRequest request) {
+            return base.Channel.CurrentUser(request);
+        }
+        
+        public iMidudu.Lucky.Web.BizWebService.UserInfo CurrentUser() {
+            iMidudu.Lucky.Web.BizWebService.CurrentUserRequest inValue = new iMidudu.Lucky.Web.BizWebService.CurrentUserRequest();
+            inValue.Body = new iMidudu.Lucky.Web.BizWebService.CurrentUserRequestBody();
+            iMidudu.Lucky.Web.BizWebService.CurrentUserResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).CurrentUser(inValue);
+            return retVal.Body.CurrentUserResult;
         }
     }
 }

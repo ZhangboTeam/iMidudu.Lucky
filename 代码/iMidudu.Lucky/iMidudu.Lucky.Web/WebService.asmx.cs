@@ -73,7 +73,31 @@ namespace iMidudu.Lucky.Web
          //   file = ACCESS_TOKEN;
             return file;
         }
+        [WebMethod]
+        public Guid AddScanHistory(string OpenId, string TicketUrl, string TicketNumber) {
+            var User = iMidudu.Lucky.Web.WebServieFactiory.Biz.CurrentUser();
+            var data = new iMidudu.Lucky.Web.BizWebService.ScanHistory()
+            {
+                ScanHistoryId = Guid.NewGuid(),
+                OpenId = OpenId,
+                TicketUrl = TicketUrl,
+                TicketNumber = TicketNumber,
+                Agent = User.UserAgent,
+                Area = User.data.area,
+                City = User.data.city,
+                Country = User.data.country,
+                District = User.data.district,
+                IP = User.data.ip,
+                LineType = User.data.linetype,
+                Os = User.OS,
+                Province = User.data.province,
+                ScanDate = DateTime.Now,
+                 PrizeId=null
 
+            };
+            iMidudu.Lucky.Web.WebServieFactiory.Biz.InsertScanHistory(data);
+            return data.ScanHistoryId;
+        }
 
     }
 }

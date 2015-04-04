@@ -56,7 +56,9 @@
     <br />
     <input type="text" id="TicketNumber" />
     <br />
-     
+     <input type="button" id="ok"  value="确定" onclick="goOn();"/>
+    <%=biz.CurrentUser().data.country
+         %>
     <div id="mediaid">
 
     </div>
@@ -212,6 +214,31 @@
                 download();
             };
         });
+
+        function goOn() {
+            var TicketNumber=$("#TicketNumber").val();
+            if (TicketNumber==null &&ticketUrl==null) {
+                alert("上传收银小票或者输入流水号");
+                return false;
+            }
+            var data = {OpenId:'<%=openResponse.openid%>',TicketUrl:ticketUrl,TicketNumber:TicketNumber};
+              //alert(data.ACCESS_TOKEN);
+               //return;
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/Webservice.asmx/AddScanHistory",
+                    data:JSON.stringify(data),
+                    dataType: 'json',
+                    success: function (result) {
+                        alert(result.d);
+                        
+                    },
+                    error:function(e){
+                        alert(e.responseText);
+                    }
+                });
+        }
     </script> 
 </body>
 </html>
