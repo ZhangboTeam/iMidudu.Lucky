@@ -119,10 +119,34 @@
     <Content Include="js\queryString.js" />
     <Content Include="login.aspx" />
     <Content Include="Lottery1.aspx" />
+    <Content Include="LotteryResult\Activity3\Result1.aspx" />
+    <Content Include="LotteryResult\Activity3\Result2.aspx" />
+    <Content Include="LotteryResult\Activity3\Result3.aspx" />
+    <Content Include="LotteryResult\Activity3\Result4.aspx" />
+    <Content Include="LotteryResult\Activity3\Result5.aspx" />
+    <Content Include="LotteryResult\Activity3\Result6.aspx" />
+    <Content Include="LotteryResult\Activity3\Result7.aspx" />
+    <Content Include="LotteryResult\Activity2\Result1.aspx" />
+    <Content Include="LotteryResult\Activity2\Result2.aspx" />
+    <Content Include="LotteryResult\Activity2\Result3.aspx" />
+    <Content Include="LotteryResult\Activity2\Result4.aspx" />
+    <Content Include="LotteryResult\Activity2\Result5.aspx" />
+    <Content Include="LotteryResult\Activity2\Result6.aspx" />
+    <Content Include="LotteryResult\Activity2\Result7.aspx" />
+    <Content Include="LotteryResult\Activity1\Result3.aspx" />
+    <Content Include="LotteryResult\Activity1\Result2.aspx" />
+    <Content Include="LotteryResult\Activity1\Result1.aspx" />
+    <Content Include="LotteryResult\Activity1\Result4.aspx" />
+    <Content Include="LotteryResult\Activity1\Result5.aspx" />
+    <Content Include="LotteryResult\Activity1\Result6.aspx" />
+    <Content Include="LotteryResult\Activity1\Result7.aspx" />
     <Content Include="packages.config" />
     <None Include="Service References\BizWebService\BizWebService.disco" />
     <None Include="Service References\BizWebService\configuration91.svcinfo" />
     <None Include="Service References\BizWebService\configuration.svcinfo" />
+    <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.Prize.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\BizWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -143,7 +167,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Test.aspx" />
     <Content Include="Ticket1.aspx" />
     <Content Include="uploadedImages\null.html" />
     <Content Include="Web.config">

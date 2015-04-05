@@ -449,6 +449,143 @@ namespace iMidudu.Lucky.Web.BizWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Prize", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Prize : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Guid PrizeIdField;
+        
+        private System.Guid QRCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrizeNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QuantityField;
+        
+        private bool NeedValidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string URLField;
+        
+        private int DayLimitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Guid PrizeId {
+            get {
+                return this.PrizeIdField;
+            }
+            set {
+                if ((this.PrizeIdField.Equals(value) != true)) {
+                    this.PrizeIdField = value;
+                    this.RaisePropertyChanged("PrizeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Guid QRCode {
+            get {
+                return this.QRCodeField;
+            }
+            set {
+                if ((this.QRCodeField.Equals(value) != true)) {
+                    this.QRCodeField = value;
+                    this.RaisePropertyChanged("QRCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string PrizeName {
+            get {
+                return this.PrizeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrizeNameField, value) != true)) {
+                    this.PrizeNameField = value;
+                    this.RaisePropertyChanged("PrizeName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QuantityField, value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public bool NeedValid {
+            get {
+                return this.NeedValidField;
+            }
+            set {
+                if ((this.NeedValidField.Equals(value) != true)) {
+                    this.NeedValidField = value;
+                    this.RaisePropertyChanged("NeedValid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string URL {
+            get {
+                return this.URLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.URLField, value) != true)) {
+                    this.URLField = value;
+                    this.RaisePropertyChanged("URL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public int DayLimit {
+            get {
+                return this.DayLimitField;
+            }
+            set {
+                if ((this.DayLimitField.Equals(value) != true)) {
+                    this.DayLimitField = value;
+                    this.RaisePropertyChanged("DayLimit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BizWebService.BizWebServiceSoap")]
     public interface BizWebServiceSoap {
@@ -467,6 +604,10 @@ namespace iMidudu.Lucky.Web.BizWebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateScanHistory", ReplyAction="*")]
         void UpdateScanHistory(System.Guid ScanHistoryId, System.Guid PrizeId);
+        
+        // CODEGEN: Generating message contract since element name PrizeLotteryResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PrizeLottery", ReplyAction="*")]
+        iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse PrizeLottery(iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -659,6 +800,74 @@ namespace iMidudu.Lucky.Web.BizWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class PrizeLotteryRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="PrizeLottery", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequestBody Body;
+        
+        public PrizeLotteryRequest() {
+        }
+        
+        public PrizeLotteryRequest(iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class PrizeLotteryRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid QRCode;
+        
+        public PrizeLotteryRequestBody() {
+        }
+        
+        public PrizeLotteryRequestBody(System.Guid QRCode) {
+            this.QRCode = QRCode;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class PrizeLotteryResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="PrizeLotteryResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponseBody Body;
+        
+        public PrizeLotteryResponse() {
+        }
+        
+        public PrizeLotteryResponse(iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class PrizeLotteryResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLotteryResult;
+        
+        public PrizeLotteryResponseBody() {
+        }
+        
+        public PrizeLotteryResponseBody(iMidudu.Lucky.Web.BizWebService.Prize PrizeLotteryResult) {
+            this.PrizeLotteryResult = PrizeLotteryResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface BizWebServiceSoapChannel : iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -725,6 +934,19 @@ namespace iMidudu.Lucky.Web.BizWebService {
         
         public void UpdateScanHistory(System.Guid ScanHistoryId, System.Guid PrizeId) {
             base.Channel.UpdateScanHistory(ScanHistoryId, PrizeId);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap.PrizeLottery(iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest request) {
+            return base.Channel.PrizeLottery(request);
+        }
+        
+        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode) {
+            iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest inValue = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest();
+            inValue.Body = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequestBody();
+            inValue.Body.QRCode = QRCode;
+            iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).PrizeLottery(inValue);
+            return retVal.Body.PrizeLotteryResult;
         }
     }
 }

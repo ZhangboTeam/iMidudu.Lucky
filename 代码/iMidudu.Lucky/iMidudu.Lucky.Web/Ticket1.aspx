@@ -22,7 +22,7 @@
 
             biz.SaveWXUser(new iMidudu.Lucky.Web.BizWebService.WXUser()
             {
-                 OpenId = openResponse.openid, Pic = r.headimgurl, NickName = r.nickname, Sex=  r.sex==0   , WXCity= r.city, WXCountry = r.country, WXProvince = r.province
+                OpenId = openResponse.openid, Pic = r.headimgurl, NickName = r.nickname, Sex=  r.sex==1?true : false   , WXCity= r.city, WXCountry = r.country, WXProvince = r.province
             });
 
              %>

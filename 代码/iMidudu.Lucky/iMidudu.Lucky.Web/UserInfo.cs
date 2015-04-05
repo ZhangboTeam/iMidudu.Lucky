@@ -65,13 +65,13 @@ namespace SuuSee
         {
             get
             {
-                return null;
+                //return null;
 
                 //获取用户手机的操作系统
                 string os = string.Empty;
                 string agent = HttpContext.Current.Request.UserAgent;
                 os = agent;
-                string[] keywords = { "Android", "iPhone", "iPod", "iPad", "Windows Phone", "MQQBrowser" };
+                string[] keywords = { "Android", "iPhone", "iPod", "iPad", "Windows Phone", "Android" };
                 //排除 Windows 桌面系统            
                 if (!agent.Contains("Windows NT") || (agent.Contains("Windows NT") && agent.Contains("compatible; MSIE 9.0;")))
                 {

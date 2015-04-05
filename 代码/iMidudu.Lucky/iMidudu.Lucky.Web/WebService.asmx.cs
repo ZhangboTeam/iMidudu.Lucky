@@ -100,6 +100,10 @@ namespace iMidudu.Lucky.Web
             iMidudu.Lucky.Web.WebServieFactiory.Biz.InsertScanHistory(data);
             return data.ScanHistoryId;
         }
-
+        [WebMethod]
+        public BizWebService.Prize PrizeLottery(Guid QRCode)
+        {
+            return WebServieFactiory.Biz.PrizeLottery(QRCode);
+        }
     }
 }

@@ -5,9 +5,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/json2.js"></script>
+    <script>
+        function beginLottery() {
+            var data = {QRCode:'<%=this.Request["QRCode" ]%>'};
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/PrizeLottery",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {
+                    var prize = result.d;
+                    alert(prize.PrizeName);
+                    window.location.href = prize.URL;
+                }
+            });
+        }
+
+    </script>
 </head>
 <body>
     <%=this.Request["ScanHistoryId" ]%>,
     <%=this.Request["QRCode" ]%>
+
+
+    <div style="width:400px;height:400px;">
+        抽奖大转盘
+    </div>
+    <input id="beginLottery" type="button" value="开始抽奖" onclick="beginLottery();" />
+
 </body>
 </html>
