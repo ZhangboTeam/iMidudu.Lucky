@@ -151,6 +151,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\SMSWebService\SMSWebService.disco" />
+    <None Include="Service References\SMSWebService\configuration91.svcinfo" />
+    <None Include="Service References\SMSWebService\configuration.svcinfo" />
+    <None Include="Service References\SMSWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\WeChatWebService\iMidudu.Lucky.Web.WeChatWebService.OpenIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -160,6 +167,7 @@
     <Content Include="Service References\WeChatWebService\iMidudu.Lucky.Web.WeChatWebService.WXconfig.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\SMSWebService\SMSWebService.wsdl" />
     <None Include="Service References\WeChatWebService\wechatwebservice.disco" />
     <None Include="Service References\WeChatWebService\configuration91.svcinfo" />
     <None Include="Service References\WeChatWebService\configuration.svcinfo" />
@@ -177,6 +185,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\BizWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SMSWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -209,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BizWebService\" />
+    <WCFMetadataStorage Include="Service References\SMSWebService\" />
     <WCFMetadataStorage Include="Service References\WeChatWebService\" />
   </ItemGroup>
   <ItemGroup />
