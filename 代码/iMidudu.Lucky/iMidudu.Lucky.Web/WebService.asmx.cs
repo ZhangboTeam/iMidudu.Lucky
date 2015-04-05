@@ -74,8 +74,10 @@ namespace iMidudu.Lucky.Web
             return file;
         }
         [WebMethod]
-        public Guid AddScanHistory(string OpenId, string TicketUrl, string TicketNumber) {
-            var User = iMidudu.Lucky.Web.WebServieFactiory.Biz.CurrentUser();
+        public Guid AddScanHistory(string OpenId, string TicketUrl, string TicketNumber)
+        {
+            //var User = iMidudu.Lucky.Web.WebServieFactiory.Biz.CurrentUser();
+            var User = SuuSee.UserInfo.CurrentUser();
             var data = new iMidudu.Lucky.Web.BizWebService.ScanHistory()
             {
                 ScanHistoryId = Guid.NewGuid(),
@@ -92,7 +94,7 @@ namespace iMidudu.Lucky.Web
                 Os = User.OS,
                 Province = User.data.province,
                 ScanDate = DateTime.Now,
-                 PrizeId=null
+                PrizeId = null
 
             };
             iMidudu.Lucky.Web.WebServieFactiory.Biz.InsertScanHistory(data);

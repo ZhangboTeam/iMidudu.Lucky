@@ -57,7 +57,7 @@
     <input type="text" id="TicketNumber" />
     <br />
      <input type="button" id="ok"  value="确定" onclick="goOn();"/>
-    <%=biz.CurrentUser().data.country
+    <%= SuuSee.UserInfo.CurrentUser().data.city
          %>
     <div id="mediaid">
 

@@ -122,9 +122,6 @@
     <None Include="Service References\BizWebService\BizWebService.disco" />
     <None Include="Service References\BizWebService\configuration91.svcinfo" />
     <None Include="Service References\BizWebService\configuration.svcinfo" />
-    <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.UserInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\BizWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -165,6 +162,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="UserInfo.cs" />
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
       <SubType>component</SubType>
