@@ -7,10 +7,11 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
+  ScanHistoryId:  <%=this.Request["ScanHistoryId" ]%>,
+   PrizeId: <%=this.Request["PrizeId" ]%>
+    <hr />
+    抽奖结果1
+    <hr />
+    <h1>以下是需要提供个人信息以发放大奖</h1>
 </body>
 </html>

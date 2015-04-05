@@ -18,8 +18,23 @@
                 dataType: 'json',
                 success: function (result) {
                     var prize = result.d;
-                    alert(prize.PrizeName);
-                    window.location.href = prize.URL;
+                    SavePrize(prize);
+                }
+            });
+        }
+        function SavePrize(prize) {
+            var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>',PrizeId:prize.PrizeId };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/SavePrize",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {
+                    window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
+                },
+                error: function (result) {
+                    window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 }
             });
         }
