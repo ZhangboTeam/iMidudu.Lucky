@@ -105,5 +105,21 @@ namespace iMidudu.Lucky.Web
         {
             return WebServieFactiory.Biz.PrizeLottery(QRCode);
         }
+
+        /// <summary>
+        /// 记录中奖
+        /// </summary>
+        [WebMethod]
+        public void SavePrize(Guid ScanHistoryId, Guid PrizeId)
+        {
+            WebServieFactiory.Biz.UpdateScanHistory(ScanHistoryId, PrizeId);
+        }
+
+        [WebMethod(EnableSession =true)]
+        public string SendValidCodeToMobile(string mobile)
+        {
+            var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
+            return WebServieFactiory.SMS.SendValidCode(apiKey, "手机验证码:{0}", mobile);
+        }
     }
 }
