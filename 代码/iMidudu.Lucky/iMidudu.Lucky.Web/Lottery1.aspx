@@ -9,7 +9,11 @@
     <script src="js/json2.js"></script>
     <script>
         function beginLottery() {
-            var data = {QRCode:'<%=this.Request["QRCode" ]%>'};
+            var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
+
+            //window.location.href = '/LotteryResult/Activity1/Result1.aspx';
+            //return;
+
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
@@ -19,6 +23,9 @@
                 success: function (result) {
                     var prize = result.d;
                     SavePrize(prize);
+                },
+                error: function (e) {
+                    alert(e.responseText);
                 }
             });
         }
@@ -33,8 +40,8 @@
                 success: function (result) {
                     window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 },
-                error: function (result) {
-                    window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
+                error: function (e) {
+                    alert(e.responseText);
                 }
             });
         }

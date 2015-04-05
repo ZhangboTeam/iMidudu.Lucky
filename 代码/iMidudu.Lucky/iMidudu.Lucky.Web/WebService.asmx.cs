@@ -119,7 +119,10 @@ namespace iMidudu.Lucky.Web
         public string SendValidCodeToMobile(string mobile)
         {
             var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
-            return WebServieFactiory.SMS.SendValidCode(apiKey, "手机验证码:{0}", mobile);
+            var code= WebServieFactiory.SMS.SendValidCode(apiKey, "【不凡帝】您的验证码是{0}", mobile);
+            this.Session["smsCode"] = code;
+            return code;
         }
+         
     }
 }
