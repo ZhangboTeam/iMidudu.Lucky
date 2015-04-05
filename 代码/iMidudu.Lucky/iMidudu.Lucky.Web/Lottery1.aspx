@@ -11,9 +11,10 @@
         function beginLottery() {
             var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
 
+            var str = JSON.stringify(data);
+            alert(str);
             //window.location.href = '/LotteryResult/Activity1/Result1.aspx';
             //return;
-
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
@@ -25,12 +26,17 @@
                     SavePrize(prize);
                 },
                 error: function (e) {
-                    alert(e.responseText);
+                    //alert("PrizeLottery");
+                    alert("PrizeLottery" + e.responseText);
+                    $("#msg").html(e.responseText);
                 }
             });
         }
         function SavePrize(prize) {
-            var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>',PrizeId:prize.PrizeId };
+            var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>', PrizeId: prize.PrizeId };
+
+            var str = JSON.stringify(data);
+            alert(str);
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
@@ -41,6 +47,7 @@
                     window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 },
                 error: function (e) {
+                    alert("SavePrize wrong");
                     alert(e.responseText);
                 }
             });
@@ -56,6 +63,7 @@
     <div style="width:400px;height:400px;">
         抽奖大转盘
     </div>
+    <div id="msg"></div>
     <input id="beginLottery" type="button" value="开始抽奖" onclick="beginLottery();" />
 
 </body>

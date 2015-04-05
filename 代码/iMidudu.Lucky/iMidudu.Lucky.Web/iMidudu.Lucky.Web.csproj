@@ -147,6 +147,9 @@
     <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.Prize.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.WXUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\BizWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -208,7 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\米嘟嘟服务器.pubxml" />
-    <None Include="Service References\BizWebService\BizWebService.wsdl" />
+    <None Include="Service References\BizWebService\BizWebService.wsdl">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WeChatWebService\wechatwebservice.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

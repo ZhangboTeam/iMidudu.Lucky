@@ -83,7 +83,7 @@
       <s:element name="PrizeLottery">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="QRCode" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="QRCode1" type="s1:guid" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -105,6 +105,20 @@
           <s:element minOccurs="1" maxOccurs="1" name="DayLimit" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="SelectWXUserByScanHistoryId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ScanHistoryId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectWXUserByScanHistoryIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectWXUserByScanHistoryIdResult" type="tns:WXUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
       <s:simpleType name="guid">
@@ -144,6 +158,12 @@
   <wsdl:message name="PrizeLotterySoapOut">
     <wsdl:part name="parameters" element="tns:PrizeLotteryResponse" />
   </wsdl:message>
+  <wsdl:message name="SelectWXUserByScanHistoryIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectWXUserByScanHistoryId" />
+  </wsdl:message>
+  <wsdl:message name="SelectWXUserByScanHistoryIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectWXUserByScanHistoryIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="BizWebServiceSoap">
     <wsdl:operation name="ActivityByCode">
       <wsdl:input message="tns:ActivityByCodeSoapIn" />
@@ -164,6 +184,10 @@
     <wsdl:operation name="PrizeLottery">
       <wsdl:input message="tns:PrizeLotterySoapIn" />
       <wsdl:output message="tns:PrizeLotterySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWXUserByScanHistoryId">
+      <wsdl:input message="tns:SelectWXUserByScanHistoryIdSoapIn" />
+      <wsdl:output message="tns:SelectWXUserByScanHistoryIdSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BizWebServiceSoap" type="tns:BizWebServiceSoap">
@@ -213,6 +237,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SelectWXUserByScanHistoryId">
+      <soap:operation soapAction="http://tempuri.org/SelectWXUserByScanHistoryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="BizWebServiceSoap12" type="tns:BizWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -254,6 +287,15 @@
     </wsdl:operation>
     <wsdl:operation name="PrizeLottery">
       <soap12:operation soapAction="http://tempuri.org/PrizeLottery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWXUserByScanHistoryId">
+      <soap12:operation soapAction="http://tempuri.org/SelectWXUserByScanHistoryId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

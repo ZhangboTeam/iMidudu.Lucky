@@ -608,6 +608,10 @@ namespace iMidudu.Lucky.Web.BizWebService {
         // CODEGEN: Generating message contract since element name PrizeLotteryResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PrizeLottery", ReplyAction="*")]
         iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse PrizeLottery(iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest request);
+        
+        // CODEGEN: Generating message contract since element name SelectWXUserByScanHistoryIdResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SelectWXUserByScanHistoryId", ReplyAction="*")]
+        iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdResponse SelectWXUserByScanHistoryId(iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -824,13 +828,13 @@ namespace iMidudu.Lucky.Web.BizWebService {
     public partial class PrizeLotteryRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public System.Guid QRCode;
+        public System.Guid QRCode1;
         
         public PrizeLotteryRequestBody() {
         }
         
-        public PrizeLotteryRequestBody(System.Guid QRCode) {
-            this.QRCode = QRCode;
+        public PrizeLotteryRequestBody(System.Guid QRCode1) {
+            this.QRCode1 = QRCode1;
         }
     }
     
@@ -865,6 +869,74 @@ namespace iMidudu.Lucky.Web.BizWebService {
         
         public PrizeLotteryResponseBody(iMidudu.Lucky.Web.BizWebService.Prize PrizeLotteryResult) {
             this.PrizeLotteryResult = PrizeLotteryResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SelectWXUserByScanHistoryIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SelectWXUserByScanHistoryId", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequestBody Body;
+        
+        public SelectWXUserByScanHistoryIdRequest() {
+        }
+        
+        public SelectWXUserByScanHistoryIdRequest(iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SelectWXUserByScanHistoryIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.Guid ScanHistoryId;
+        
+        public SelectWXUserByScanHistoryIdRequestBody() {
+        }
+        
+        public SelectWXUserByScanHistoryIdRequestBody(System.Guid ScanHistoryId) {
+            this.ScanHistoryId = ScanHistoryId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SelectWXUserByScanHistoryIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SelectWXUserByScanHistoryIdResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdResponseBody Body;
+        
+        public SelectWXUserByScanHistoryIdResponse() {
+        }
+        
+        public SelectWXUserByScanHistoryIdResponse(iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SelectWXUserByScanHistoryIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public iMidudu.Lucky.Web.BizWebService.WXUser SelectWXUserByScanHistoryIdResult;
+        
+        public SelectWXUserByScanHistoryIdResponseBody() {
+        }
+        
+        public SelectWXUserByScanHistoryIdResponseBody(iMidudu.Lucky.Web.BizWebService.WXUser SelectWXUserByScanHistoryIdResult) {
+            this.SelectWXUserByScanHistoryIdResult = SelectWXUserByScanHistoryIdResult;
         }
     }
     
@@ -941,12 +1013,25 @@ namespace iMidudu.Lucky.Web.BizWebService {
             return base.Channel.PrizeLottery(request);
         }
         
-        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode) {
+        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode1) {
             iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest inValue = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest();
             inValue.Body = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequestBody();
-            inValue.Body.QRCode = QRCode;
+            inValue.Body.QRCode1 = QRCode1;
             iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).PrizeLottery(inValue);
             return retVal.Body.PrizeLotteryResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdResponse iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap.SelectWXUserByScanHistoryId(iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequest request) {
+            return base.Channel.SelectWXUserByScanHistoryId(request);
+        }
+        
+        public iMidudu.Lucky.Web.BizWebService.WXUser SelectWXUserByScanHistoryId(System.Guid ScanHistoryId) {
+            iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequest inValue = new iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequest();
+            inValue.Body = new iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdRequestBody();
+            inValue.Body.ScanHistoryId = ScanHistoryId;
+            iMidudu.Lucky.Web.BizWebService.SelectWXUserByScanHistoryIdResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).SelectWXUserByScanHistoryId(inValue);
+            return retVal.Body.SelectWXUserByScanHistoryIdResult;
         }
     }
 }
