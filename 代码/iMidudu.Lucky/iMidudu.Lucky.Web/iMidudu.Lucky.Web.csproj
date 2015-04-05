@@ -118,6 +118,7 @@
     <Content Include="js\json2.js" />
     <Content Include="js\queryString.js" />
     <Content Include="login.aspx" />
+    <Content Include="Lottery1.aspx" />
     <Content Include="packages.config" />
     <None Include="Service References\BizWebService\BizWebService.disco" />
     <None Include="Service References\BizWebService\configuration91.svcinfo" />

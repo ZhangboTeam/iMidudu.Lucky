@@ -64,7 +64,7 @@
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
     <script> 
-        var ticketUrl;
+        var ticketUrl="";
             wx.config({
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: '<%=c.appId %>', // 必填，公众号的唯一标识
@@ -217,10 +217,10 @@
 
         function goOn() {
             var TicketNumber=$("#TicketNumber").val();
-            if (TicketNumber==null &&ticketUrl==null) {
+            if (TicketNumber=="" &&ticketUrl=="") {
                 alert("上传收银小票或者输入流水号");
                 return false;
-            }
+            } 
             var data = {OpenId:'<%=openResponse.openid%>',TicketUrl:ticketUrl,TicketNumber:TicketNumber};
               //alert(data.ACCESS_TOKEN);
                //return;
@@ -231,8 +231,11 @@
                     data:JSON.stringify(data),
                     dataType: 'json',
                     success: function (result) {
-                        alert(result.d);
-                        
+                        //alert(result.d);
+                        var historyId = result.d;
+                        var qrCode = '<%=this.Request["QRCode"] %>';
+                        var nextUrl = 'Lottery1.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode;
+                        window.location=nextUrl;
                     },
                     error:function(e){
                         alert(e.responseText);
