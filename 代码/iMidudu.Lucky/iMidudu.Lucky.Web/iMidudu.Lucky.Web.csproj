@@ -66,6 +66,60 @@
     <Content Include="Activity1.aspx" />
     <Content Include="Activity2.aspx" />
     <Content Include="Activity3.aspx" />
+    <Content Include="Admin\ChangePassword.aspx" />
+    <Content Include="Admin\css\animate.css" />
+    <Content Include="Admin\css\ie.css" />
+    <Content Include="Admin\css\layout.css" />
+    <Content Include="Admin\css\style.css" />
+    <Content Include="Admin\images\arrow.png" />
+    <Content Include="Admin\images\bg.png" />
+    <Content Include="Admin\images\breadcrumb_divider.png" />
+    <Content Include="Admin\images\btn_submit.png" />
+    <Content Include="Admin\images\btn_submit_2.png" />
+    <Content Include="Admin\images\btn_view_site.png" />
+    <Content Include="Admin\images\header_bg.png" />
+    <Content Include="Admin\images\header_shadow.png" />
+    <Content Include="Admin\images\icn_add_user.png" />
+    <Content Include="Admin\images\icn_alert_error.png" />
+    <Content Include="Admin\images\icn_alert_info.png" />
+    <Content Include="Admin\images\icn_alert_success.png" />
+    <Content Include="Admin\images\icn_alert_warning.png" />
+    <Content Include="Admin\images\icn_audio.png" />
+    <Content Include="Admin\images\icn_categories.png" />
+    <Content Include="Admin\images\icn_edit.png" />
+    <Content Include="Admin\images\icn_edit_article.png" />
+    <Content Include="Admin\images\icn_folder.png" />
+    <Content Include="Admin\images\icn_jump_back.png" />
+    <Content Include="Admin\images\icn_logout.png" />
+    <Content Include="Admin\images\icn_new_article.png" />
+    <Content Include="Admin\images\icn_photo.png" />
+    <Content Include="Admin\images\icn_profile.png" />
+    <Content Include="Admin\images\icn_search.png" />
+    <Content Include="Admin\images\icn_security.png" />
+    <Content Include="Admin\images\icn_settings.png" />
+    <Content Include="Admin\images\icn_tags.png" />
+    <Content Include="Admin\images\icn_trash.png" />
+    <Content Include="Admin\images\icn_user.png" />
+    <Content Include="Admin\images\icn_video.png" />
+    <Content Include="Admin\images\icn_view_users.png" />
+    <Content Include="Admin\images\iMidudu.png" />
+    <Content Include="Admin\images\Logo_login.png" />
+    <Content Include="Admin\images\module_footer_bg.png" />
+    <Content Include="Admin\images\post_message.png" />
+    <Content Include="Admin\images\secondary_bar.png" />
+    <Content Include="Admin\images\secondary_bar_shadow.png" />
+    <Content Include="Admin\images\sidebar.png" />
+    <Content Include="Admin\images\sidebar_divider.png" />
+    <Content Include="Admin\images\sidebar_shadow.png" />
+    <Content Include="Admin\images\table_sorter_header.png" />
+    <Content Include="Admin\js\hideshow.js" />
+    <Content Include="Admin\js\jquery-1.5.2.min.js" />
+    <Content Include="Admin\js\jquery.equalHeight.js" />
+    <Content Include="Admin\js\jquery.min.js" />
+    <Content Include="Admin\js\jquery.tablesorter.min.js" />
+    <Content Include="Admin\js\json2.js" />
+    <Content Include="Admin\js\queryString.js" />
+    <Content Include="Admin\login.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\ie.css" />
     <Content Include="css\layout.css" />
@@ -145,6 +199,8 @@
     <Content Include="LotteryResult\Activity1\Result6.aspx" />
     <Content Include="LotteryResult\Activity1\Result7.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Admin\OutExcel.ashx" />
+    <Content Include="Admin\SiteAdmin.Master" />
     <None Include="Service References\BizWebService\BizWebService.disco" />
     <None Include="Service References\BizWebService\configuration91.svcinfo" />
     <None Include="Service References\BizWebService\configuration.svcinfo" />
@@ -187,6 +243,16 @@
     <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\OutExcel.ashx.cs">
+      <DependentUpon>OutExcel.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SiteAdmin.Master.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SiteAdmin.Master.designer.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\BizWebService\Reference.cs">
       <AutoGen>True</AutoGen>

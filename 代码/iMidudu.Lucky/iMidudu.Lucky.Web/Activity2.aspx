@@ -6,7 +6,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <%
-        var returnUrl = string.Format("http://lucky.meduo.com.cn/Ticket3.aspx?QRCode={0}", this.Request["QRCode"]);
+        var returnUrl = string.Format("http://lucky.meduo.com.cn/Ticket1.aspx?QRCode={0}", this.Request["QRCode"]);
         returnUrl = System.Web.HttpContext.Current.Server.UrlEncode(returnUrl);
 
          %>
