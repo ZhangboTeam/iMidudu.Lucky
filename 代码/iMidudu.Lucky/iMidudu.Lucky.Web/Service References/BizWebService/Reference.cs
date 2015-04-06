@@ -828,13 +828,13 @@ namespace iMidudu.Lucky.Web.BizWebService {
     public partial class PrizeLotteryRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public System.Guid QRCode1;
+        public System.Guid QRCode;
         
         public PrizeLotteryRequestBody() {
         }
         
-        public PrizeLotteryRequestBody(System.Guid QRCode1) {
-            this.QRCode1 = QRCode1;
+        public PrizeLotteryRequestBody(System.Guid QRCode) {
+            this.QRCode = QRCode;
         }
     }
     
@@ -1013,10 +1013,10 @@ namespace iMidudu.Lucky.Web.BizWebService {
             return base.Channel.PrizeLottery(request);
         }
         
-        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode1) {
+        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode) {
             iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest inValue = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest();
             inValue.Body = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequestBody();
-            inValue.Body.QRCode1 = QRCode1;
+            inValue.Body.QRCode = QRCode;
             iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).PrizeLottery(inValue);
             return retVal.Body.PrizeLotteryResult;
         }
