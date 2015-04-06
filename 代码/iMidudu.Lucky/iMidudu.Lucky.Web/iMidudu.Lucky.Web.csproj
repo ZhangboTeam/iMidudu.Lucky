@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Activity1.aspx" />
+    <Content Include="Activity2.aspx" />
+    <Content Include="Activity3.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\ie.css" />
     <Content Include="css\layout.css" />
@@ -119,6 +121,8 @@
     <Content Include="js\queryString.js" />
     <Content Include="login.aspx" />
     <Content Include="Lottery1.aspx" />
+    <Content Include="Lottery2.aspx" />
+    <Content Include="Lottery3.aspx" />
     <Content Include="LotteryResult\Activity3\Result1.aspx" />
     <Content Include="LotteryResult\Activity3\Result2.aspx" />
     <Content Include="LotteryResult\Activity3\Result3.aspx" />
@@ -145,9 +149,6 @@
     <None Include="Service References\BizWebService\configuration91.svcinfo" />
     <None Include="Service References\BizWebService\configuration.svcinfo" />
     <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.Prize.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.WXUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\BizWebService\Reference.svcmap">
@@ -211,9 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\米嘟嘟服务器.pubxml" />
-    <None Include="Service References\BizWebService\BizWebService.wsdl">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Service References\BizWebService\BizWebService.wsdl" />
     <None Include="Service References\WeChatWebService\wechatwebservice.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
