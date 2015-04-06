@@ -54,7 +54,7 @@
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "/Admin/Webservice.asmx/Logout",
+                url: "/Webservice.asmx/Logout",
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {
@@ -97,13 +97,11 @@
             <h3>数据管理</h3>
             <ul class="toggle">
                 <li class="icn_view_users"><a href="/Admin/UserMangager.aspx">用户管理</a></li>
-                <li class="icn_tags"><a href="/Admin/TimeSerchPrize.aspx">按日期查询领奖记录</a></li> 
-                <li class="icn_tags"><a href="/Admin/PrizeSerchPrize.aspx?key=0">按奖项查询领奖记录</a></li>
-                <li class="icn_tags"><a href="/Admin/PrizeSearch.aspx">领奖记录top10</a></li> 
+                <li class="icn_tags"><a href="/Admin/TimeSerch.aspx">按日期查询领奖记录</a></li> 
+                <li class="icn_tags"><a href="/Admin/PrizeSearch.aspx">按奖项查询领奖记录</a></li>
+                <li class="icn_tags"><a href="/Admin/PrizeRecord.aspx">领奖记录top10</a></li> 
                 <li class="icn_tags"><a href="/Admin/SetPrize.aspx">设置奖池</a></li>
-                <li class="icn_tags"><a href="/Admin/CountPrize.aspx">统计奖项</a></li>
-                  <li class="icn_tags"><a href="/Admin/Layout.aspx">安全退出</a></li>
-                 <%--<li class="icn_profile"><a href="/Admin/CodeSearch.aspx">扫码情况</a></li> --%>
+                <li class="icn_tags"><a href="/Admin/Default.aspx">统计奖项</a></li>
                 <li class="icn_profile"><a href="/Admin/ChangePassword.aspx">修改密码</a></li>
                 <li class="icn_profile"></li>
             </ul>

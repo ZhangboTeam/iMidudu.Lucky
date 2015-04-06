@@ -17,7 +17,7 @@
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "/Admin/Webservice.asmx/ChangePassword",
+                url: "/Webservice.asmx/ChangePassword",
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {

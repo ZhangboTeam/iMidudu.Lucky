@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Web;
 using System.Web.Services;
 namespace iMidudu.Lucky.Web
 {
@@ -123,6 +124,34 @@ namespace iMidudu.Lucky.Web
             this.Session["smsCode"] = code;
             return code;
         }
-         
+        [WebMethod(EnableSession = true)]
+        public bool Login1(string userName, string password)
+        {
+            var ok = iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists("select count(1) from SystemUser where UserName=@UserName and PassWord= @PassWord", new System.Data.SqlClient.SqlParameter("@UserName", userName), new System.Data.SqlClient.SqlParameter("@PassWord", password));
+            if (ok)
+            {
+                System.Web.HttpContext.Current.Session["UserName"] = userName;
+            }
+            return ok;
+        }
+        [WebMethod(EnableSession = true)]
+        public bool ChangePassword(string oldpwd, string newpwd, string newpwd2)
+        {
+            var username = HttpContext.Current.Session["UserName"].ToString();
+            if (SystemDAO.SqlHelper.Exists("select count(1) from SystemUser where UserName =@UserName and PassWord = @PassWord", new System.Data.SqlClient.SqlParameter("@UserName", username), new System.Data.SqlClient.SqlParameter("@PassWord", oldpwd)))
+            {
+                SystemDAO.SqlHelper.ExecteNonQueryText("update SystemUser set PassWord=@PassWord where UserName=@UserName",
+                 new System.Data.SqlClient.SqlParameter("@UserName", username),
+                 new System.Data.SqlClient.SqlParameter("@PassWord", newpwd));
+                return true;
+            }
+            return false;
+        }
+        [WebMethod(EnableSession = true)]
+        public bool Logout()
+        {
+            System.Web.HttpContext.Current.Session["UserName"] = null;
+            return true;
+        }
     }
 }

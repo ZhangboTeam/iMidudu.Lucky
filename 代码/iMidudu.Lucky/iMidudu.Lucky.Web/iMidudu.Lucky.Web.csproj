@@ -71,6 +71,7 @@
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\css\style.css" />
+    <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\images\arrow.png" />
     <Content Include="Admin\images\bg.png" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
@@ -120,6 +121,10 @@
     <Content Include="Admin\js\json2.js" />
     <Content Include="Admin\js\queryString.js" />
     <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\PrizeRecord.aspx" />
+    <Content Include="Admin\PrizeSearch.aspx" />
+    <Content Include="Admin\SetPrize.aspx" />
+    <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\UserManager.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\ie.css" />
@@ -244,6 +249,13 @@
     <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\OutExcel.ashx.cs">
       <DependentUpon>OutExcel.ashx</DependentUpon>
     </Compile>
@@ -270,6 +282,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SqlHelper.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>

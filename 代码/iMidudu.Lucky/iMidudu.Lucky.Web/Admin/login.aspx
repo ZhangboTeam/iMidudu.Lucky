@@ -17,7 +17,7 @@
         $(function () {
             $("#ok").click(function(){
                 Login($("#UserName").val(), $("#pwd").val(), function (success) {
-                   // alert(success);
+                    alert(success);
                     if (success){
                         var returnUrl = getQueryStringByName("ReturnUrl");
                         if (returnUrl != "") {
@@ -42,7 +42,7 @@
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "/Admin/Webservice.asmx/Login",
+                url: "/Webservice.asmx/Login1",
                 data: "{userName:'" + username + "',password:'" + password + "'}",
                 dataType: 'json',
                 success: function (result) {
