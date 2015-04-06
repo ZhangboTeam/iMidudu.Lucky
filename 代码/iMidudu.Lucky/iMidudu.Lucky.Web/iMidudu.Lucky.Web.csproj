@@ -120,6 +120,7 @@
     <Content Include="Admin\js\json2.js" />
     <Content Include="Admin\js\queryString.js" />
     <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\UserManager.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\ie.css" />
     <Content Include="css\layout.css" />
