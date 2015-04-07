@@ -90,6 +90,10 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th>流水号</th>
+                                        <th>收银票图片</th>
+                                        <th>微信名</th>
+                                        <th>头像</th>
                                         <th width="50">奖项ID</th>
                                         <th>QRcode</th>
                                         <th>奖项名</th>
@@ -102,11 +106,15 @@
                         <ItemTemplate>
                             <tbody>
                                  <tr>
+                                    <td><%%></td>   
+                                    <td><% %></td> 
+                                    <td><% %></td>
+                                    <td><% %></td>
                                     <td><%#Eval("PrizeId") %></td>   
                                     <td><%#Eval("QRCode") %></td> 
                                     <td><%#Eval("PrizeName") %></td>
                                     <td><%#Eval("Quantity") %></td>
-                                    <td><%#Eval("URL") %><%#Eval("district") %></td>
+                                    <td><%#Eval("URL") %></td>
                                     <td><%#Eval("DayLimit") %></td>
                                     
                                 </tr>
@@ -132,8 +140,7 @@
                      <div class="post_message">
                 <label>汇总：&nbsp&nbsp&nbsp&nbsp 有</label>
                 <label><%#totalCount%></label>
-                <label>人扫<%#code%>码&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%--分别来自于</label>
-                <label><%#Countcity%></label>--%>       
+                    
             </div>
                 </div>
                 <!-- end of #tab1 -->
