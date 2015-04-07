@@ -23,9 +23,9 @@
 
 
                 code = Request["key"];
-                totalCount = (int)SuuSee.Data.SqlHelper.ExecuteScalarText("select count(1) from ViewHistory where UrlCode=@key",
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from ViewHistory where UrlCode=@key",
                              new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
-                var dr = SuuSee.Data.SqlHelper.ExecuteReaderFromStoredProcedure("StoredProcedure3",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("StoredProcedure3",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@key", this.Request["key"])
@@ -69,15 +69,12 @@
                    }
                });
 
-
            }
     </script>
-
-
-    <div>
-    <label>使用城市查或者code</label><input name="key" type="text"  id="key"  placeholder="城市或者code查询"/>
+    <div align="center">
+    <input name="key" type="text"  id="key"  placeholder="城市或者code查询"/>
         <%--<asp:TextBox ID="key" runat="server" ></asp:TextBox>--%>
-    <input type="submit" onclick="dosearch();"  value="搜索"class="alt_btn"/>
+    <input type="submit" onclick="dosearch();"  value="按微信名查询"class="alt_btn"/>
       <%--  onclick="dosearch();"--%>
     </div>
     <article class="module width_full">
@@ -108,13 +105,15 @@
                         <ItemTemplate>
                             <tbody>
                                  <tr>
-                                    <td><%#Eval("UrlCode") %></td>   
-                                    <td><%#Eval("IP") %></td> 
+                                    <td><%#Eval("OpenId") %></td>   
+                                    <td><%#Eval("NickName") %></td> 
                                     <td><%#Eval("country") %></td>
-                                    <td><%#Eval("province") %></td>
+                                    <td><%#Eval("Sex") %></td>
                                     <td><%#Eval("city") %><%#Eval("district") %></td>
-                                    <td><%#Eval("os") %></td>
+                                    <td><%#Eval("Pic") %></td>
                                     <td><%#Eval("ViewDate") %></td>
+                                    <td><%#Eval("Quantity") %></td>
+                                    <td><asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName='Delete' CommandArgument='<%# Eval("sid") %>'></asp:LinkButton></td>
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -139,16 +138,10 @@
                 <label>汇总：&nbsp&nbsp&nbsp&nbsp 有</label>
                 <label><%#totalCount%></label>
                 <label>人扫<%#code%>码&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%--分别来自于</label>
-                <label><%#Countcity%></label>--%>
-
-                       
-                    
+                <label><%#Countcity%></label>--%>       
             </div>
-            
                 </div>
                 <!-- end of #tab1 -->
-
-
 
             </div>
             <!-- end of .tab_container -->

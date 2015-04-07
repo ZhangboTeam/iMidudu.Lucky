@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNetPager, Version=7.4.5.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\bird\tissot\bin\AspNetPager.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -126,6 +130,7 @@
     <Content Include="Admin\SetPrize.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\UserManager.aspx" />
+    <Content Include="bin\AspNetPager.dll" />
     <Content Include="css\animate.css" />
     <Content Include="css\ie.css" />
     <Content Include="css\layout.css" />
