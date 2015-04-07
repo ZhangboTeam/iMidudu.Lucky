@@ -1,15 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="UserManager.aspx.cs" Inherits="iMidudu.Lucky.Web.Admin.UserManager" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
        <script runat="server">
-            
             private int totalCount;
-            private string Countcitymax;
-            public string code;
-            private string Countcity;
-            
+            private string ky = "";
             protected override void OnLoad(EventArgs e)
             {
                 base.OnLoad(e);
+                ky = this.Request["key"];
                 if (!IsPostBack)
                 {
                     this.LoadData();
@@ -21,16 +18,13 @@
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
 
-
-                code = Request["key"];
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from WXUser where NickName like '%'+ @key +'%'",new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
+                var key = (ky == null ? "" : ky);
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from WXUser where NickName like '%'+ @key +'%'",new System.Data.SqlClient.SqlParameter("@key", key));
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("WXNameSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
-                   new System.Data.SqlClient.SqlParameter("@key", this.Request["key"])
+                   new System.Data.SqlClient.SqlParameter("@key", key)
                    );
-                
-                 //this.Request["key"]
                 return dr;
             }
             public override void DataBind()
@@ -50,6 +44,9 @@
 
            function dosearch() {
                var k = $("#key").val();
+               if(key==null||key==""){
+               }
+
                window.location.href = "UserManager.aspx?key=" + k;
            }
            function DownLoad() {
@@ -71,10 +68,8 @@
            }
     </script>
     <div align="center">
-    <input name="key" type="text"  id="key"  placeholder=""/>
-        <%--<asp:TextBox ID="key" runat="server" ></asp:TextBox>--%>
-    <input type="submit" onclick="dosearch();"  value="按微信名查询"class="alt_btn"/>
-      <%--  onclick="dosearch();"--%>
+    <input type="text"  id="key"  placeholder="按微信名查询"/>
+    <input type="button" onclick="dosearch();"  value="按微信名查询"class="alt_btn"/>
     </div>
     <article class="module width_full">
          
@@ -105,14 +100,14 @@
                             <tbody>
                                  <tr>
                                     <td><%#Eval("OpenId") %></td>   
-                                    <td><%#Eval("NichName") %></td>
+                                    <td><%#Eval("NickName") %></td>
                                     <td><%#Eval("Sex") %></td>
                                     <td><%#Eval("WXCity") %></td>
                                     <td><%#Eval("WXProvince") %></td>
                                     <td><%#Eval("WXCountry") %></td>
                                     <td><%#Eval("RegisterDate") %></td>
                                     <td><%#Eval("LastActiveTime") %></td>
-                                    <td><asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName='Delete' CommandArgument='<%# Eval("sid") %>'></asp:LinkButton></td>
+                                    
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -135,9 +130,8 @@
                         </footer>
                      <div class="post_message">
                 <label>汇总：&nbsp&nbsp&nbsp&nbsp 有</label>
-                <label><%#totalCount%></label>
-                <label>人扫<%#code%>码&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <%--分别来自于</label>
-                <label><%#Countcity%></label>--%>       
+                <label><%#totalCount%>人</label>
+                <label>参加过活动</label>
             </div>
                 </div>
                 <!-- end of #tab1 -->

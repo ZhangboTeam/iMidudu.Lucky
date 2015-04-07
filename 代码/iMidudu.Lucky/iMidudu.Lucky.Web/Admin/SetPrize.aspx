@@ -17,9 +17,9 @@
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
 
-                totalCount = (int)TisWeb.Models.SqlHelper.ExecuteScalarText("select count(1) from URLMap");
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from URLMap");
 
-                var dr = TisWeb.Models.SqlHelper.ExecuteReaderFromStoredProcedure("bsp_URLMap",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("bsp_URLMap",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
@@ -158,7 +158,7 @@
 
                             <tr>
                                 <td>
-                                    <% var count = (int)TisWeb.Models.SqlHelper.ExecuteScalarText("select count(1) from URLMap");
+                                    <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from URLMap");
             var nextCode =  string.Format("{0:000}", count++); %>
                                     <input id="newUrlCode" type="text" value="<%=nextCode %>" />
 

@@ -2,18 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <script runat="server">
             private int totalCount;
-            private string Countcitymax;
-            public string code;
-            private string Countcity;
-            
+            private string ky = "";
             protected override void OnLoad(EventArgs e)
             {
                 base.OnLoad(e);
+                ky = this.Request["key"];
                 if (!IsPostBack)
                 {
                     this.LoadData();
                     AspNetPager1.RecordCount = totalCount;
-                    //bindData(); //使用url分页，只需在分页事件处理程序中绑定数据即可，无需在Page_Load中绑定，否则会导致数据被绑定两次
                 }
                 
             }
@@ -22,15 +19,13 @@
             {
 
 
-                code = Request["key"];
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from Prize where                             PrizeName like '%'+ @key +'%'", new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
+                var key = (ky == null ? "" : ky);
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from Prize where                             PrizeName like '%'+ @key +'%'", new System.Data.SqlClient.SqlParameter("@key", key));
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
-                   new System.Data.SqlClient.SqlParameter("@key", this.Request["key"])
+                   new System.Data.SqlClient.SqlParameter("@key", key)
                    );
-                
-                 //this.Request["key"]
                 return dr;
             }
             public override void DataBind()
@@ -50,6 +45,10 @@
 
            function dosearch() {
                var k = $("#key").val();
+
+               if (key == null || key == "") {
+               }
+
                window.location.href = "PrizeSearch.aspx?key=" + k;
            }
            function DownLoad() {
@@ -75,9 +74,7 @@
 
     <div align="center">
    <input name="key" type="text"  id="key"  placeholder="请输入奖项"/>
-        <%--<asp:TextBox ID="key" runat="server" ></asp:TextBox>--%>
     <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
-      <%--  onclick="dosearch();"--%>
     </div>
     <article class="module width_full">
          
@@ -93,12 +90,12 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="50">ID</th>
-                                        <th>code</th>
+                                        <th width="50">奖项ID</th>
+                                        <th>QRcode</th>
                                         <th>奖项名</th>
                                         <th>数量</th>
                                         <th>URL</th>
-                                        <th>时间限制</th>
+                                        <th>每日限制</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -111,7 +108,7 @@
                                     <td><%#Eval("Quantity") %></td>
                                     <td><%#Eval("URL") %><%#Eval("district") %></td>
                                     <td><%#Eval("DayLimit") %></td>
-                                    <td><asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName='Delete' CommandArgument='<%# Eval("sid") %>'></asp:LinkButton></td>
+                                    
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
