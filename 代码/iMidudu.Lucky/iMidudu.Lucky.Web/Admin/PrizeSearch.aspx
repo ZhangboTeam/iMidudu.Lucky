@@ -75,6 +75,18 @@
     <div align="center">
    <input name="key" type="text"  id="key"  placeholder="请输入奖项"/>
     <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
+        <br />
+        <label>活动名称</label><asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="136px">
+            <asp:ListItem Value="活动一"></asp:ListItem>
+            <asp:ListItem Value="活动二"></asp:ListItem>
+            <asp:ListItem Value="活动三"></asp:ListItem>
+            <asp:ListItem></asp:ListItem>
+        </asp:DropDownList><br>
+        <label>奖项类别</label><asp:DropDownList ID="DropDownList2" runat="server" Height="16px" Width="136px">
+            <asp:ListItem Value="大奖"></asp:ListItem>
+            <asp:ListItem Value="小奖"></asp:ListItem>
+            <asp:ListItem></asp:ListItem>
+        </asp:DropDownList>
     </div>
     <article class="module width_full">
          

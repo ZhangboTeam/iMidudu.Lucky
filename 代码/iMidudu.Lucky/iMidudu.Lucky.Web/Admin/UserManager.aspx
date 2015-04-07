@@ -89,10 +89,11 @@
                                         <th>昵称</th>
                                         <th>性别</th>
                                         <th>城市</th>
-                                        <th>国家</th>
                                         <th>省市</th>
+                                        <th>国家</th>
                                         <th>注册时间</th>
                                         <th>最后一次登陆时间</th>
+                                        <th>数量</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -107,7 +108,7 @@
                                     <td><%#Eval("WXCountry") %></td>
                                     <td><%#Eval("RegisterDate") %></td>
                                     <td><%#Eval("LastActiveTime") %></td>
-                                    
+                                    <td><% %></td>
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
