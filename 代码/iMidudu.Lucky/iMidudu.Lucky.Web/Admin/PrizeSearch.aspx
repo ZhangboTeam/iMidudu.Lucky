@@ -22,9 +22,8 @@
 
 
                 code = Request["key"];
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from ViewHistory where UrlCode=@key",
-                             new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("StoredProcedure3",
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from Prize where                             PrizeName=@key",new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@key", this.Request["key"])
@@ -73,7 +72,7 @@
     </script>
 
 
-    <div>
+    <div align="center">
    <input name="key" type="text"  id="key"  placeholder="请输入奖项"/>
         <%--<asp:TextBox ID="key" runat="server" ></asp:TextBox>--%>
     <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
@@ -94,27 +93,23 @@
                                 <thead>
                                     <tr>
                                         <th width="50">ID</th>
-                                        <th>微信名</th>
-                                        <th>姓名</th>
-                                        <th>性别</th>
-                                        <th>手机号</th>
-                                        <th>头像</th>
-                                        <th>地址</th>
-                                        <th>领奖次数</th>
+                                        <th>code</th>
+                                        <th>奖项名</th>
+                                        <th>数量</th>
+                                        <th>URL</th>
+                                        <th>时间限制</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tbody>
                                  <tr>
-                                    <td><%#Eval("OpenId") %></td>   
-                                    <td><%#Eval("NickName") %></td> 
-                                    <td><%#Eval("country") %></td>
-                                    <td><%#Eval("Sex") %></td>
-                                    <td><%#Eval("city") %><%#Eval("district") %></td>
-                                    <td><%#Eval("Pic") %></td>
-                                    <td><%#Eval("ViewDate") %></td>
+                                    <td><%#Eval("PrizeId") %></td>   
+                                    <td><%#Eval("QRCode") %></td> 
+                                    <td><%#Eval("PrizeName") %></td>
                                     <td><%#Eval("Quantity") %></td>
+                                    <td><%#Eval("URL") %><%#Eval("district") %></td>
+                                    <td><%#Eval("DayLimit") %></td>
                                     <td><asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName='Delete' CommandArgument='<%# Eval("sid") %>'></asp:LinkButton></td>
                                 </tr>
                         </ItemTemplate>

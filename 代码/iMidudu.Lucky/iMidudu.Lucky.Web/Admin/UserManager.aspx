@@ -23,9 +23,9 @@
 
 
                 code = Request["key"];
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from ViewHistory where UrlCode=@key",
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from WXUser where NickName=@key",
                              new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("StoredProcedure3",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("WXNameSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@key", this.Request["key"])
@@ -72,7 +72,7 @@
            }
     </script>
     <div align="center">
-    <input name="key" type="text"  id="key"  placeholder="城市或者code查询"/>
+    <input name="key" type="text"  id="key"  placeholder=""/>
         <%--<asp:TextBox ID="key" runat="server" ></asp:TextBox>--%>
     <input type="submit" onclick="dosearch();"  value="按微信名查询"class="alt_btn"/>
       <%--  onclick="dosearch();"--%>
@@ -91,14 +91,14 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="50">ID</th>
-                                        <th>微信名</th>
-                                        <th>姓名</th>
+                                        <th >微信id</th>
+                                        <th>昵称</th>
                                         <th>性别</th>
-                                        <th>手机号</th>
-                                        <th>头像</th>
-                                        <th>地址</th>
-                                        <th>领奖次数</th>
+                                        <th>城市</th>
+                                        <th>国家</th>
+                                        <th>省市</th>
+                                        <th>注册时间</th>
+                                        <th>最后一次登陆时间</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -106,13 +106,13 @@
                             <tbody>
                                  <tr>
                                     <td><%#Eval("OpenId") %></td>   
-                                    <td><%#Eval("NickName") %></td> 
-                                    <td><%#Eval("country") %></td>
+                                    <td><%#Eval("NichName") %></td>
                                     <td><%#Eval("Sex") %></td>
-                                    <td><%#Eval("city") %><%#Eval("district") %></td>
-                                    <td><%#Eval("Pic") %></td>
-                                    <td><%#Eval("ViewDate") %></td>
-                                    <td><%#Eval("Quantity") %></td>
+                                    <td><%#Eval("WXCity") %></td>
+                                    <td><%#Eval("WXProvince") %></td>
+                                    <td><%#Eval("WXCountry") %></td>
+                                    <td><%#Eval("RegisterDate") %></td>
+                                    <td><%#Eval("LastActiveTime") %></td>
                                     <td><asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName='Delete' CommandArgument='<%# Eval("sid") %>'></asp:LinkButton></td>
                                 </tr>
                         </ItemTemplate>
