@@ -19,7 +19,8 @@
 
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
-        totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from ScanHistory ");
+        totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where ScanDate>=@beginDate and ScanDate<=@endDate",new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"])),
+           new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1)));
         var keyb = new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"]));
         var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1));
         //cmd./ExecuteReader(System.Data.CommandBehavior.CloseConnection);
