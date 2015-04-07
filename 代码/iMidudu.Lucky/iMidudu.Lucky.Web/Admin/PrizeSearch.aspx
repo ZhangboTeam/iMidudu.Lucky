@@ -15,6 +15,7 @@
                     AspNetPager1.RecordCount = totalCount;
                     //bindData(); //使用url分页，只需在分页事件处理程序中绑定数据即可，无需在Page_Load中绑定，否则会导致数据被绑定两次
                 }
+                
             }
 
             private System.Data.SqlClient.SqlDataReader LoadData()

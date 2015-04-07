@@ -23,7 +23,7 @@
 
 
                 code = Request["key"];
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from WXUser whereNickName like '%'+ @key +'%'",new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from WXUser where NickName like '%'+ @key +'%'",new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]));
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("WXNameSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
