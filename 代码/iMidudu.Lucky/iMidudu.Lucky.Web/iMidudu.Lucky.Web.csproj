@@ -71,7 +71,6 @@
     <Content Include="Activity2.aspx" />
     <Content Include="Activity3.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
-    <Content Include="Admin\CountPrize.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />

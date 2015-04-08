@@ -19,7 +19,7 @@
     </script>
 </head>
 <body> 
-    活动3介绍
+    活动2介绍
     <input  type="button" value="确定" onclick="auth();" />
     <%
          var authUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8cabe7121f5369a3&redirect_uri=" + System.Web.Configuration.WebConfigurationManager.AppSettings["Domain"] + "/AuthCallback.aspx&response_type=code&scope=snsapi_userinfo&state=" + this.Request["QRCode"] + "#wechat_redirect";

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-<script>
+    <script>
     function DownLoad() {
         var content = $("#content").html();
         var data = { body: content };
@@ -36,7 +36,28 @@
         </header>
         <div class="tab_container">
             <div id="tab1" class="tab_content">
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT TOP (10) ActivityName, PrizeName, NickName, Sex, WXCountry, WXProvince, WXCity, Country, Province, City, Quantity FROM record_view ORDER BY PrizeName DESC"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="
+                    SELECT   TOP (100) PERCENT OpenId, NickName, Pic, Sex, WXCity, WXProvince, WXCountry, RegisterDate, LastActiveTime,
+                    (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory
+                     WHERE   (OpenId = dbo.WXUser.OpenId)) AS TotalCount,
+                    (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe81')) AS TotalCount1,
+                    (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_2 INNER JOIN
+                                     dbo.Prize AS Prize_2 ON ScanHistory_2.PrizeId = Prize_2.PrizeId
+                     WHERE   (ScanHistory_2.OpenId = dbo.WXUser.OpenId) AND 
+                                     (Prize_2.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe82')) AS TotalCount2,
+                    (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_1 INNER JOIN
+                                     dbo.Prize AS Prize_1 ON ScanHistory_1.PrizeId = Prize_1.PrizeId
+                     WHERE   (ScanHistory_1.OpenId = dbo.WXUser.OpenId) AND 
+                                     (Prize_1.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')) AS TotalCount3
+FROM      dbo.WXUser
+ORDER BY TotalCount DESC"></asp:SqlDataSource>
 
                 <div  id="content">
                 <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
@@ -44,16 +65,15 @@
                         <table class="tablesorter" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>活动名</th>
-                                    <th>奖项名</th>
+                                    <th>排名</th>
                                     <th>昵称</th>
                                     <th>性别</th>
                                     <th>国家(微信)</th>
                                     <th>省(微信)</th>
                                     <th>市(区)（微信）</th>
-                                    <th>国家(扫码)</th>
-                                    <th>省(扫码)</th>
-                                    <th>市(区)（扫码）</th>
+                                    <th>活动一领取次数</th>
+                                    <th>活动二领取次数</th>
+                                    <th>活动三领取次数</th>
                                     <th>领取总次数</th>
                                 </tr>
                             </thead>
@@ -61,17 +81,16 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <tr>
-                            <td><%#Eval("ActivityName")%></td>
-                            <td><%#Eval("PrizeName")%></td>
+                            <td><%# Container.ItemIndex+1 %></td> 
                             <td><%#Eval("NickName") %> </td>
                             <td><%#Convert.ToBoolean(Eval("Sex")) ==true?"男":"女"%></td>
                             <td><%#Eval("WXCountry")%></td> 
                             <td><%#Eval("WXProvince") %></td>
                             <td><%#Eval("WXCity")%></td> 
-                            <td><%#Eval("Country") %> </td>
-                            <td><%#Eval("Province") %> </td>
-                            <td><%#Eval("City") %> </td>
-                            <td><%#Eval("Quantity") %></td>
+                            <td><%#Eval("TotalCount1") %> </td>
+                            <td><%#Eval("TotalCount2") %> </td>
+                            <td><%#Eval("TotalCount3") %> </td>
+                            <td><%#Eval("TotalCount") %></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>
