@@ -14,7 +14,6 @@
                     //bindData(); //使用url分页，只需在分页事件处理程序中绑定数据即可，无需在Page_Load中绑定，否则会导致数据被绑定两次
                 }
             }
-
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
 
@@ -85,28 +84,28 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th >微信id</th>
                                         <th>昵称</th>
                                         <th>性别</th>
-                                        <th>城市</th>
-                                        <th>省市</th>
-                                        <th>国家</th>
-                                        <th>注册时间</th>
-                                        <th>最后一次登陆时间</th>
+                                        <th>国家(微信)</th>
+                                        <th>省(微信)</th>
+                                        <th>市(区)（微信）</th>
+                                        <th>扫码次数</th>
+                                        <th>最近活跃时间</th>
+                                        <th>第一次活跃时间</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tbody>
-                                 <tr>
-                                    <td><%#Eval("OpenId") %></td>   
+                                 <tr>  
                                     <td><%#Eval("NickName") %></td>
-                                    <td><%#Eval("Sex") %></td>
-                                    <td><%#Eval("WXCity") %></td>
-                                    <td><%#Eval("WXProvince") %></td>
+                                    <td><%#Convert.ToBoolean(Eval("Sex")) ==true?"男":"女"%></td>
                                     <td><%#Eval("WXCountry") %></td>
-                                    <td><%#Eval("RegisterDate") %></td>
-                                    <td><%#Eval("LastActiveTime") %></td>
+                                    <td><%#Eval("WXProvince") %></td>
+                                    <td><%#Eval("WXCity") %></td>
+                                     <td><%#Eval("TotalCount") %></td>
+                                     <td><%#Eval("LastActiveTime") %></td>
+                                     <td><%#Eval("RegisterDate") %></td>
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>

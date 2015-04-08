@@ -1,7 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <script runat="server"> 
 
-    private int totalCount;
+    private int totalCount=0;
+    private string ky1 = "";
+    private string ky2 = "";
+    
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
@@ -11,6 +14,8 @@
             {
                 return;
             }
+            ky1 = this.Request["key1"];
+            ky2 = this.Request["key2"];
             this.LoadData();
             AspNetPager1.RecordCount = totalCount;
             //bindData(); //使用url分页，只需在分页事件处理程序中绑定数据即可，无需在Page_Load中绑定，否则会导致数据被绑定两次
@@ -19,8 +24,14 @@
 
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
-        totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where ScanDate>=@beginDate and ScanDate<=@endDate",new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"])),
-           new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1)));
+        var key1 = (ky1 == null ? "" : ky1);
+        var key2 = (ky2 == null ? "" : ky2);
+        //totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from record_view where ScanDate>=@beginDate and ScanDate<=@endDate",
+        //          new System.Data.SqlClient.SqlParameter("@key1", key1),
+        //          new System.Data.SqlClient.SqlParameter("@key2", key2)
+        //          );
+        //totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where ScanDate>=@beginDate and ScanDate<=@endDate",new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"])),
+        //   new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1)));
         var keyb = new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"]));
         var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1));
         //cmd./ExecuteReader(System.Data.CommandBehavior.CloseConnection);

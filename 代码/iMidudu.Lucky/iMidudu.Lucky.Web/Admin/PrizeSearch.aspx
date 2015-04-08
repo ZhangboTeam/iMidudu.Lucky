@@ -114,11 +114,14 @@
                                         <th>奖项名</th>
                                         <th>流水号</th>
                                         <th>收银票图片</th>
-                                        <th>微信昵称</th>
+                                        <th>昵称</th>
                                         <th>性别</th>
-                                        <th>国家</th>
-                                        <th>省</th>
-                                        <th>市（区）</th>
+                                        <th>国家(微信)</th>
+                                        <th>省(微信)</th>
+                                        <th>市(区)（微信）</th>
+                                        <th>国家(扫码)</th>
+                                        <th>省(扫码)</th>
+                                        <th>市(区)（扫码）</th>
                                         <th>最近活跃时间</th>
                                         <th>第一次活跃时间</th>
                                     </tr>
@@ -136,6 +139,9 @@
                                     <td><%#Eval("WXCountry")%></td> 
                                     <td><%#Eval("WXProvince") %></td>
                                     <td><%#Eval("WXCity")%></td> 
+                                    <td><%#Eval("Country")%></td> 
+                                    <td><%#Eval("Province") %></td>
+                                    <td><%#Eval("City")%></td>
                                     <td><%#Eval("LastActiveTime") %></td>
                                     <td><%#Eval("RegisterDate")%></td> 
                                 </tr>
@@ -153,21 +159,20 @@
                         LastPageText="【尾页】" NextPageText="【后页】"
                         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】" TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第" HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="当前第  <font color='red'><b>%CurrentPageIndex%</b></font> 页,共  %PageCount%  页 ,总共:%RecordCount% 条数据">
                     </webdiyer:aspnetpager>
-                     <footer>
-            <div class="submit_link">
-                <input type="submit" value="导出Excel" class="alt_btn" onclick="DownLoad();"  />
-            </div>
-                        </footer>
+                 
                      <div class="post_message">
-                <h2><label>汇总：活动&nbsp&nbsp&nbsp&nbsp<label><%#ky2%></label>奖项&nbsp&nbsp&nbsp&nbsp<label><%#ky1%></label> 有</label>
-                <label><%#totalCount%></label>人</h2>
+                <label>汇总：活动<label><%#ky2%></label>&nbsp&nbsp&nbsp&nbsp奖项<label><%#ky1%></label>&nbsp&nbsp&nbsp&nbsp 有</label>
+                &nbsp&nbsp&nbsp&nbsp<label><%#totalCount%></label>人
                     
             </div>
                 </div>
                 <!-- end of #tab1 -->
-
             </div>
             <!-- end of .tab_container -->
-        
+            <footer>
+            <div class="submit_link">
+                <input type="submit" value="导出Excel" class="alt_btn" onclick="DownLoad();"  />
+            </div>
+            </footer>
         </article>
 </asp:Content>
