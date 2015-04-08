@@ -102,24 +102,34 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th>活动名</th>
+                                        <th>奖项名</th>
                                         <th>流水号</th>
                                         <th>收银票图片</th>
                                         <th>微信昵称</th>
-                                        <th>奖项名</th>
                                         <th>性别</th>
-                                        <th>微信昵称</th>
-                                        <th>奖项名</th>
+                                        <th>国家</th>
+                                        <th>省</th>
+                                        <th>市（区）</th>
+                                        <th>最近活跃时间</th>
+                                        <th>第一次活跃时间</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tbody>
                                  <tr>
+                                    <td><%#Eval("ActivityName")%></td>
+                                    <td><%#Eval("PrizeName")%></td>
                                     <td><%#Eval("TicketNumber") %></td>
                                     <td> <a href="http://lucky.meduo.com.cn/<%#Eval("TicketUrl") %>" target="_blank" ><img src='<%#Eval("TicketUrl") %>' width="30" /> </a>  </td>
                                     <td><%#Eval("NickName")%></td> 
-                                    <td><%#Eval("PrizeName") %></td>
-                                    
+                                    <td><%#Convert.ToBoolean(Eval("Sex")) ==true?"男":"女"%></td>
+                                    <td><%#Eval("WXCountry")%></td> 
+                                    <td><%#Eval("WXProvince") %></td>
+                                    <td><%#Eval("WXCity")%></td> 
+                                    <td><%#Eval("LastActiveTime") %></td>
+                                    <td><%#Eval("RegisterDate")%></td> 
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
