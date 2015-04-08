@@ -20,7 +20,7 @@
 
 
                 var key = (ky == null ? "" : ky);
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from Prize where                             PrizeName like '%'+ @key +'%'", new System.Data.SqlClient.SqlParameter("@key", key));
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from record_view where PrizeName like '%'+ @key +'%'", new System.Data.SqlClient.SqlParameter("@key", key));
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
@@ -105,12 +105,10 @@
                                         <th>流水号</th>
                                         <th>收银票图片</th>
                                         <th>微信昵称</th>
-                                        <th width="50">奖项ID</th>
-                                        <th>QRcode</th>
                                         <th>奖项名</th>
-                                        <th>数量</th>
-                                        <th>URL</th>
-                                        <th>每日限制</th>
+                                        <th>性别</th>
+                                        <th>微信昵称</th>
+                                        <th>奖项名</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -118,15 +116,9 @@
                             <tbody>
                                  <tr>
                                     <td><%#Eval("TicketNumber") %></td>
-                                     <td> <a href="http://lucky.meduo.com.cn/<%#Eval("TicketUrl") %>" target="_blank" ><img src='<%#Eval("TicketUrl") %>' width="30" /> </a>  </td>
-                                      
-                                    <td><%#Eval("NickName")%></td>
-                                    <td><%#Eval("PrizeId") %></td>   
-                                    <td><%#Eval("QRCode") %></td> 
+                                    <td> <a href="http://lucky.meduo.com.cn/<%#Eval("TicketUrl") %>" target="_blank" ><img src='<%#Eval("TicketUrl") %>' width="30" /> </a>  </td>
+                                    <td><%#Eval("NickName")%></td> 
                                     <td><%#Eval("PrizeName") %></td>
-                                    <td><%#Eval("Quantity") %></td>
-                                    <td><%#Eval("URL") %></td>
-                                    <td><%#Eval("DayLimit") %></td>
                                     
                                 </tr>
                         </ItemTemplate>
