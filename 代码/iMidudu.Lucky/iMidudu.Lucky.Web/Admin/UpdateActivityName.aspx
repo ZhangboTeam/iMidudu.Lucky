@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="UpdateActivityName.aspx.cs" Inherits="iMidudu.Lucky.Web.Admin.UpdateActivityName" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-            <script runat="server">
+             <script runat="server">
 
             private int totalCount;
             protected override void OnLoad(EventArgs e)
@@ -17,9 +17,9 @@
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
 
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from record_view");
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
 
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("ActivityName",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
@@ -42,12 +42,12 @@
         <script>
             function deleteCode(code) {
                 var data = {
-                    UrlCode:code 
+                    ActivityName:ActivityName 
                 }; 
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/DeleteUrlMap",
+                    url: "/Admin/Webservice.asmx/DeleteActivity",
                     data: JSON.stringify(data),
                     dataType: 'json',
                     success: function (result) {
@@ -63,25 +63,21 @@
             }
             function AddNew() { 
                 var data = {
-                    newUrlCode: $("#newUrlCode").val(),
-                    newToUrl: $("#newToUrl").val(),
+                    Activity: $("#NewActivity").val(),
                 };
-                if (data.newUrlCode == "") {
-                    alert("input newUrlCode"); return;
+                if (data.NewActivity == "") {
+                    alert("input Activity"); return;
                 }
-                if (data.newToUrl == "") {
-                    alert("input newToUrl"); return;
-                } 
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/AddNewUrlMap",
+                    url: "/Webservice.asmx/AddNewActivity",
                     data: JSON.stringify(data),
                     dataType: 'json',
                     success: function (result) {
                        
                         // alert("ok");
-                        $("#newUrlCode").val(result.d);
+                        $("#NewActivity").val(result.d);
                         window.location.reload();
                        
                     },
@@ -95,8 +91,7 @@
                 var data = new Array();
                 $("input[tag='txt']").each(function(){
                     data.push({
-                        code:$(this).attr("code"),
-                        tourl:$(this).val()
+                        ActivityName :$(this).attr("ActivityName")
                     });
                 });
                 var arg={
@@ -105,7 +100,7 @@
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/UpdateAllUrlMap",
+                    url: "/Admin/Webservice.asmx/UpdateAllActivity",
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
@@ -134,22 +129,20 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="50">数量</th>
-                                        <th>是否需要验证</th>
-                                        <th >是否现场发货</th>
+                                        <th width="50">活动名</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tbody>
                                 <tr>
-                                    <td><%#Eval("UrlCode") %></td> 
+                                  <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <td>
                                     <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("UrlCode") %>"
-                                         id="newToUrl" type="text" style="width:100%;" value="<%#Eval("ToUrl") %>" /></td>
+                                         code="<%#Eval("ActivityName") %>"
+                                         id="newToUrl" type="text" style="width:100%;" value="<%%>" /></td>
                                     <td>
-                                        <input type="text" value="<%#Eval("UrlCode")%>" class="text" onclick="deleteCode('<%#Eval("UrlCode")%>')" />
+                                        <input type="submit" value="Update" class="alt_btn" onclick="Update('<%%>')" />
                                     </td>
 
                                 </tr>
@@ -158,9 +151,9 @@
 
                             <tr>
                                 <td>
-                                    <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from URLMap");
+                                    <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
             var nextCode =  string.Format("{0:000}", count++); %>
-                                    <input id="newUrlCode" type="text" value="<%=nextCode %>" />
+                                    <input id="NewActivity" type="text" value="<%=nextCode %>" />
 
                                 </td>
                                 <td>

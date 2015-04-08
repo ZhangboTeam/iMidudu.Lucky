@@ -11,13 +11,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (fn) {
-
                 var url = "/Admin/OutExcel.ashx?filename=领取金额TOP10.xls&ContentFile=" + fn.d;
                 window.open(url, "_blank");
             }
         });
-
-
     }
     </script>
     <section id="secondary_bar">

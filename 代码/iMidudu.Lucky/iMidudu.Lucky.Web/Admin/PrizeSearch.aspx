@@ -14,7 +14,6 @@
                     this.LoadData();
                     AspNetPager1.RecordCount = totalCount;
                 }
-                
             }
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
