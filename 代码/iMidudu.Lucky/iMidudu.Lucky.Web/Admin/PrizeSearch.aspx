@@ -104,8 +104,7 @@
                                     <tr>
                                         <th>流水号</th>
                                         <th>收银票图片</th>
-                                        <th>微信名</th>
-                                        <th>头像</th>
+                                        <th>微信昵称</th>
                                         <th width="50">奖项ID</th>
                                         <th>QRcode</th>
                                         <th>奖项名</th>
@@ -118,10 +117,10 @@
                         <ItemTemplate>
                             <tbody>
                                  <tr>
-                                    <td><%%></td>   
-                                    <td><% %></td> 
-                                    <td><% %></td>
-                                    <td><% %></td>
+                                    <td><%#Eval("TicketNumber") %></td>
+                                     <td> <a href="http://lucky.meduo.com.cn/<%#Eval("TicketUrl") %>" target="_blank" ><img src='<%#Eval("TicketUrl") %>' width="30" /> </a>  </td>
+                                      
+                                    <td><%#Eval("NickName")%></td>
                                     <td><%#Eval("PrizeId") %></td>   
                                     <td><%#Eval("QRCode") %></td> 
                                     <td><%#Eval("PrizeName") %></td>
