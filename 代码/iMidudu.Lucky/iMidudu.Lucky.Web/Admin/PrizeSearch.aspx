@@ -2,11 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <script runat="server">
             private int totalCount;
-            private string ky = "";
+            private string ky1 = "";
+            private string ky2 = "";
             protected override void OnLoad(EventArgs e)
             {
                 base.OnLoad(e);
-                ky = this.Request["key"];
+                ky1 = this.Request["key1"];
+                ky2 = this.Request["key2"];
                 if (!IsPostBack)
                 {
                     this.LoadData();
@@ -14,17 +16,19 @@
                 }
                 
             }
-
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
-
-
-                var key = (ky == null ? "" : ky);
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from record_view where PrizeName like '%'+ @key +'%'", new System.Data.SqlClient.SqlParameter("@key", key));
+                var key1 = (ky1 == null ? "" : ky1);
+                var key2 = (ky2 == null ? "" : ky2);
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from record_view where PrizeName like '%'+ @key1 +'%'and  ActivityName like '%'+ @key2 +'%'",
+                   new System.Data.SqlClient.SqlParameter("@key1", key1),
+                   new System.Data.SqlClient.SqlParameter("@key2", key2)
+                   );
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
-                   new System.Data.SqlClient.SqlParameter("@key", key)
+                   new System.Data.SqlClient.SqlParameter("@key1", key1),
+                   new System.Data.SqlClient.SqlParameter("@key2", key2)
                    );
                 return dr;
             }
@@ -44,12 +48,15 @@
        <script>
 
            function dosearch() {
-               var k = $("#key").val();
-
-               if (key == null || key == "") {
+               var key1 = $("#key1").val();
+               var key2 = $("#key2").val();
+               if (key1 == "" || key1 == null) {
+                   // return;
                }
-
-               window.location.href = "PrizeSearch.aspx?key=" + k;
+               if (key2 == "" || key2 == null) {
+                   // return;
+               }
+               window.location.href = "PrizeSearch.aspx?key1=" + key1 + "&key2=" + key2;
            }
            function DownLoad() {
                var content = $("#content").html();
@@ -73,10 +80,11 @@
 
 
     <div align="center">
-   <input name="key" type="text"  id="key"  placeholder="请输入奖项"/>
-    <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
+   <input name="key2" type="text"  id="key2"  placeholder="请输入活动数字1，2，3"/><br />
+   <input name="key1" type="text"  id="key1"  placeholder="请输入奖项1,2,3,4,5,6,7"/><br />
+      <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
         <br />
-        <label>活动名称</label><asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="136px">
+        <%--<label>活动名称</label><asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="136px">
             <asp:ListItem Value="活动一"></asp:ListItem>
             <asp:ListItem Value="活动二"></asp:ListItem>
             <asp:ListItem Value="活动三"></asp:ListItem>
@@ -86,7 +94,7 @@
             <asp:ListItem Value="大奖"></asp:ListItem>
             <asp:ListItem Value="小奖"></asp:ListItem>
             <asp:ListItem></asp:ListItem>
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
     </div>
     <article class="module width_full">
          
@@ -151,8 +159,8 @@
             </div>
                         </footer>
                      <div class="post_message">
-                <label>汇总：&nbsp&nbsp&nbsp&nbsp 有</label>
-                <label><%#totalCount%></label>
+                <h2><label>汇总：活动&nbsp&nbsp&nbsp&nbsp<label><%#ky2%></label>奖项&nbsp&nbsp&nbsp&nbsp<label><%#ky1%></label> 有</label>
+                <label><%#totalCount%></label>人</h2>
                     
             </div>
                 </div>
