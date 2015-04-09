@@ -89,7 +89,7 @@
                 var data = new Array();
                 $("input[tag='txt']").each(function () {
                     data.push({
-                        PrizeId: $(this).attr("code"),
+                        //PrizeId: $(this).attr("code"),
                         PrizeName: $(this).val()
                     });
                 });
@@ -128,7 +128,7 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>PrizeId</th>
+                                        <%--<th>PrizeId</th>--%>
                                         <th width="200">奖项名</th>
                                     </tr>
                                 </thead>
@@ -136,8 +136,7 @@
                         <ItemTemplate>
                             <tbody>
                                 <tr>
-                                
-                                    <td><%#Eval("PrizeId") %></td>
+                                    <%--<td><%#Eval("PrizeId") %></td>--%>
                                     <td>
                                     <input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
@@ -162,17 +161,17 @@
                         <FooterTemplate>
 
                             <tr>
-                                <%--<td>
+                                <td>
                                     <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
             var nextCode =  string.Format("{0:000}", count++); %>
-                                    <input id="NewActivity" type="text" value="<%=nextCode %>" />
+                                    <input id="NewActivity" type="text" placeholder="请输入奖项code" />
 
-                                </td>--%>
-                              <%--  <td>'
+                                </td>
+                                <td>'
                                     <input id="newToUrl" type="text" style="width:100%;" /></td>
                                 <td>
                                     <input type="submit" value="AddNew" class="alt_btn" onclick="AddNew();" />
-                                </td>--%>
+                                </td>
 
                             </tr>
                             </tbody>

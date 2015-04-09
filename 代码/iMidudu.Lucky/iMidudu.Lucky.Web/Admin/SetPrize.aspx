@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-            <script runat="server">
+           <script runat="server">
 
             private int totalCount;
             protected override void OnLoad(EventArgs e)
@@ -17,9 +17,8 @@
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
 
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from record_view");
-
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(distinct PrizeName) from Prize");
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrize_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
@@ -40,80 +39,75 @@
             }
         </script>
         <script>
-            function deleteCode(code) {
-                var data = {
-                    UrlCode:code 
-                }; 
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/DeleteUrlMap",
-                    data: JSON.stringify(data),
-                    dataType: 'json',
-                    success: function (result) {
-                       
-                        alert("ok");
-                        window.location.reload();
-                       
-                    },
-                    error: function (err) {
-                        alert(err.responseText);
-                    }
-                });
-            }
-            function AddNew() { 
-                var data = {
-                    newUrlCode: $("#newUrlCode").val(),
-                    newToUrl: $("#newToUrl").val(),
-                };
-                if (data.newUrlCode == "") {
-                    alert("input newUrlCode"); return;
-                }
-                if (data.newToUrl == "") {
-                    alert("input newToUrl"); return;
-                } 
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/AddNewUrlMap",
-                    data: JSON.stringify(data),
-                    dataType: 'json',
-                    success: function (result) {
-                       
-                        // alert("ok");
-                        $("#newUrlCode").val(result.d);
-                        window.location.reload();
-                       
-                    },
-                    error: function (err) {
-                        alert(err.responseText);
-                    }
-                });
-            }
+            //function deleteCode(code) {
+            //    var data = {
+            //        ActivityName:ActivityName 
+            //    }; 
+            //    $.ajax({
+            //        type: "POST",
+            //        contentType: "application/json",
+            //        url: "/Admin/Webservice.asmx/DeleteActivity",
+            //        data: JSON.stringify(data),
+            //        dataType: 'json',
+            //        success: function (result) {
+
+            //            alert("ok");
+            //            window.location.reload();
+
+            //        },
+            //        error: function (err) {
+            //            alert(err.responseText);
+            //        }
+            //    });
+            //}
+            //function AddNew() { 
+            //    var data = {
+            //        ActivityName: $("#NewActivity").val(),
+            //    };
+            //    if (data.ActivityName == "") {
+            //        alert("input Activity"); return;
+            //    }
+            //    $.ajax({
+            //        type: "POST",
+            //        contentType: "application/json",
+            //        url: "/Webservice.asmx/AddNewActivity",
+            //        data: JSON.stringify(data),
+            //        dataType: 'json',
+            //        success: function (result) {
+            //            // alert("ok");
+            //            $("#NewActivity").val(result.d);
+            //            window.location.reload();
+
+            //        },
+            //        error: function (err) {
+            //            alert(err.responseText);
+            //        }
+            //    });
+            //}
 
             function UpdateAll() {
                 var data = new Array();
-                $("input[tag='txt']").each(function(){
+                $("input[tag='txt']").each(function () {
                     data.push({
-                        code:$(this).attr("code"),
-                        tourl:$(this).val()
+                        QRCode: $(this).attr("code"),
+                        ActivityName: $(this).val()
                     });
                 });
-                var arg={
-                    datasssss:data
+                var arg = {
+                    datasssss: data
                 }
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/UpdateAllUrlMap",
+                    url: "/Webservice.asmx/UpdateAllActivity",
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
-                       
+
                         // alert("ok");
-                        
+
                         window.location.reload();
-                       
+
                     },
                     error: function (err) {
                         alert(err.responseText);
@@ -126,6 +120,10 @@
          
             <header> 
 
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT [ActivityName] FROM [Activity]"></asp:SqlDataSource>
+
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
@@ -134,22 +132,33 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="50">数量</th>
-                                        <th>是否需要验证</th>
-                                        <th >是否现场发货</th>
+                                        <th>奖项名称</th>
+                                        <th width="200">数量</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tbody>
                                 <tr>
-                                    <td><%#Eval("UrlCode") %></td> 
-                                <td>
-                                    <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("UrlCode") %>"
-                                         id="newToUrl" type="text" style="width:100%;" value="<%#Eval("ToUrl") %>" /></td>
+                                
+                                    <td><%#Eval("PrizeName") %></td>
                                     <td>
-                                        <input type="text" value="<%#Eval("UrlCode")%>" class="text" onclick="deleteCode('<%#Eval("UrlCode")%>')" />
+                                    <input tag="txt" onclick="this.select();"
+                                         code="<%#Eval("Quantity") %>"
+                                         id=" NewPrizeName" type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                  <td>
+                                  <%--  <td><%#Eval("ActivityName") %></td> --%>
+                                <%--<td>
+                                    <input tag="txt" onclick="this.select();"
+                                         value="<%#Eval("ActivityName") %>"
+                                         id="NewActivity" type="text" style="width:100%;" /></td>
+                                    <td>
+                                    <input tag="txt" onclick="this.select();"
+                                         value="<%#Eval("QRCode") %>"
+                                         id="QRCode" type="text" style="width:100%;" /></td>--%>
+                                    <%--<td><%#Eval("QRCode") %></td> --%>
+                                    <td>
+                                        <input type="submit" value="Update" class="alt_btn" onclick="UpdateAll()" />
                                     </td>
 
                                 </tr>
@@ -157,22 +166,21 @@
                         <FooterTemplate>
 
                             <tr>
-                                <td>
-                                    <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from URLMap");
+                                <%--<td>
+                                    <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
             var nextCode =  string.Format("{0:000}", count++); %>
-                                    <input id="newUrlCode" type="text" value="<%=nextCode %>" />
+                                    <input id="NewActivity" type="text" value="<%=nextCode %>" />
 
-                                </td>
-                                <td>
+                                </td>--%>
+                              <%--  <td>'
                                     <input id="newToUrl" type="text" style="width:100%;" /></td>
                                 <td>
                                     <input type="submit" value="AddNew" class="alt_btn" onclick="AddNew();" />
-                                </td>
+                                </td>--%>
 
                             </tr>
                             </tbody>
                     </table>
-                            
                         </FooterTemplate>
                     </asp:Repeater>
                     <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList" ShowCustomInfoSection="Left"
@@ -180,17 +188,12 @@
                         LastPageText="【尾页】" NextPageText="【后页】"
                         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】" TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第" HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="当前第  <font color='red'><b>%CurrentPageIndex%</b></font> 页,共  %PageCount%  页 ,总共:%RecordCount% 条数据">
                     </webdiyer:AspNetPager>
-                    
             <div class="submit_link">
                 <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>
             </div>
                 </div>
                 <!-- end of #tab1 -->
-
-
-
             </div>
             <!-- end of .tab_container -->
-        
         </article>
 </asp:Content>
