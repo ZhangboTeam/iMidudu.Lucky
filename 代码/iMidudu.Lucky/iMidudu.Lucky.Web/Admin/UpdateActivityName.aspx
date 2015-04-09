@@ -18,7 +18,6 @@
             {
 
                 totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
-
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("ActivityName",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
@@ -40,58 +39,58 @@
             }
         </script>
         <script>
-            function deleteCode(code) {
-                var data = {
-                    ActivityName:ActivityName 
-                }; 
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/DeleteActivity",
-                    data: JSON.stringify(data),
-                    dataType: 'json',
-                    success: function (result) {
+            //function deleteCode(code) {
+            //    var data = {
+            //        ActivityName:ActivityName 
+            //    }; 
+            //    $.ajax({
+            //        type: "POST",
+            //        contentType: "application/json",
+            //        url: "/Admin/Webservice.asmx/DeleteActivity",
+            //        data: JSON.stringify(data),
+            //        dataType: 'json',
+            //        success: function (result) {
                        
-                        alert("ok");
-                        window.location.reload();
+            //            alert("ok");
+            //            window.location.reload();
                        
-                    },
-                    error: function (err) {
-                        alert(err.responseText);
-                    }
-                });
-            }
-            function AddNew() { 
-                var data = {
-                    Activity: $("#NewActivity").val(),
-                };
-                if (data.NewActivity == "") {
-                    alert("input Activity"); return;
-                }
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json",
-                    url: "/Webservice.asmx/AddNewActivity",
-                    data: JSON.stringify(data),
-                    dataType: 'json',
-                    success: function (result) {
+            //        },
+            //        error: function (err) {
+            //            alert(err.responseText);
+            //        }
+            //    });
+            //}
+            //function AddNew() { 
+            //    var data = {
+            //        ActivityName: $("#NewActivity").val(),
+            //    };
+            //    if (data.ActivityName == "") {
+            //        alert("input Activity"); return;
+            //    }
+            //    $.ajax({
+            //        type: "POST",
+            //        contentType: "application/json",
+            //        url: "/Webservice.asmx/AddNewActivity",
+            //        data: JSON.stringify(data),
+            //        dataType: 'json',
+            //        success: function (result) {
+            //            // alert("ok");
+            //            $("#NewActivity").val(result.d);
+            //            window.location.reload();
                        
-                        // alert("ok");
-                        $("#NewActivity").val(result.d);
-                        window.location.reload();
-                       
-                    },
-                    error: function (err) {
-                        alert(err.responseText);
-                    }
-                });
-            }
+            //        },
+            //        error: function (err) {
+            //            alert(err.responseText);
+            //        }
+            //    });
+            //}
 
             function UpdateAll() {
                 var data = new Array();
                 $("input[tag='txt']").each(function(){
                     data.push({
-                        ActivityName :$(this).attr("ActivityName")
+                       QRCode: $(this).attr("code"),
+                       ActivityName: $(this).val()
                     });
                 });
                 var arg={
@@ -100,7 +99,7 @@
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Admin/Webservice.asmx/UpdateAllActivity",
+                    url: "/Webservice.asmx/UpdateAllActivity",
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
@@ -129,20 +128,33 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th width="50">活动名</th>
+                                        <th>QRCode</th>
+                                        <th width="200">活动名</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
                         <ItemTemplate>
                             <tbody>
                                 <tr>
-                                  <%--  <td><%#Eval("ActivityName") %></td> --%>
-                                <td>
-                                    <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("ActivityName") %>"
-                                         id="newToUrl" type="text" style="width:100%;" value="<%%>" /></td>
+                                
+                                    <td><%#Eval("QRCode") %></td>
                                     <td>
-                                        <input type="submit" value="Update" class="alt_btn" onclick="Update('<%%>')" />
+                                    <input tag="txt" onclick="this.select();"
+                                         code="<%#Eval("QRCode") %>"
+                                         id=" NewActivityName" type="text" style="width:100%;" value="<%#Eval("ActivityName") %>" /></td>
+                                  <td>
+                                  <%--  <td><%#Eval("ActivityName") %></td> --%>
+                                <%--<td>
+                                    <input tag="txt" onclick="this.select();"
+                                         value="<%#Eval("ActivityName") %>"
+                                         id="NewActivity" type="text" style="width:100%;" /></td>
+                                    <td>
+                                    <input tag="txt" onclick="this.select();"
+                                         value="<%#Eval("QRCode") %>"
+                                         id="QRCode" type="text" style="width:100%;" /></td>--%>
+                                    <%--<td><%#Eval("QRCode") %></td> --%>
+                                    <td>
+                                        <input type="submit" value="Update" class="alt_btn" onclick="UpdateAll()" />
                                     </td>
 
                                 </tr>
@@ -150,22 +162,21 @@
                         <FooterTemplate>
 
                             <tr>
-                                <td>
+                                <%--<td>
                                     <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
             var nextCode =  string.Format("{0:000}", count++); %>
                                     <input id="NewActivity" type="text" value="<%=nextCode %>" />
 
-                                </td>
-                                <td>
+                                </td>--%>
+                              <%--  <td>'
                                     <input id="newToUrl" type="text" style="width:100%;" /></td>
                                 <td>
                                     <input type="submit" value="AddNew" class="alt_btn" onclick="AddNew();" />
-                                </td>
+                                </td>--%>
 
                             </tr>
                             </tbody>
                     </table>
-                            
                         </FooterTemplate>
                     </asp:Repeater>
                     <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList" ShowCustomInfoSection="Left"
@@ -173,17 +184,12 @@
                         LastPageText="【尾页】" NextPageText="【后页】"
                         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】" TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第" HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="当前第  <font color='red'><b>%CurrentPageIndex%</b></font> 页,共  %PageCount%  页 ,总共:%RecordCount% 条数据">
                     </webdiyer:AspNetPager>
-                    
             <div class="submit_link">
                 <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>
             </div>
                 </div>
                 <!-- end of #tab1 -->
-
-
-
             </div>
             <!-- end of .tab_container -->
-        
         </article>
 </asp:Content>

@@ -31,33 +31,35 @@ namespace iMidudu.Lucky.Web
             }
         }
 
+        //[WebMethod]
+        //public string AddNewActivity(string NewActivityName)
+        //{
+        //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityName",
+        //         new System.Data.SqlClient.SqlParameter("@ActivityName", NewActivityName));
+        //    var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
+        //    return string.Format("{0:000}", count++);
+        //}
+        //[WebMethod]
+        //public void DeleteActivity(string ActivityName )
+        //{
+        //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("Activity_DeleteProcedure",
+        //         new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName) );
+        //}
         [WebMethod]
-        public string AddNewActivity(string NewActivityName)
-        {
-            iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityName",
-                 new System.Data.SqlClient.SqlParameter("@ActivityName", NewActivityName));
-            var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
-            return string.Format("{0:000}", count++);
-        }
-        [WebMethod]
-        public void DeleteActivity(string ActivityName )
-        {
-            iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("Activity_DeleteProcedure",
-                 new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName) );
-        }
-        [WebMethod]
-        public void UpdateAllActivity(List<UpdateModelActivity>  datasssss)
+        public void UpdateAllActivity(List<UpdateModelActivity> datasssss)
         {
             foreach (var d in datasssss)
             {
-                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityName_UpdateProcedure",
-                     new System.Data.SqlClient.SqlParameter("@ActivityName", d.ActivityName));
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityNameUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@ActivityName", d.ActivityName),
+                     new System.Data.SqlClient.SqlParameter("@QRCode", d.QRCode));
             }
         }
-         public class UpdateModelActivity
-    {
-        public string ActivityName { get; set; }
-    }
+        public class UpdateModelActivity
+        {
+            public string ActivityName { get; set; }
+            public Guid QRCode { get; set; }
+        }
   
         /// <summary>
         /// 下载保存多媒体文件,返回多媒体保存路径
