@@ -45,6 +45,8 @@ namespace iMidudu.Lucky.Web
         //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("Activity_DeleteProcedure",
         //         new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName) );
         //}
+
+
         [WebMethod]
         public void UpdateAllActivity(List<UpdateModelActivity> datasssss)
         {
@@ -59,6 +61,22 @@ namespace iMidudu.Lucky.Web
         {
             public string ActivityName { get; set; }
             public Guid QRCode { get; set; }
+        }
+
+        [WebMethod]
+        public void UpdateAllPrize(List<UpdateModelPrize> datasssss)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("PrizeNameUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@ActivityName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@QRCode", d.PrizeId));
+            }
+        }
+        public class UpdateModelPrize
+        {
+            public string PrizeName { get; set; }
+            public Guid PrizeId { get; set; }
         }
   
         /// <summary>

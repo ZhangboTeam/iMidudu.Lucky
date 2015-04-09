@@ -102,7 +102,8 @@
                 <li class="icn_tags"><a href="/Admin/PrizeRecord.aspx">领奖记录top10</a></li> 
                 <li class="icn_tags"><a href="/Admin/SetPrize.aspx">设置奖池</a></li>
                 <li class="icn_tags"><a href="/Admin/Default.aspx">统计奖项</a></li>
-                <li class="icn_tags"><a href="/Admin/UpdateActivityName.aspx">添加活动</a></li>
+                <li class="icn_tags"><a href="/Admin/UpdateActivityName.aspx">修改活动名</a></li>
+                <li class="icn_tags"><a href="/Admin/UpdatePrize.aspx">修改奖项名</a></li>
                 <li class="icn_profile"><a href="/Admin/ChangePassword.aspx">修改密码</a></li>
                 <li class="icn_profile"></li>
             </ul>
