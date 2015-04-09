@@ -89,8 +89,8 @@
                 var data = new Array();
                 $("input[tag='txt']").each(function () {
                     data.push({
-                        QRCode: $(this).attr("code"),
-                        ActivityName: $(this).val()
+                        PrizeName: $(this).attr("code"),
+                        Quantity: $(this).val()
                     });
                 });
                 var arg = {
@@ -99,7 +99,7 @@
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Webservice.asmx/UpdateAllActivity",
+                    url: "/Webservice.asmx/UpdateAllSetPrize",
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
@@ -144,7 +144,7 @@
                                     <td><%#Eval("PrizeName") %></td>
                                     <td>
                                     <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("Quantity") %>"
+                                         code="<%#Eval("PrizeName") %>"
                                          id=" NewPrizeName" type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
                                   <td>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>

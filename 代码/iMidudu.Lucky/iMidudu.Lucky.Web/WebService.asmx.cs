@@ -69,12 +69,32 @@ namespace iMidudu.Lucky.Web
             foreach (var d in datasssss)
             {
                 iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("PrizeNameUpdate_Procedure",
-                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName));
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId)
+                     );
             }
         }
         public class UpdateModelPrize
         {
             public string PrizeName { get; set; }
+            public Guid PrizeId { get; set; }
+        }
+
+        [WebMethod]
+        public void UpdateAllSetPrize(List<UpdateModelSetPrize> datasssss)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("SetPrizeUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@Quantity", d.Quantity)
+                     );
+            }
+        }
+        public class UpdateModelSetPrize
+        {
+            public string PrizeName { get; set; }
+            public string Quantity { get; set; }
         }
   
         /// <summary>

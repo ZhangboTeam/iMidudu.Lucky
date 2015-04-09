@@ -89,7 +89,7 @@
                 var data = new Array();
                 $("input[tag='txt']").each(function () {
                     data.push({
-                        //PrizeId: $(this).attr("code"),
+                        PrizeId: $(this).attr("code"),
                         PrizeName: $(this).val()
                     });
                 });
@@ -128,7 +128,7 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <%--<th>PrizeId</th>--%>
+                                        <th>PrizeId</th>
                                         <th width="200">奖项名</th>
                                     </tr>
                                 </thead>
@@ -136,7 +136,7 @@
                         <ItemTemplate>
                             <tbody>
                                 <tr>
-                                    <%--<td><%#Eval("PrizeId") %></td>--%>
+                                    <td><%#Eval("PrizeId") %></td>
                                     <td>
                                     <input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
