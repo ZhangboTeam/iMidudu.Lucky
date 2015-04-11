@@ -113,7 +113,6 @@
              <td>
                         <select name="" onchange="change();" id="Name" class="form_select">
                             <option value="" selected="">Please Select</option>
-                            <option value="<%#Eval("ActivityName") %>" selected=""></option>
                             <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select ActivityName from Activity"))
                               {%>
                             <option value="<%=item %>"><%=item %></option>
