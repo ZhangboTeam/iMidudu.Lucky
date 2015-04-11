@@ -75,12 +75,12 @@
        <%-- <select id="test">
       <option value="1">option>
       </select><br />--%>
-      <%--<td>
+   <%--   <td>
                         <select name="" onchange="change();" id="TextCommodityId" class="form_select">
                             <option value="" selected="">Please Select</option>
-                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.)
+                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select * from ")
                               {%>
-                            <option value="<%=item.ActivityName %>"><%=item.PrizeName %></option>
+                            <option value="<%=item. %>"><%=item. %></option>
                             <%} %>
                         </select>
         </td>
@@ -89,14 +89,14 @@
                         		<div class="smgSelectText f-toe f-usn"></div>
                                 <input type="hidden">
                                 <div class="smgSelectListWrap">
-                                  <ul class="smgSelectList" id="newSupplier">                                    
+                                  <ul class="smgSelectList" id="newSupplier">  --%>                                  
                                   <%--  <li val="1" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-10"><input type="checkbox" id="pro1-10"  value="">ITU_BR_NB</label></span></li>
                                     <li val="2" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-11"><input type="checkbox" id="pro1-11" value="">ITU_BR_DT</label></span></li>
                                     <li val="3" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-12"><input type="checkbox" id="pro1-12" value="">Newsan_AR_NBV</label></span></li>--%>
                                   </ul>
                                 </div>
                         	</div>
-         </td>--%>
+         </td>
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [Activity] ORDER BY [ActivityName]"></asp:SqlDataSource>

@@ -84,6 +84,12 @@ namespace iMidudu.Lucky.Web
             public int Quantity { get; set; }
         }
 
+        public class ModelPrizeSearch
+        {
+
+            public Guid ActivityName{ get; set; }
+            public string PrizeName{ get; set; }
+        }
         [WebMethod]
         public void UpdateAllSetPrize(List<UpdateModelSetPrize> datasssss)
         {
