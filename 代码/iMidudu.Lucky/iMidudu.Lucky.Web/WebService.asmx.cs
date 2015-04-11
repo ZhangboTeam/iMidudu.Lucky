@@ -30,6 +30,83 @@ namespace iMidudu.Lucky.Web
                 return ex.Message;
             }
         }
+
+        //[WebMethod]
+        //public string AddNewActivity(string NewActivityName)
+        //{
+        //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityName",
+        //         new System.Data.SqlClient.SqlParameter("@ActivityName", NewActivityName));
+        //    var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
+        //    return string.Format("{0:000}", count++);
+        //}
+        //[WebMethod]
+        //public void DeleteActivity(string ActivityName )
+        //{
+        //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("Activity_DeleteProcedure",
+        //         new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName) );
+        //}
+
+
+        [WebMethod]
+        public void UpdateAllActivity(List<UpdateModelActivity> datasssss)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityNameUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@ActivityName", d.ActivityName),
+                     new System.Data.SqlClient.SqlParameter("@QRCode", d.QRCode));
+            }
+        }
+        public class UpdateModelActivity
+        {
+            public string ActivityName { get; set; }
+            public Guid QRCode { get; set; }
+        }
+
+        [WebMethod]
+        public void UpdateAllPrize(List<UpdateModelPrize> datasssss)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("PrizeNameUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId),
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@Quantity", d.Quantity)
+                     );
+
+            }
+        }
+        public class UpdateModelPrize
+        {
+
+            public Guid PrizeId { get; set; }
+            public string PrizeName { get; set; }
+            public int Quantity { get; set; }
+        }
+
+        public class ModelPrizeSearch
+        {
+
+            public Guid ActivityName{ get; set; }
+            public string PrizeName{ get; set; }
+        }
+        [WebMethod]
+        public void UpdateAllSetPrize(List<UpdateModelSetPrize> datasssss)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("SetPrizeUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@Quantity", d.Quantity)
+                     );
+            }
+        }
+        public class UpdateModelSetPrize
+        {
+            public string PrizeName { get; set; }
+            public string Quantity { get; set; }
+        }
+  
         /// <summary>
         /// 下载保存多媒体文件,返回多媒体保存路径
         /// </summary>

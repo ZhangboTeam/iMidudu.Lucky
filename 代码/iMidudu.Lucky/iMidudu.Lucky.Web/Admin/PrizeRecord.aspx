@@ -11,23 +11,20 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (fn) {
-
                 var url = "/Admin/OutExcel.ashx?filename=领取金额TOP10.xls&ContentFile=" + fn.d;
                 window.open(url, "_blank");
             }
         });
-
-
     }
     </script>
     <section id="secondary_bar">
 
         <div class="breadcrumbs_container">
-            <article class="breadcrumbs">
+            <<%--article class="breadcrumbs">
                 <a class="current">红包历史查看</a>
                 <div class="breadcrumb_divider"></div>
                 <a class="current2">领取金额TOP10</a>
-            </article>
+            </article>--%>
         </div>
     </section>
     <article class="module width_full">

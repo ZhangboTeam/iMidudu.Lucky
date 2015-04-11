@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="UpdateActivityName.aspx.cs" Inherits="iMidudu.Lucky.Web.Admin.UpdateActivityName" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-           <script runat="server">
+             <script runat="server">
 
             private int totalCount;
             protected override void OnLoad(EventArgs e)
@@ -16,11 +16,13 @@
 
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(distinct PrizeName) from Prize");
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrize_Procedure",
+
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("ActivityName",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
+
                 return dr;
             }
             public override void DataBind()
@@ -29,6 +31,8 @@
                 base.DataBind();
 
             }
+
+
             protected void AspNetPager1_PageChanged(object src, EventArgs e)
             {
                 this.DataBind();
@@ -46,10 +50,10 @@
             //        data: JSON.stringify(data),
             //        dataType: 'json',
             //        success: function (result) {
-
+                       
             //            alert("ok");
             //            window.location.reload();
-
+                       
             //        },
             //        error: function (err) {
             //            alert(err.responseText);
@@ -73,7 +77,7 @@
             //            // alert("ok");
             //            $("#NewActivity").val(result.d);
             //            window.location.reload();
-
+                       
             //        },
             //        error: function (err) {
             //            alert(err.responseText);
@@ -83,24 +87,27 @@
 
             function UpdateAll() {
                 var data = new Array();
-                $("input[tag='txt']").each(function () {
+                $("input[tag='txt']").each(function(){
                     data.push({
-                        PrizeName: $(this).attr("code"),
-                        Quantity: $(this).val()
+                       QRCode: $(this).attr("code"),
+                       ActivityName: $(this).val()
                     });
                 });
-                var arg = {
-                    datasssss: data
+                var arg={
+                    datasssss:data
                 }
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Webservice.asmx/UpdateAllSetPrize",
+                    url: "/Webservice.asmx/UpdateAllActivity",
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
+                       
                         // alert("ok");
+                        
                         window.location.reload();
+                       
                     },
                     error: function (err) {
                         alert(err.responseText);
@@ -113,10 +120,6 @@
          
             <header> 
 
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT [ActivityName] FROM [Activity]"></asp:SqlDataSource>
-
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
@@ -125,8 +128,8 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>奖项名称</th>
-                                        <th width="200">数量</th>
+                                        <th>QRCode</th>
+                                        <th width="200">活动名</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -134,11 +137,11 @@
                             <tbody>
                                 <tr>
                                 
-                                    <td><%#Eval("PrizeName") %></td>
+                                    <td><%#Eval("QRCode") %></td>
                                     <td>
                                     <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("PrizeName") %>"
-                                         id=" NewPrizeName" type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                         code="<%#Eval("QRCode") %>"
+                                         id=" NewActivityName" type="text" style="width:100%;" value="<%#Eval("ActivityName") %>" /></td>
                                   <td>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <%--<td>

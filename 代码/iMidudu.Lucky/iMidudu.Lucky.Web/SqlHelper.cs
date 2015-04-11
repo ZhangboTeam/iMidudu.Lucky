@@ -206,6 +206,11 @@ namespace iMidudu.Lucky.Web
                 }
             }
 
+            public static int ExecteNonQueryProcedure(string cmdText, params SqlParameter[] commandParameters)
+            {
+                return ExecteNonQuery(CommandType.StoredProcedure, cmdText, commandParameters);
+            }
+
             public static SqlDataReader ExecuteReaderFromStoredProcedure(string cmdText, params SqlParameter[] commandParameters)
             {
                 SqlCommand cmd = new SqlCommand();

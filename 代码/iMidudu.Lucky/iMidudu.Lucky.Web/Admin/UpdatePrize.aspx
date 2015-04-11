@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="UpdatePrize.aspx.cs" Inherits="iMidudu.Lucky.Web.Admin.UpdatePrize" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-           <script runat="server">
+    <script runat="server">
 
             private int totalCount;
             protected override void OnLoad(EventArgs e)
@@ -16,11 +16,13 @@
 
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(distinct PrizeName) from Prize");
+
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Prize");
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrize_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
+
                 return dr;
             }
             public override void DataBind()
@@ -29,6 +31,7 @@
                 base.DataBind();
 
             }
+
             protected void AspNetPager1_PageChanged(object src, EventArgs e)
             {
                 this.DataBind();
@@ -83,24 +86,39 @@
 
             function UpdateAll() {
                 var data = new Array();
+                //var data1 = new Array();
+                //var PrizeId = $(this).attr("code");
+                //var PrizeName= $("#NewPrizeIdName").val();
+                //var Quantity = parseInt($("#NewQuantity").val());
                 $("input[tag='txt']").each(function () {
                     data.push({
-                        PrizeName: $(this).attr("code"),
-                        Quantity: $(this).val()
+                        PrizeId: $(this).attr("code"),
+                        PrizeName: $(this).val(),
+                        Quantity: $("#NewQuantity").val()
                     });
-                });
+                })
+
+                //$("input[tag='txt1']").each(function () {
+                //    data1.push({
+                //        PrizeId: $(this).attr("code1"),
+                //        Quantity: $(this).NewQuantity.val()
+                //    });
+                //});
                 var arg = {
                     datasssss: data
                 }
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/Webservice.asmx/UpdateAllSetPrize",
+                    url: "/Webservice.asmx/UpdateAllPrize",
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
+
                         // alert("ok");
+
                         window.location.reload();
+
                     },
                     error: function (err) {
                         alert(err.responseText);
@@ -108,14 +126,9 @@
                 });
             }
         </script>
-
-    <article class="module width_full">
+    &nbsp;<article class="module width_full">
          
             <header> 
-
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
-                </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT [ActivityName] FROM [Activity]"></asp:SqlDataSource>
 
             </header>
             <div class="tab_container">
@@ -125,7 +138,8 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>奖项名称</th>
+                                        <th>PrizeId</th>
+                                        <th width="200">奖项名</th>
                                         <th width="200">数量</th>
                                     </tr>
                                 </thead>
@@ -133,12 +147,16 @@
                         <ItemTemplate>
                             <tbody>
                                 <tr>
-                                
-                                    <td><%#Eval("PrizeName") %></td>
+                                    <td><%#Eval("PrizeId") %></td>
                                     <td>
                                     <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("PrizeName") %>"
-                                         id=" NewPrizeName" type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                         code="<%#Eval("PrizeId") %>"
+                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
+                              
+                                     <td>
+                                      <input tag="txt" onclick="this.select();"
+                                        <%-- code="<%#Eval("PrizeId") %>"--%>
+                                         id="NewQuantity" <%=this.Request["NewQuantity"] %>  type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
                                   <td>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <%--<td>
@@ -150,27 +168,25 @@
                                          value="<%#Eval("QRCode") %>"
                                          id="QRCode" type="text" style="width:100%;" /></td>--%>
                                     <%--<td><%#Eval("QRCode") %></td> --%>
-                                    <td>
+<%--                                    <td>
                                         <input type="submit" value="Update" class="alt_btn" onclick="UpdateAll()" />
-                                    </td>
-
+                                    </td>--%>
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
 
                             <tr>
-                                <%--<td>
+                                <td>
                                     <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
             var nextCode =  string.Format("{0:000}", count++); %>
-                                    <input id="NewActivity" type="text" value="<%=nextCode %>" />
+                                    <input id="NewActivity" type="text" placeholder="请输入奖项code" />
 
-                                </td>--%>
-                              <%--  <td>'
+                                </td>
+                                <td>
                                     <input id="newToUrl" type="text" style="width:100%;" /></td>
                                 <td>
                                     <input type="submit" value="AddNew" class="alt_btn" onclick="AddNew();" />
-                                </td>--%>
-
+                                </td>
                             </tr>
                             </tbody>
                     </table>

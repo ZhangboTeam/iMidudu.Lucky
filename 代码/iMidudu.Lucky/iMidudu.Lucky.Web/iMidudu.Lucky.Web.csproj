@@ -129,6 +129,8 @@
     <Content Include="Admin\PrizeSearch.aspx" />
     <Content Include="Admin\SetPrize.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
+    <Content Include="Admin\UpdateActivityName.aspx" />
+    <Content Include="Admin\UpdatePrize.aspx" />
     <Content Include="Admin\UserManager.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="css\animate.css" />
@@ -271,6 +273,20 @@
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdateActivityName.aspx.cs">
+      <DependentUpon>UpdateActivityName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdateActivityName.aspx.designer.cs">
+      <DependentUpon>UpdateActivityName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UpdatePrize.aspx.cs">
+      <DependentUpon>UpdatePrize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UpdatePrize.aspx.designer.cs">
+      <DependentUpon>UpdatePrize.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\BizWebService\Reference.cs">
