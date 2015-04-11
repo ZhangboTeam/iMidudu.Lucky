@@ -30,22 +30,32 @@ namespace iMidudu.Lucky.Web
                 return ex.Message;
             }
         }
-
-        //[WebMethod]
-        //public string AddNewActivity(string NewActivityName)
-        //{
-        //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActivityName",
-        //         new System.Data.SqlClient.SqlParameter("@ActivityName", NewActivityName));
-        //    var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
-        //    return string.Format("{0:000}", count++);
-        //}
-        //[WebMethod]
-        //public void DeleteActivity(string ActivityName )
-        //{
-        //    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("Activity_DeleteProcedure",
-        //         new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName) );
-        //}
-
+        
+        public ActivityName GetPrize(string ActivityName)
+        {
+            var table = iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select PrizeName from Activity,Prize where  Activity.QRCode = Prize.QRCode and Activity.ActivityName=@ActivityName",
+                new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName))[0];
+            ActivityName row=new ActivityName();
+            row.Prize1 = table.Rows[0]["PrizeName"].ToString();
+            row.Prize2 = table.Rows[1]["PrizeName"].ToString();
+            row.Prize3 = table.Rows[2]["PrizeName"].ToString();
+            row.Prize4 = table.Rows[3]["PrizeName"].ToString();
+            row.Prize5 = table.Rows[4]["PrizeName"].ToString();
+            row.Prize6 = table.Rows[5]["PrizeName"].ToString();
+            row.Prize7 = table.Rows[6]["PrizeName"].ToString();
+            return row;
+            
+        }
+        public class ActivityName
+        {
+            public string Prize1;
+            public string Prize2 ;
+            public string Prize3 ;
+            public string Prize4 ;
+            public string Prize5 ;
+            public string Prize6 ;
+            public string Prize7 ;
+        }
 
         [WebMethod]
         public void UpdateAllActivity(List<UpdateModelActivity> datasssss)
@@ -62,6 +72,7 @@ namespace iMidudu.Lucky.Web
             public string ActivityName { get; set; }
             public Guid QRCode { get; set; }
         }
+
 
         [WebMethod]
         public void UpdateAllPrize(List<UpdateModelPrize> datasssss)

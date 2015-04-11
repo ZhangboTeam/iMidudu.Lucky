@@ -49,94 +49,90 @@
 
             }
 </script>
-<%-- <script>
+ <script>
+     
+         //var cid = $("#Name").val();
+         //if (cid != "") {
+
+         //    ("GetSystemUserHasCommodity", { CommodityId: cid }, function (users) {
+         //        $("#PrizeName").empty();
+         //        $("#PrizeName").append("<option value=''>Please select </option>");
+         //        for (var i in users) {
+         //            $("#PrizeName").append("<option value='" + users[i].pri + "'>" + users[i].ItCode + "(" + users[i].NameEn + ")" + "</option>");
+         //        }
+         //    });
+             //    var $target = $("#issueSmg"),
+             //        $title = $target.find('.smgSelectText'),
+             //        $valueElement = $target.find('input[type=hidden]');
+
+             //    $title.attr('title', 'Please select').html('Please select');
+             //    $valueElement.val("");
+         //};
+
+   
      function change() {
-         var cid = $("#TextCommodityId").val();
-         if (cid != "") {
+         //alert(openid);
+         var Name = $("#Name").val();
+             var data={
+                 ActivityName: Name
+             };
+             $.ajax({
+                 type: "POST",
+                 contentType: "application/json",
+                 url: "/Webservice.asmx/GetPrize",
+                 data: JSON.stringify(data),
+                 dataType: 'json',
+                 success: function (result) {                  
+                     $("#PrizeName").empty();
+                     $("#PrizeName").append("<option value=''>Please select </option>");
+                     for (var i in result.d) {
+                         $("#PrizeName").append("<option value='" + result.d[i] + "'>" + result.d[i]+"</option>");
+                     }
 
-             callBizAjax("GetSystemUserHasCommodity", { CommodityId: cid }, function (users) {
-                 $("#TextIssueOwner").empty();
-                 $("#TextIssueOwner").append("<option value=''>Please select </option>");
-                 for (var i in users) {
-                     $("#TextIssueOwner").append("<option value='" + users[i].UserId + "'>" + users[i].ItCode + "(" + users[i].NameEn + ")" + "</option>");
+                 },
+                 error:function(err){
+                     alert(err);
                  }
-             });
-             callBizAjax("GetSuppliersHasCommodity", { CommodityId: cid }, function (suppliers) {
-
-                 $("#TextSupplierId").empty();
-                 $("#newSupplier").empty();//reset smgSelectReset
-                 $("#TextSupplierId").append("<option>Please select </option>");
-                 for (var i in suppliers) {
-                     $("#TextSupplierId").append("<option value='" + suppliers[i].SupplierId + "'>" + suppliers[i].SupplierName + "</option>");
-
-                 }
-                 var str = "";
-                 for (var i in suppliers) {
-                     str += ('<li val="' + i + '" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-' + i + '"><input tag="fff" type="checkbox" id="pro1-' + i + '" tv="' + suppliers[i].SupplierId + '">' + suppliers[i].SupplierName + '</label></span></li>');
-                 }
-                 $("#newSupplier").html(str);
-
-                 var $target = $("#issueSmg"),
-                     $title = $target.find('.smgSelectText'),
-                     $valueElement = $target.find('input[type=hidden]');
-
-                 $title.attr('title', 'Please select').html('Please select');
-                 $valueElement.val("");
              });
          }
-     }
-     function checkedSuppliers() {
-         var list = new Array();
-         $("input[tag='fff']").each(function () {
-             if ($(this).parent().hasClass('checked') || $(this).is(":checked")) {
-                 list.push($(this).attr("tv"));
-             }
-         });
-         return list;
-     }
-    </script>--%>
+    
+    </script>
     <div align="center">
 <%--   <input name="key2" type="text"  id="key2"  placeholder="请输入活动数字1，2，3"/><br />
    <input name="key1" type="text"  id="key1"  placeholder="请输入奖项1,2,3,4,5,6,7"/><br />
       <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
         <br />--%>
-        <%--<label>活动名称</label><asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="136px">
-            <asp:ListItem Value="活动一"></asp:ListItem>
-            <asp:ListItem Value="活动二"></asp:ListItem>
-            <asp:ListItem Value="活动三"></asp:ListItem>
-            <asp:ListItem></asp:ListItem>
-        </asp:DropDownList><br>
-        <label>奖项类别</label><asp:DropDownList ID="DropDownList2" runat="server" Height="16px" Width="136px">
-            <asp:ListItem Value="大奖"></asp:ListItem>
-            <asp:ListItem Value="小奖"></asp:ListItem>
-            <asp:ListItem></asp:ListItem>
-        </asp:DropDownList>--%>
-       <%-- <select id="test">
-      <option value="1">option>
-      </select><br />--%>
-     <%-- <td>
-                        <select name="" onchange="change();" id="TextCommodityId" class="form_select">
+
+     <%--    <div class="col-sm-9">
+<select class="form-control" id="ActivityId" disabled>
+<%foreach (var item in base.WebServiceProvider.Country_SelectAllProcedure().OrderBy(t => t.QRCode))
+  {%>
+<option value="<%=item.QRCode %>"><%=item.ActivityName%></option>
+<%}%></select>--%>
+            </div>
+             <td>
+                        <select name="" onchange="change();" id="Name" class="form_select">
                             <option value="" selected="">Please Select</option>
-                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select * from ")
+                            <option value="<%#Eval("ActivityName") %>" selected=""></option>
+                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select ActivityName from Activity"))
                               {%>
-                            <option value="<%=item. %>"><%=item. %></option>
+                            <option value="<%=item %>"><%=item %></option>
                             <%} %>
                         </select>
-        </td>
-        <td>
+          </td>
+           <td>
                         	<div class="smgSelectWrap" id="issueSmg">
                         		<div class="smgSelectText f-toe f-usn"></div>
-                                <input type="hidden">
+                                <input type="hidden" />
                                 <div class="smgSelectListWrap">
-                                  <ul class="smgSelectList" id="newSupplier">  --%>  --%>                                
-                                  <%--  <li val="1" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-10"><input type="checkbox" id="pro1-10"  value="">ITU_BR_NB</label></span></li>
-                                    <li val="2" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-11"><input type="checkbox" id="pro1-11" value="">ITU_BR_DT</label></span></li>
-                                    <li val="3" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-12"><input type="checkbox" id="pro1-12" value="">Newsan_AR_NBV</label></span></li>--%>
-                                  </ul>
                                 </div>
                         	</div>
-         </td>
-        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
+          </td>
+    </div>
+
+
+
+   <%-- <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [Activity] ORDER BY [ActivityName]"></asp:SqlDataSource>
         <br />
@@ -146,8 +142,8 @@
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="ActivityName" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
-        </asp:SqlDataSource>
-    </div>
+        </asp:SqlDataSource>--%>
+    
     <article class="module width_full">
          
             <header> 
