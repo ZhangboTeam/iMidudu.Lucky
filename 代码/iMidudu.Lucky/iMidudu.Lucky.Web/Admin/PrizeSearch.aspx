@@ -75,7 +75,7 @@
        <%-- <select id="test">
       <option value="1">option>
       </select><br />--%>
-   <%--   <td>
+      <%--<td>
                         <select name="" onchange="change();" id="TextCommodityId" class="form_select">
                             <option value="" selected="">Please Select</option>
                             <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select * from ")
@@ -96,8 +96,8 @@
                                   </ul>
                                 </div>
                         	</div>
-         </td>
-        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
+         </td>--%>
+      <%--  <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [Activity] ORDER BY [ActivityName]"></asp:SqlDataSource>
         <br />
@@ -107,7 +107,7 @@
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="ActivityName" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
-        </asp:SqlDataSource>
+        </asp:SqlDataSource>--%>
     </div>
     <article class="module width_full">
          

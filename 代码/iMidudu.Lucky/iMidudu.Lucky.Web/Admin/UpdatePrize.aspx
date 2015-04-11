@@ -86,22 +86,24 @@
 
             function UpdateAll() {
                 var data = new Array();
+                //var data1 = new Array();
                 //var PrizeId = $(this).attr("code");
                 //var PrizeName= $("#NewPrizeIdName").val();
                 //var Quantity = parseInt($("#NewQuantity").val());
                 $("input[tag='txt']").each(function () {
                     data.push({
                         PrizeId: $(this).attr("code"),
-                        PrizeName: $(this).val()
+                        PrizeName: $(this).val(),
+                        Quantity: $("#Quantity").val()
+                    });
+                })
 
-                    });
-                });
-                $("input[tag='txt1']").each(function () {
-                    data.push({
-                        PrizeId: $(this).attr("code"),
-                        Quantity: $(this).val()
-                    });
-                });
+                //$("input[tag='txt1']").each(function () {
+                //    data1.push({
+                //        PrizeId: $(this).attr("code1"),
+                //        Quantity: $(this).NewQuantity.val()
+                //    });
+                //});
                 var arg = {
                     datasssss: data
                 }
@@ -149,11 +151,12 @@
                                     <td>
                                     <input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
-                                         id=" NewPrizeName" type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
-                                  <td>
-                                      <input tag="txt1" onclick="this.select();"
+                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
+                              
+                                     <td>
+                                      <input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
-                                         id="NewQuantity" type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                         id="Quantity" <%=this.Request["Quantity"] %>  type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
                                   <td>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <%--<td>
