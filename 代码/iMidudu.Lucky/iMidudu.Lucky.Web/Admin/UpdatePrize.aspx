@@ -94,7 +94,7 @@
                     data.push({
                         PrizeId: $(this).attr("code"),
                         PrizeName: $(this).val(),
-                        Quantity: $("#Quantity").val()
+                        Quantity: $("#NewQuantity").val()
                     });
                 })
 
@@ -155,8 +155,8 @@
                               
                                      <td>
                                       <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("PrizeId") %>"
-                                         id="Quantity" <%=this.Request["Quantity"] %>  type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                        <%-- code="<%#Eval("PrizeId") %>"--%>
+                                         id="NewQuantity" <%=this.Request["NewQuantity"] %>  type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
                                   <td>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <%--<td>
