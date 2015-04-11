@@ -70,8 +70,9 @@ namespace iMidudu.Lucky.Web
             {
                 iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("PrizeNameUpdate_Procedure",
                      new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId),
-                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
-                     new System.Data.SqlClient.SqlParameter("@Quantity", d.Quantity)
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName)
+                     //,
+                     //new System.Data.SqlClient.SqlParameter("@Quantity", d.Quantity)
                      );
 
             }
@@ -81,7 +82,7 @@ namespace iMidudu.Lucky.Web
 
             public Guid PrizeId { get; set; }
             public string PrizeName { get; set; }
-            public int Quantity { get; set; }
+            //public int Quantity { get; set; }
         }
 
         public class ModelPrizeSearch

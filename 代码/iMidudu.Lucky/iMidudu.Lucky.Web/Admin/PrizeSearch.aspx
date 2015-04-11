@@ -49,13 +49,52 @@
 
             }
 </script>
-    <script>
-        $(".selector1").change(function(){
-            $(".selector2").empty();
-            var option = $("<option>").val(1).text("pxx");
-            $(".selector2").append(option);
-        });  
-    </script>
+<%-- <script>
+     function change() {
+         var cid = $("#TextCommodityId").val();
+         if (cid != "") {
+
+             callBizAjax("GetSystemUserHasCommodity", { CommodityId: cid }, function (users) {
+                 $("#TextIssueOwner").empty();
+                 $("#TextIssueOwner").append("<option value=''>Please select </option>");
+                 for (var i in users) {
+                     $("#TextIssueOwner").append("<option value='" + users[i].UserId + "'>" + users[i].ItCode + "(" + users[i].NameEn + ")" + "</option>");
+                 }
+             });
+             callBizAjax("GetSuppliersHasCommodity", { CommodityId: cid }, function (suppliers) {
+
+                 $("#TextSupplierId").empty();
+                 $("#newSupplier").empty();//reset smgSelectReset
+                 $("#TextSupplierId").append("<option>Please select </option>");
+                 for (var i in suppliers) {
+                     $("#TextSupplierId").append("<option value='" + suppliers[i].SupplierId + "'>" + suppliers[i].SupplierName + "</option>");
+
+                 }
+                 var str = "";
+                 for (var i in suppliers) {
+                     str += ('<li val="' + i + '" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-' + i + '"><input tag="fff" type="checkbox" id="pro1-' + i + '" tv="' + suppliers[i].SupplierId + '">' + suppliers[i].SupplierName + '</label></span></li>');
+                 }
+                 $("#newSupplier").html(str);
+
+                 var $target = $("#issueSmg"),
+                     $title = $target.find('.smgSelectText'),
+                     $valueElement = $target.find('input[type=hidden]');
+
+                 $title.attr('title', 'Please select').html('Please select');
+                 $valueElement.val("");
+             });
+         }
+     }
+     function checkedSuppliers() {
+         var list = new Array();
+         $("input[tag='fff']").each(function () {
+             if ($(this).parent().hasClass('checked') || $(this).is(":checked")) {
+                 list.push($(this).attr("tv"));
+             }
+         });
+         return list;
+     }
+    </script>--%>
     <div align="center">
 <%--   <input name="key2" type="text"  id="key2"  placeholder="请输入活动数字1，2，3"/><br />
    <input name="key1" type="text"  id="key1"  placeholder="请输入奖项1,2,3,4,5,6,7"/><br />
@@ -75,7 +114,7 @@
        <%-- <select id="test">
       <option value="1">option>
       </select><br />--%>
-      <%--<td>
+     <%-- <td>
                         <select name="" onchange="change();" id="TextCommodityId" class="form_select">
                             <option value="" selected="">Please Select</option>
                             <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select * from ")
@@ -89,15 +128,15 @@
                         		<div class="smgSelectText f-toe f-usn"></div>
                                 <input type="hidden">
                                 <div class="smgSelectListWrap">
-                                  <ul class="smgSelectList" id="newSupplier">  --%>                                  
+                                  <ul class="smgSelectList" id="newSupplier">  --%>  --%>                                
                                   <%--  <li val="1" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-10"><input type="checkbox" id="pro1-10"  value="">ITU_BR_NB</label></span></li>
                                     <li val="2" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-11"><input type="checkbox" id="pro1-11" value="">ITU_BR_DT</label></span></li>
                                     <li val="3" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-12"><input type="checkbox" id="pro1-12" value="">Newsan_AR_NBV</label></span></li>--%>
                                   </ul>
                                 </div>
                         	</div>
-         </td>--%>
-      <%--  <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
+         </td>
+        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [Activity] ORDER BY [ActivityName]"></asp:SqlDataSource>
         <br />
@@ -107,7 +146,7 @@
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="ActivityName" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
-        </asp:SqlDataSource>--%>
+        </asp:SqlDataSource>
     </div>
     <article class="module width_full">
          

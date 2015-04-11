@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="iMidudu.Lucky.Web.Admin.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-   <script runat="server">
+    <script runat="server">
             //private int totalCount;
             //private string ky = "";
             //protected override void OnLoad(EventArgs e)
@@ -110,7 +110,7 @@
                             
                         </FooterTemplate>
                     </asp:Repeater>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT [PrizeName], [ActivityName], [Quantity], [PrizeId], [Today], [Yesterday], [WEeek], [Monse], [getcount], [rad] FROM [View_Count] ORDER BY [ActivityName], [PrizeName]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [View_Count] ORDER BY [QRCode], [PrizeId]"></asp:SqlDataSource>
                       </div>
                     
                      <footer>

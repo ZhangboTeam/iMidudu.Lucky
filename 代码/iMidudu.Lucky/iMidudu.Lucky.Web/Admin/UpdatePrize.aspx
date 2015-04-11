@@ -93,8 +93,9 @@
                 $("input[tag='txt']").each(function () {
                     data.push({
                         PrizeId: $(this).attr("code"),
-                        PrizeName: $(this).val(),
-                        Quantity: $("#NewQuantity").val()
+                        PrizeName: $(this).val()
+                        //,
+                        //Quantity: $("#NewQuantity").val()
                     });
                 })
 
@@ -140,7 +141,7 @@
                                     <tr>
                                         <th>PrizeId</th>
                                         <th width="200">奖项名</th>
-                                        <th width="200">数量</th>
+                                        <%--<th width="200">数量</th>--%>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -153,11 +154,11 @@
                                          code="<%#Eval("PrizeId") %>"
                                          id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
                               
-                                     <td>
+                                    <%-- <td>
                                       <input tag="txt" onclick="this.select();"
                                         <%-- code="<%#Eval("PrizeId") %>"--%>
-                                         id="NewQuantity" <%=this.Request["NewQuantity"] %>  type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
-                                  <td>
+                                         <%--id="NewQuantity" <%=this.Request["NewQuantity"] %>  type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                  <td>--%>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <%--<td>
                                     <input tag="txt" onclick="this.select();"
@@ -176,7 +177,7 @@
                         <FooterTemplate>
 
                             <tr>
-                                <td>
+                                <%--<td>
                                     <% var count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
             var nextCode =  string.Format("{0:000}", count++); %>
                                     <input id="NewActivity" type="text" placeholder="请输入奖项code" />
@@ -186,7 +187,7 @@
                                     <input id="newToUrl" type="text" style="width:100%;" /></td>
                                 <td>
                                     <input type="submit" value="AddNew" class="alt_btn" onclick="AddNew();" />
-                                </td>
+                                </td>--%>
                             </tr>
                             </tbody>
                     </table>

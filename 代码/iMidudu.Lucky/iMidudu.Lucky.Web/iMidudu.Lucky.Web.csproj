@@ -70,6 +70,7 @@
     <Content Include="Activity1.aspx" />
     <Content Include="Activity2.aspx" />
     <Content Include="Activity3.aspx" />
+    <Content Include="Admin\BigPrize.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\ie.css" />
@@ -257,6 +258,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AdminHelper.cs" />
+    <Compile Include="Admin\BigPrize.aspx.cs">
+      <DependentUpon>BigPrize.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BigPrize.aspx.designer.cs">
+      <DependentUpon>BigPrize.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
