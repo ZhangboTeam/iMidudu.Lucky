@@ -150,9 +150,9 @@
                                          value="<%#Eval("QRCode") %>"
                                          id="QRCode" type="text" style="width:100%;" /></td>--%>
                                     <%--<td><%#Eval("QRCode") %></td> --%>
-                                    <td>
+                                   <%-- <td>
                                         <input type="submit" value="Update" class="alt_btn" onclick="UpdateAll()" />
-                                    </td>
+                                    </td>--%>
 
                                 </tr>
                         </ItemTemplate>

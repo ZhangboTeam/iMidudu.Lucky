@@ -142,7 +142,7 @@
         <br />
         <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="PrizeName" DataValueField="PrizeName">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [PrizeSearch_View] WHERE ([ActivityName] = @ActivityName) ORDER BY [PrizeName]">
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [PrizeSearch_View] WHERE ([ActivityName] = @ActivityName)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="ActivityName" PropertyName="SelectedValue" Type="String" />
             </SelectParameters>
