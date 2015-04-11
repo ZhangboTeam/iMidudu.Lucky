@@ -84,14 +84,13 @@
             </div>
             <div class="breadcrumbs_container">
                 <article class="breadcrumbs">
-                    <a class="current">Website Admin</a>
+                    <a class="current">iMidudu二期</a>
                     <div class="breadcrumb_divider"></div>
-                    <a class="current2">汇总</a>
+                    <a class="current2">后台管理</a>
                 </article>
             </div>
         </section>
         <!-- end of secondary bar -->
-
         <aside id="sidebar" class="column">
             <hr />
             <h3>数据管理</h3>
@@ -99,15 +98,14 @@
                 <li class="icn_view_users"><a href="/Admin/UserManager.aspx">用户管理</a></li>
                 <li class="icn_tags"><a href="/Admin/TimeSearch.aspx">按日期查询领奖记录</a></li> 
                 <li class="icn_tags"><a href="/Admin/PrizeSearch.aspx">按奖项查询领奖记录</a></li>
-                <li class="icn_tags"><a href="/Admin/PrizeRecord.aspx">领奖记录top10</a></li> 
+                <li class="icn_tags"><a href="/Admin/PrizeRecord.aspx">领奖记录top10</a></li>
+                <li class="icn_tags"><a href="/Admin/UpdateActivityName.aspx">修改活动名</a></li>
+                <li class="icn_tags"><a href="/Admin/UpdatePrize.aspx">修改奖项</a></li> 
                 <li class="icn_tags"><a href="/Admin/SetPrize.aspx">设置奖池</a></li>
                 <li class="icn_tags"><a href="/Admin/Default.aspx">统计奖项</a></li>
-                <li class="icn_tags"><a href="/Admin/UpdateActivityName.aspx">修改活动名</a></li>
-                <li class="icn_tags"><a href="/Admin/UpdatePrize.aspx">修改奖项</a></li>
                 <li class="icn_profile"><a href="/Admin/ChangePassword.aspx">修改密码</a></li>
                 <li class="icn_profile"></li>
             </ul>
-          
         </aside>
         <!-- end of sidebar -->
 

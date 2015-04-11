@@ -18,7 +18,7 @@
             {
 
                 totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Prize");
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeName_Procedure",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrize_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
@@ -31,7 +31,6 @@
                 base.DataBind();
 
             }
-
 
             protected void AspNetPager1_PageChanged(object src, EventArgs e)
             {
@@ -87,10 +86,20 @@
 
             function UpdateAll() {
                 var data = new Array();
+                //var PrizeId = $(this).attr("code");
+                //var PrizeName= $("#NewPrizeIdName").val();
+                //var Quantity = parseInt($("#NewQuantity").val());
                 $("input[tag='txt']").each(function () {
                     data.push({
                         PrizeId: $(this).attr("code"),
                         PrizeName: $(this).val()
+
+                    });
+                });
+                $("input[tag='txt1']").each(function () {
+                    data.push({
+                        PrizeId: $(this).attr("code"),
+                        Quantity: $(this).val()
                     });
                 });
                 var arg = {
@@ -115,8 +124,7 @@
                 });
             }
         </script>
-
-    <article class="module width_full">
+    &nbsp;<article class="module width_full">
          
             <header> 
 
@@ -130,6 +138,7 @@
                                     <tr>
                                         <th>PrizeId</th>
                                         <th width="200">奖项名</th>
+                                        <th width="200">数量</th>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -140,7 +149,11 @@
                                     <td>
                                     <input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
-                                         id=" NewPrizeIdName" type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
+                                         id=" NewPrizeName" type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
+                                  <td>
+                                      <input tag="txt1" onclick="this.select();"
+                                         code="<%#Eval("PrizeId") %>"
+                                         id="NewQuantity" type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
                                   <td>
                                   <%--  <td><%#Eval("ActivityName") %></td> --%>
                                 <%--<td>
@@ -152,10 +165,9 @@
                                          value="<%#Eval("QRCode") %>"
                                          id="QRCode" type="text" style="width:100%;" /></td>--%>
                                     <%--<td><%#Eval("QRCode") %></td> --%>
-                                    <td>
+<%--                                    <td>
                                         <input type="submit" value="Update" class="alt_btn" onclick="UpdateAll()" />
-                                    </td>
-
+                                    </td>--%>
                                 </tr>
                         </ItemTemplate>
                         <FooterTemplate>
@@ -167,12 +179,11 @@
                                     <input id="NewActivity" type="text" placeholder="请输入奖项code" />
 
                                 </td>
-                                <td>'
+                                <td>
                                     <input id="newToUrl" type="text" style="width:100%;" /></td>
                                 <td>
                                     <input type="submit" value="AddNew" class="alt_btn" onclick="AddNew();" />
                                 </td>
-
                             </tr>
                             </tbody>
                     </table>

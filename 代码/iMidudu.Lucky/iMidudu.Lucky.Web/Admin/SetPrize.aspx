@@ -16,13 +16,11 @@
 
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
-
                 totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(distinct PrizeName) from Prize");
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrize_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
-
                 return dr;
             }
             public override void DataBind()
@@ -31,8 +29,6 @@
                 base.DataBind();
 
             }
-
-
             protected void AspNetPager1_PageChanged(object src, EventArgs e)
             {
                 this.DataBind();
@@ -103,11 +99,8 @@
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
-
                         // alert("ok");
-
                         window.location.reload();
-
                     },
                     error: function (err) {
                         alert(err.responseText);

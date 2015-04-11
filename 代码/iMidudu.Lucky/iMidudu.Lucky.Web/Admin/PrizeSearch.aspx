@@ -43,46 +43,24 @@
             {
                 this.DataBind();
             }
-        </script>
-       <script>
 
-           function dosearch() {
-               var key1 = $("#key1").val();
-               var key2 = $("#key2").val();
-               if (key1 == "" || key1 == null) {
-                   // return;
-               }
-               if (key2 == "" || key2 == null) {
-                   // return;
-               }
-               window.location.href = "PrizeSearch.aspx?key1=" + key1 + "&key2=" + key2;
-           }
-           function DownLoad() {
-               var content = $("#content").html();
-               var data = { body: content };
-               $.ajax({
-                   type: "POST",
-                   contentType: "application/json",
-                   url: "Webservice.asmx/ExcelContentSaveToTemp",
-                   data: JSON.stringify(data),
-                   dataType: 'json',
-                   success: function (fn) {
+            protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+            {
 
-                       var url = "/Admin/OutExcel.ashx?filename=扫码用户.xls&ContentFile=" + fn.d;
-                       window.open(url, "_blank");
-                   }
-               });
-
-
-           }
+            }
+</script>
+    <script>
+        $(".selector1").change(function(){
+            $(".selector2").empty();
+            var option = $("<option>").val(1).text("pxx");
+            $(".selector2").append(option);
+        });  
     </script>
-
-
     <div align="center">
-   <input name="key2" type="text"  id="key2"  placeholder="请输入活动数字1，2，3"/><br />
+<%--   <input name="key2" type="text"  id="key2"  placeholder="请输入活动数字1，2，3"/><br />
    <input name="key1" type="text"  id="key1"  placeholder="请输入奖项1,2,3,4,5,6,7"/><br />
       <input type="submit" onclick="dosearch();"  value="按奖项查询"class="alt_btn"/>
-        <br />
+        <br />--%>
         <%--<label>活动名称</label><asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="136px">
             <asp:ListItem Value="活动一"></asp:ListItem>
             <asp:ListItem Value="活动二"></asp:ListItem>
@@ -94,11 +72,46 @@
             <asp:ListItem Value="小奖"></asp:ListItem>
             <asp:ListItem></asp:ListItem>
         </asp:DropDownList>--%>
+       <%-- <select id="test">
+      <option value="1">option>
+      </select><br />--%>
+      <td>
+                        <select name="" onchange="change();" id="TextCommodityId" class="form_select">
+                            <option value="" selected="">Please Select</option>
+                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.)
+                              {%>
+                            <option value="<%=item.ActivityName %>"><%=item.PrizeName %></option>
+                            <%} %>
+                        </select>
+        </td>
+        <td>
+                        	<div class="smgSelectWrap" id="issueSmg">
+                        		<div class="smgSelectText f-toe f-usn"></div>
+                                <input type="hidden">
+                                <div class="smgSelectListWrap">
+                                  <ul class="smgSelectList" id="newSupplier">                                    
+                                  <%--  <li val="1" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-10"><input type="checkbox" id="pro1-10"  value="">ITU_BR_NB</label></span></li>
+                                    <li val="2" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-11"><input type="checkbox" id="pro1-11" value="">ITU_BR_DT</label></span></li>
+                                    <li val="3" class="smgIthems"><span class="IssueLabel"><label class="form_check" for="pro1-12"><input type="checkbox" id="pro1-12" value="">Newsan_AR_NBV</label></span></li>--%>
+                                  </ul>
+                                </div>
+                        	</div>
+         </td>
+      <%--  <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [Activity] ORDER BY [ActivityName]"></asp:SqlDataSource>
+        <br />
+        <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource2" DataTextField="PrizeName" DataValueField="PrizeName">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [PrizeSearch_View] WHERE ([ActivityName] = @ActivityName) ORDER BY [PrizeName]">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="DropDownList1" Name="ActivityName" PropertyName="SelectedValue" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>--%>
     </div>
     <article class="module width_full">
          
             <header> 
-
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
