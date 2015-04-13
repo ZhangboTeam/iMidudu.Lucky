@@ -104,8 +104,6 @@
 				</li>
 			</ul>
 		</div>
-        
-    <input  type="button" value="确定" onclick="auth();" />
 	</div>
 </div>
     <%
