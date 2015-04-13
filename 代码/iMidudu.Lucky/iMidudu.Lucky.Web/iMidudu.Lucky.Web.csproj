@@ -286,6 +286,8 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Ticket1.aspx" />
+    <Content Include="Ticket2.aspx" />
+    <Content Include="Ticket3.aspx" />
     <Content Include="uploadedImages\null.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

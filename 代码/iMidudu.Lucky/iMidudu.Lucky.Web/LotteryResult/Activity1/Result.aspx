@@ -31,8 +31,8 @@
 	<meta name="apple-mobile-web-app-title" content="title2">
 	<!-- CSS
 	================================================== -->
-	<link href="css/reset.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/css/style.css" rel="stylesheet" type="text/css">
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" >
@@ -48,20 +48,25 @@
 	
 	<!-- Tile icon for Win8 (144x144 + tile color) -->
 	<!-- win 8 磁贴图标 -->
-	<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileImage" content="/images/touch/ms-touch-icon-144x144-precomposed.png">
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
+    <script>
+            function reg() {
+                window.location.href = "/LotteryResult/Activity1/Result1.aspx?ScanHistoryId=<%=this.Request["ScanHistoryId" ] %>&PrizeId=<%=this.Request["PrizeId"]%>";
+            }
+    </script>
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="images/price-1.jpg" alt="" class="prices">
-	<input type="button" class="button-sty2 btn-pos">
+	<img src="/images/price-3.jpg" alt="" class="prices">
+	<input type="button" class="button-sty2 button-sty3 btn-pos" onclick="reg();">
 </div>
 </body>
 
 <!-- Javascript with AMD  -->
-<script src="js/require.js" data-main="js/main" ></script>
+<script src="/js/require.js" data-main="/js/main" ></script>
 
 
 

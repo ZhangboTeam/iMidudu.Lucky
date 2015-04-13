@@ -61,7 +61,7 @@
             var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
 
             var str = JSON.stringify(data);
-            alert(str);
+            //alert(str);
             //window.location.href = '/LotteryResult/Activity1/Result1.aspx';
             //return;
             $.ajax({
@@ -76,7 +76,7 @@
                 },
                 error: function (e) {
                     //alert("PrizeLottery");
-                    alert("PrizeLottery" + e.responseText);
+                    //alert("PrizeLottery" + e.responseText);
                     $("#msg").html(e.responseText);
                 }
             });
@@ -85,7 +85,7 @@
             var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>', PrizeId: prize.PrizeId };
 
             var str = JSON.stringify(data);
-            alert(str);
+            //alert(str);
             $.ajax({
                 type: "POST",
                 contentType: "application/json",

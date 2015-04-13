@@ -4,7 +4,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" class="mtx-app">
 <head runat="server">
-<head>
 <!-- 
 * 开发人员书写规范:
 * 1.所有缩进都用 TAB， 而不是空格。
@@ -34,8 +33,8 @@
 	<meta name="apple-mobile-web-app-title" content="title2">
 	<!-- CSS
 	================================================== -->
-	<link href="css/reset.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/css/style.css" rel="stylesheet" type="text/css">
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" >
@@ -51,7 +50,7 @@
 	
 	<!-- Tile icon for Win8 (144x144 + tile color) -->
 	<!-- win 8 磁贴图标 -->
-	<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileImage" content="/images/touch/ms-touch-icon-144x144-precomposed.png">
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
@@ -91,7 +90,7 @@
 	<div class="ckp-content">
 		<img src="images/bot-pic-01.png" alt="" class="bot-pic">
 		<div class="ckp-top-img-wrap">
-			<img src="images/top-pic-01.png" alt="">
+			<img src="/images/top-pic-01.png" alt="">
 		</div>
 		<form action="" class="ckp-form">
 			<div class="inner">
@@ -99,7 +98,7 @@
 					<tbody>
 						<tr>
 							<th>姓名</th>
-							<td><input type="text" class="inputsty" id="UserName" value="username"></td>
+							<td><input type="text" class="inputsty" id="UserName"></td>
 						</tr>
 						<tr>
 							<th>性别</th>
@@ -160,5 +159,5 @@
     <input id="Button1" type="button" value="确认我的信息" onclick="OK();" />--%>
 </body>
     <!-- Javascript with AMD  -->
-<script src="js/require.js" data-main="js/main" ></script>
+<script src="/js/require.js" data-main="/js/main" ></script>
 </html>
