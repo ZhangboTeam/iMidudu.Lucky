@@ -30,31 +30,27 @@ namespace iMidudu.Lucky.Web
                 return ex.Message;
             }
         }
-        
-        public ActivityName GetPrize(string ActivityName)
+        [WebMethod]
+        public List<ActivityName> GetPrize(string ActivityId)
         {
-            var table = iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select PrizeName from Activity,Prize where  Activity.QRCode = Prize.QRCode and Activity.ActivityName=@ActivityName",
-                new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName))[0];
-            ActivityName row=new ActivityName();
-            row.Prize1 = table.Rows[0]["PrizeName"].ToString();
-            row.Prize2 = table.Rows[1]["PrizeName"].ToString();
-            row.Prize3 = table.Rows[2]["PrizeName"].ToString();
-            row.Prize4 = table.Rows[3]["PrizeName"].ToString();
-            row.Prize5 = table.Rows[4]["PrizeName"].ToString();
-            row.Prize6 = table.Rows[5]["PrizeName"].ToString();
-            row.Prize7 = table.Rows[6]["PrizeName"].ToString();
-            return row;
+            var table = iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select * from Prize where  QRCode=@ActivityId",
+                new System.Data.SqlClient.SqlParameter("@ActivityId", ActivityId))[0];
+            var Reeslut = new List<ActivityName>();
+            foreach ( System.Data.DataRow row in table.Rows)
+            {
+                Reeslut.Add(new ActivityName()
+                {
+                    PrizeId = row["PrizeId"].ToString(),
+                    PrizeName = row["PrizeName"].ToString()
+                });
+            }
+            return Reeslut;
             
         }
         public class ActivityName
         {
-            public string Prize1;
-            public string Prize2 ;
-            public string Prize3 ;
-            public string Prize4 ;
-            public string Prize5 ;
-            public string Prize6 ;
-            public string Prize7 ;
+            public string PrizeName;
+            public string PrizeId;
         }
         public Activity1 GetActivityName()
         {

@@ -137,6 +137,7 @@
             }
         </script>
     <div align="center">
+
              <td>
                         <select name="" onchange="change();" id="Name"  class="form_select">
                             <option value="" selected="">请选择活动</option>

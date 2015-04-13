@@ -3,13 +3,12 @@
     <script runat="server">
             private int totalCount;
             private string ky1 = "";
-            private string ky2 = "";
+            //private string ky2 = "";
             protected override void OnLoad(EventArgs e)
             {
                 base.OnLoad(e);
                 ky1 = this.Request["key1"];
-                ky2 = this.Request["key2"];
-                //ky1 = this.Request["Name"];
+                //ky2 = this.Request["key2"];
                 if (!IsPostBack)
                 {
                     this.LoadData();
@@ -19,16 +18,19 @@
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
                 var key1 = (ky1 == null ? "" : ky1);
-                var key2 = (ky2 == null ? "" : ky2);
-                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from record_view where PrizeName like '%'+ @key1 +'%'and  ActivityName like '%'+ @key2 +'%'",
-                   new System.Data.SqlClient.SqlParameter("@key1", key1),
-                   new System.Data.SqlClient.SqlParameter("@key2", key2)
+                //var key2 = (ky2 == null ? "" : ky2);
+                //and  ActivityName like '%'+ @key2 +'%'
+                totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from record_view where PrizeName = @key1",
+                   new System.Data.SqlClient.SqlParameter("@key1", key1)
+                   //,
+                   //new System.Data.SqlClient.SqlParameter("@key2", key2)
                    );
                 var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("PrizeSearch_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
-                   new System.Data.SqlClient.SqlParameter("@key1", key1),
-                   new System.Data.SqlClient.SqlParameter("@key2", key2)
+                   new System.Data.SqlClient.SqlParameter("@key1", key1)
+                   //,
+                   //new System.Data.SqlClient.SqlParameter("@key2", key2)
                    );
                 return dr;
             }
@@ -52,9 +54,12 @@
 </script>
  <script>
      function change() {
-         var Name = $("#Name").val();
+         var Name = $("#DropDownList1").val();
+         if (Name=="") {
+           // ;; return;
+         }
              var data={
-                 ActivityName: Name
+                 ActivityId: Name
              };
              $.ajax({
                  type: "POST",
@@ -63,18 +68,47 @@
                  data: JSON.stringify(data),
                  dataType: 'json',
                  success: function (result) {                  
-                     $("#PrizeName").empty();
-                     $("#PrizeName").append("<option value=''>Please select </option>");
+                     $("#PrizeNames").empty();
+                     $("#PrizeNames").append("<option value=''>请选择奖项</option>");
                      for (var i in result.d) {
-                         $("#PrizeName").append("<option value='" + result.d[i] + "'>" + result.d[i]+"</option>");
+                         $("#PrizeNames").append("<option value='" + result.d[i].PrizeName+ "'>" + result.d[i].PrizeName+"</option>");
                      }
                  },
-                 error:function(err){
-                     alert(err);
+                 error: function (err) {
+                     $("#PrizeNames").empty();
+                     if (DropDownList=="") {
+
+                     }
                  }
              });
-         }
-    
+     } function abc() {
+         var Id = $("#PrizeNames").val();
+         //alert(Id);
+         window.location = "PrizeSearch.aspx?key1=" + Id;
+     }
+     function DownLoad() {
+         var k = $("#PrizeNames").val();
+         var sql = "select ActivityName as 活动名,PrizeName as 奖项名,Pic as 收银票图片,NickName as 昵称, Sex as 性别,WXCountry as 国家,WXProvince as 省, WXCity as 市,Country as 国家扫码,Province as 省扫码,city as 市扫码 ,LastActiveTime as 最近一次活跃时间,RegisterDate as 第一次活跃时间 from record_view where PrizeName ='<%=this.Request["key1"]%>'";
+         var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+         //alert(sql);
+         window.open(url);
+         return;
+         var content = $("#content").html();
+         var data = { body: content };
+         $.ajax({
+             type: "POST",
+             contentType: "application/json",
+             url: "Webservice.asmx/ExcelContentSaveToTemp",
+             data: JSON.stringify(data),
+             dataType: 'json',
+             success: function (fn) {
+
+                 var url = "/Admin/OutExcel.ashx?filename=扫码用户.xls&ContentFile=" + fn.d;
+                 window.open(url, "_blank");
+             }
+         });
+
+     }
     </script>
     <div align="center">
 <%--   <input name="key2" type="text"  id="key2"  placeholder="请输入活动数字1，2，3"/><br />
@@ -92,21 +126,13 @@
 
      <div align="center">
              <td>
-                        <select name="" onchange="change();" id="Name"  class="form_select">
-                            <option value="" selected="">Please select</option>
-                            <%
-                                var data1 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity").ToString();
-                                var data2 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'").ToString();
-                                var data3 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe83'").ToString();
-                                //foreach (var item in data)
-                              {%>
-                            <option value="<%=data1%>"><%=data1%></option>
-                            <option value="<%=data2%>"><%=data2%></option>
-                            <option value="<%=data3%>"><%=data3%></option>
-                           <%--<option value="<%=item%>"><%=item%></option>--%>
-                            <%} %>
-                        </select>
+                        <asp:DropDownList ID="DropDownList1" runat="server" ClientIDMode="Static"    onchange="change();"  class="form_select" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="QRCode" AppendDataBoundItems="True">
+                            <asp:ListItem Value="">请选择活动</asp:ListItem>
+             </asp:DropDownList>
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT [ActivityName], [QRCode] FROM [Activity] ORDER BY [QRCode]"></asp:SqlDataSource>
+                     
           </td>
+         <select name="" id="PrizeNames" class="form_select" onchange="abc()"> </select></td>
            <%--<td>
                         	<div class="smgSelectWrap" id="issueSmg">
                         		<div class="smgSelectText f-toe f-usn"></div>
@@ -195,7 +221,7 @@
                     </webdiyer:aspnetpager>
                  
                      <div class="post_message">
-                <label>汇总：活动<label><%#ky2%></label>&nbsp&nbsp&nbsp&nbsp奖项<label><%#ky1%></label>&nbsp&nbsp&nbsp&nbsp 有</label>
+                <label>汇总：活动<label></label>&nbsp&nbsp&nbsp&nbsp奖项<label><%#ky1%></label>&nbsp&nbsp&nbsp&nbsp 有</label>
                 &nbsp&nbsp&nbsp&nbsp<label><%#totalCount%></label>人
                     
             </div>
