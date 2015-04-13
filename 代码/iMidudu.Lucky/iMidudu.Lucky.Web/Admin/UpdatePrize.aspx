@@ -166,7 +166,7 @@
     &nbsp;<article class="module width_full">
          
             <header> 
-
+                <h3 class="tabs_involved">修改奖项名 </h3>
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">

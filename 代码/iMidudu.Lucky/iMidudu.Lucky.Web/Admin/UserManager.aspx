@@ -49,8 +49,9 @@
             window.location.href = "UserManager.aspx?key=" + k;
         }
         function DownLoad() {
-            var k= $("#key").val();
-            var sql = "select NickName as 昵称,WXCountry as 国家,WXProvince as 省,WXCity as 市, TotalCount as 扫码次数,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from UserManager_view where NickName  like '%" + k + "%'";
+            var k = $("#key").val();
+           alert(k)
+           var sql = "select NickName as 昵称,WXCountry as 国家,WXProvince as 省,WXCity as 市, TotalCount as 扫码次数,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from UserManager_view where NickName  like '%" + k + "%' ";
             var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
             //alert(sql);
             window.open(url);
@@ -79,6 +80,7 @@
     <article class="module width_full">
 
         <header>
+            <h3 class="tabs_involved">微信用户信息</h3>
         </header>
         <div class="tab_container">
             <div id="tab1" class="tab_content">

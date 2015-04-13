@@ -100,8 +100,9 @@
           </td>--%>
     </div>
     <article class="module width_full">
-         
-         
+         <header>
+             <h3 class="tabs_involved">修改数量 </h3>
+         </header>
             <%--<header> 
                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName" onchange="change()">
                 </asp:DropDownList>

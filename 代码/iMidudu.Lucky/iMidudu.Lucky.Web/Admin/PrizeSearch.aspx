@@ -160,6 +160,7 @@
     <article class="module width_full">
          
             <header> 
+                <h3 class="tabs_involved">奖项搜索</h3>
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
@@ -221,8 +222,8 @@
                     </webdiyer:aspnetpager>
                  
                      <div class="post_message">
-                <label>汇总：活动<label></label>&nbsp&nbsp&nbsp&nbsp奖项<label><%#ky1%></label>&nbsp&nbsp&nbsp&nbsp 有</label>
-                &nbsp&nbsp&nbsp&nbsp<label><%#totalCount%></label>人
+                <%--<label>汇总：活动<label></label>&nbsp&nbsp&nbsp&nbsp奖项<label><%#ky1%></label>&nbsp&nbsp&nbsp&nbsp 有</label>
+                &nbsp&nbsp&nbsp&nbsp<label><%#totalCount%></label>人--%>
                     
             </div>
                 </div>
