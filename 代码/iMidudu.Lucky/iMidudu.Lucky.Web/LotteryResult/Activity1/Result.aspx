@@ -1,10 +1,8 @@
 ﻿<%@ Page Language="C#"   %>
-
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" class="mtx-app">
-<head runat="server">
-    <!-- 
+<html class="mtx-app">
+<head>
+<!-- 
 * 开发人员书写规范:
 * 1.所有缩进都用 TAB， 而不是空格。
 * 2.非必要，禁止用行内样式例如 <div style="display:block"> 
@@ -12,7 +10,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>抽奖大转盘</title>
+	<title>恭喜中奖</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
@@ -54,77 +52,17 @@
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/json2.js"></script>
-    <script>
-        function beginLottery() {
-            var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
-
-            var str = JSON.stringify(data);
-            alert(str);
-            //window.location.href = '/LotteryResult/Activity1/Result1.aspx';
-            //return;
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "/Webservice.asmx/PrizeLottery",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                success: function (result) {
-                    var prize = result.d;
-                    SavePrize(prize);
-                },
-                error: function (e) {
-                    //alert("PrizeLottery");
-                    alert("PrizeLottery" + e.responseText);
-                    $("#msg").html(e.responseText);
-                }
-            });
-        }
-        function SavePrize(prize) {
-            var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>', PrizeId: prize.PrizeId };
-
-            var str = JSON.stringify(data);
-            alert(str);
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "/Webservice.asmx/SavePrize",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                success: function (result) {
-                    window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
-                },
-                error: function (e) {
-                    alert("SavePrize wrong");
-                    alert(e.responseText);
-                }
-            });
-        }
-
-    </script>
 </head>
 <body>
-    <%--<%=this.Request["ScanHistoryId" ]%>,
-    <%=this.Request["QRCode" ]%>--%>
-    <div class="container"><!-- Everything started here -->
-	<div class="get_prc_content">
-		<div class="layout-top">
-			<img src="images/get_prc_layout_top.png" alt="">
-		</div>
-		<div class="layout-bot">
-			<a href="#"><img src="images/get_prc_layout_bot.png" alt="" onclick="beginLottery();"></a>
-		</div>
-	</div>
+<div class="container"><!-- Everything started here -->
+	<img src="images/price-1.jpg" alt="" class="prices">
+	<input type="button" class="button-sty2 btn-pos">
 </div>
-
-    <%--<div style="width:400px;height:400px;">
-        抽奖大转盘
-    </div>
-    <div id="msg"></div>--%>
-    <%--<input id="beginLottery" type="button" value="开始抽奖" onclick="beginLottery();" />--%>
-
 </body>
-    <!-- Javascript with AMD  -->
+
+<!-- Javascript with AMD  -->
 <script src="js/require.js" data-main="js/main" ></script>
+
+
+
 </html>
