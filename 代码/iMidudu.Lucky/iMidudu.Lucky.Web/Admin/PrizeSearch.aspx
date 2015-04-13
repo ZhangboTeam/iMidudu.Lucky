@@ -9,6 +9,7 @@
                 base.OnLoad(e);
                 ky1 = this.Request["key1"];
                 ky2 = this.Request["key2"];
+                //ky1 = this.Request["Name"];
                 if (!IsPostBack)
                 {
                     this.LoadData();
@@ -50,28 +51,7 @@
             }
 </script>
  <script>
-     
-         //var cid = $("#Name").val();
-         //if (cid != "") {
-
-         //    ("GetSystemUserHasCommodity", { CommodityId: cid }, function (users) {
-         //        $("#PrizeName").empty();
-         //        $("#PrizeName").append("<option value=''>Please select </option>");
-         //        for (var i in users) {
-         //            $("#PrizeName").append("<option value='" + users[i].pri + "'>" + users[i].ItCode + "(" + users[i].NameEn + ")" + "</option>");
-         //        }
-         //    });
-             //    var $target = $("#issueSmg"),
-             //        $title = $target.find('.smgSelectText'),
-             //        $valueElement = $target.find('input[type=hidden]');
-
-             //    $title.attr('title', 'Please select').html('Please select');
-             //    $valueElement.val("");
-         //};
-
-   
      function change() {
-         //alert(openid);
          var Name = $("#Name").val();
              var data={
                  ActivityName: Name
@@ -88,7 +68,6 @@
                      for (var i in result.d) {
                          $("#PrizeName").append("<option value='" + result.d[i] + "'>" + result.d[i]+"</option>");
                      }
-
                  },
                  error:function(err){
                      alert(err);
@@ -109,25 +88,34 @@
   {%>
 <option value="<%=item.QRCode %>"><%=item.ActivityName%></option>
 <%}%></select>--%>
-            <%--</div>
+            </div>
+
+     <div align="center">
              <td>
-                        <select name="" onchange="change();" id="Name" runat=server class="form_select">
-                            <option value="活动一" selected="">活动一</option>
-                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.)
+                        <select name="" onchange="change();" id="Name"  class="form_select">
+                            <option value="" selected="">Please select</option>
+                            <%
+                                var data1 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity").ToString();
+                                var data2 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'").ToString();
+                                var data3 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe83'").ToString();
+                                //foreach (var item in data)
                               {%>
-                            <option value="<%=item %>"><%=item %></option>
+                            <option value="<%=data1%>"><%=data1%></option>
+                            <option value="<%=data2%>"><%=data2%></option>
+                            <option value="<%=data3%>"><%=data3%></option>
+                           <%--<option value="<%=item%>"><%=item%></option>--%>
                             <%} %>
                         </select>
           </td>
-           <td>
+           <%--<td>
                         	<div class="smgSelectWrap" id="issueSmg">
                         		<div class="smgSelectText f-toe f-usn"></div>
                                 <input type="hidden" />
                                 <div class="smgSelectListWrap">
                                 </div>
                         	</div>
-          </td>
-    </div>--%>
+          </td>--%>
+    </div>
 
 
 

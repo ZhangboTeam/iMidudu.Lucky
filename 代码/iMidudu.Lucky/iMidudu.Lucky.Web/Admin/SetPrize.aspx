@@ -3,9 +3,11 @@
            <script runat="server">
 
             private int totalCount;
+            private string ky="" ;
             protected override void OnLoad(EventArgs e)
             {
                 base.OnLoad(e);
+                ky = this.Request["key"];
                 if (!IsPostBack)
                 {
                     this.LoadData();
@@ -16,10 +18,12 @@
 
             private System.Data.SqlClient.SqlDataReader LoadData()
             {
+                var key = (ky == null ? "" : ky);
                 totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(distinct PrizeName) from Prize");
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrize_Procedure",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("SetPrizes_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
-                   new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
+                   new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
+                   new System.Data.SqlClient.SqlParameter("@key", key)
                    );
                 return dr;
             }
@@ -35,52 +39,13 @@
             }
         </script>
         <script>
-            //function deleteCode(code) {
-            //    var data = {
-            //        ActivityName:ActivityName 
-            //    }; 
-            //    $.ajax({
-            //        type: "POST",
-            //        contentType: "application/json",
-            //        url: "/Admin/Webservice.asmx/DeleteActivity",
-            //        data: JSON.stringify(data),
-            //        dataType: 'json',
-            //        success: function (result) {
+            function change() {
+                var k = $("#Name").val();
+                if (k == null || k == "") {
+                }
 
-            //            alert("ok");
-            //            window.location.reload();
-
-            //        },
-            //        error: function (err) {
-            //            alert(err.responseText);
-            //        }
-            //    });
-            //}
-            //function AddNew() { 
-            //    var data = {
-            //        ActivityName: $("#NewActivity").val(),
-            //    };
-            //    if (data.ActivityName == "") {
-            //        alert("input Activity"); return;
-            //    }
-            //    $.ajax({
-            //        type: "POST",
-            //        contentType: "application/json",
-            //        url: "/Webservice.asmx/AddNewActivity",
-            //        data: JSON.stringify(data),
-            //        dataType: 'json',
-            //        success: function (result) {
-            //            // alert("ok");
-            //            $("#NewActivity").val(result.d);
-            //            window.location.reload();
-
-            //        },
-            //        error: function (err) {
-            //            alert(err.responseText);
-            //        }
-            //    });
-            //}
-
+                window.location.href = "SetPrize.aspx?key=" + k;
+            }
             function UpdateAll() {
                 var data = new Array();
                 $("input[tag='txt']").each(function () {
@@ -108,16 +73,40 @@
                 });
             }
         </script>
-
+    <div align="center">
+             <td>
+                        <select name="" onchange="change();" id="Name"  class="form_select">
+                            <option value="" selected="">请选择活动</option>
+                            <%
+                                var data1 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity").ToString();
+                                var data2 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'").ToString();
+                                var data3 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe83'").ToString();
+                                //foreach (var item in data)
+                              {%>
+                            <option value="<%=data1%>"><%=data1%></option>
+                            <option value="<%=data2%>"><%=data2%></option>
+                            <option value="<%=data3%>"><%=data3%></option>
+                           <%--<option value="<%=item%>"><%=item%></option>--%>
+                            <%} %>
+                        </select>
+          </td>
+           <%--<td>
+                        	<div class="smgSelectWrap" id="issueSmg">
+                        		<div class="smgSelectText f-toe f-usn"></div>
+                                <input type="hidden" />
+                                <div class="smgSelectListWrap">
+                                </div>
+                        	</div>
+          </td>--%>
+    </div>
     <article class="module width_full">
          
-            <header> 
-
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName">
+         
+            <%--<header> 
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="ActivityName" DataValueField="ActivityName" onchange="change()">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT [ActivityName] FROM [Activity]"></asp:SqlDataSource>
-
-            </header>
+            </header>--%>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
                     <asp:Repeater ID="Repeater1" runat="server">

@@ -89,6 +89,19 @@ namespace iMidudu.Lucky.Web
             public Guid QRCode { get; set; }
         }
 
+        public void SearchActName(List<UpdateModelActivityName> ActivityName)
+        {
+            foreach (var d in ActivityName)
+            {
+               iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("ActName_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@ActivityName", d.ActivityName));
+            }
+        }
+        public class UpdateModelActivityName
+        {
+            public string ActivityName { get; set; }
+        }
+
         [WebMethod]
         public void UpdateAllPrize(List<UpdateModelPrize> datasssss)
         {
