@@ -93,7 +93,6 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {
-                    prize.URL = "/LotteryResult/Activity1/Result.aspx";
                     window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 },
                 error: function (e) {

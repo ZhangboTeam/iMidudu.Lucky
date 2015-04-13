@@ -98,7 +98,7 @@
 					<tbody>
 						<tr>
 							<th>姓名</th>
-							<td><input type="text" class="inputsty" id="UserName" value="username"></td>
+							<td><input type="text" class="inputsty" id="UserName"></td>
 						</tr>
 						<tr>
 							<th>性别</th>

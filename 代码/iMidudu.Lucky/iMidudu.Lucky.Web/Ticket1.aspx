@@ -103,26 +103,25 @@
 			<h2 class="title">发票号码<span class="sub-title">（信息供抽奖需求）</span></h2>
 			<input type="text" class="inputsty mgb-sty1" id="TicketNumber"  placeholder="请输入发票号码">
 			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="请上传收银小票">
+            <input type="button" id="uploadImage" value="上传小票照片" hidden  />
+            <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
 			<input type="button" id="ok" class="buttonsty2 mgb-sty1"  value="确定" onclick="goOn();">
+            <%--<%= SuuSee.UserInfo.CurrentUser().data.city%>--%>
 		</div>
 	</div>
 </div>
 
 <%--    <input type="button" id="chooseImage" value="选择小票照片" />--%>
-    <input type="button" id="uploadImage" value="上传小票照片" hidden  />
-    <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
 <%--    <img id="preview" width="300" />
     <br />
     <input type="text" id="TicketNumber" />
     <br />
      <input type="button" id="ok"  value="确定" onclick="goOn();"/>--%>
-    <%= SuuSee.UserInfo.CurrentUser().data.city
-         %>
+    
+         
     <div id="mediaid">
 
     </div>
-    <!-- Javascript with AMD  -->
-    <script src="js/require.js" data-main="js/main" ></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
     <script> 
         var ticketUrl="";
@@ -305,4 +304,6 @@
         }
     </script> 
 </body>
+    <!-- Javascript with AMD  -->
+    <script src="js/require.js" data-main="js/main" ></script>
 </html>
