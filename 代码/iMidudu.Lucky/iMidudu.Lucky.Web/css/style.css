@@ -412,3 +412,335 @@ list-style:none;
 		background:#2fffff;
 		color:#fff;
 	}
+    @charset "utf-8";
+/* CSS 格式书写开发人员约束规范 ****************************************************************** 
+
+1.所有CSS属性，除了空属性可以单行之外，即使只有一个属性，也必须换行,但是后期发布版本压缩什么的请随意压缩。
+
+
+2.所有缩进都用 TAB， 而不是空格。
+
+
+3.绑定到HTML元素的CSS属性，除非经过深思熟虑，排除后期污染到其它HTML标签属性，不然一律通过CLASS或者ID来写CSS 
+	例如：  
+		a {xxxx},  
+		div{xxxx}, 
+		li {xxxx}, 
+		span {xxxx} 这种全局通用HTML标签样式是禁止书写。
+
+
+4.禁止样式过多嵌套，尽量不要超过3层
+	例如：
+		.a {xxx}
+		.a .b {xxx}
+		.a .b .c {xxxx}
+
+
+5.不要滥用缩写去耍帅or偷懒,省了几个字节会造成后面维护人员很大麻烦
+	例如:font:12px/20px "simsun"
+
+
+********************************************************************************************  */
+.mgb-sty1
+{
+	margin-bottom: 20px;
+}
+.mtx-app body,
+.mtx-app
+{
+	font-size: 10px;
+	height: 100%;
+}
+
+.mtx-app .container
+{
+	position: relative;
+	height: 100%;
+	background : -webkit-linear-gradient(top, rgb(0, 0, 12) 0%, rgb(255, 255, 255) 100%);
+	background : -moz-linear-gradient(top, rgb(0, 0, 12) 0%, rgb(255, 255, 255) 100%);
+	background : -o-linear-gradient(top, rgb(0, 0, 12) 0%, rgb(255, 255, 255) 100%);
+	background : -ms-linear-gradient(top, rgb(0, 0, 12) 0%, rgb(255, 255, 255) 100%); 
+	background : -linear-gradient(top, rgb(0, 0, 12) 0%, rgb(255, 255, 255) 100%);
+}
+.bg-img-1
+{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.upload_invoice_modal
+{
+	position: absolute;
+	left: 25px;
+	right: 25px;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 0 0 20px 20px;
+}
+.upload_inv_inner .title .sub-title
+{
+	font-weight: normal;
+	font-size: 12px;
+}
+.upload_inv_inner .title
+{
+	padding: 10px 0;
+	font-size: 19px;
+	line-height: normal;
+}
+.ckp-form .inputsty,
+.upload_inv_inner .buttonsty2,
+.upload_inv_inner .buttonsty,
+.upload_inv_inner .inputsty
+{
+	 -webkit-appearance: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 42px;
+	line-height: normal;
+	width: 100%;
+	padding: 0 10px;
+	border-radius: 4px;
+	border: solid 1px #c7c7c7;
+}
+.upload_inv_inner .buttonsty
+{
+	border: none;
+	background-color: #2294ff;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+}
+.upload_inv_inner .buttonsty2 
+{
+	border-color: #2294ff;
+	color: #2294ff;
+	font-size: 16px;
+	background-color:transparent;
+}
+.upload_inv_inner
+{
+	padding: 20px;
+}
+.mtx-price-detail
+{
+	min-height: 100%;
+	background: url(../images/page_bg-02.jpg);
+	-webkit-background-size: 100% 100%;
+	background-size:100% 100%;
+}
+.mtx-price-detail .inner li:before
+{
+	content: '·';
+	margin-left: -8px;
+}
+.mtx-price-detail .inner li
+{
+	padding-left: 10px;
+}
+.mtx-price-detail .inner 
+{
+	padding: 20px;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+}
+.prices
+{
+	position: absolute;
+	vertical-align: top;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+.btn-pos
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: auto;
+	bottom: 10px;
+	margin: auto;
+}
+.button-sty2:active
+{
+	-webkit-transform: scale(0.95);
+	-ms-transform: scale(0.95);
+	transform: scale(0.95);
+}
+.button-sty3,
+.button-sty2
+{
+	background-image: url(../images/button-share.png);
+	background-color: transparent;
+	background-size: 132px 59px;
+	width: 132px;
+	height: 59px;
+	cursor: pointer;
+	border: none;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+.button-sty3
+{
+	background-image: url(../images/button-share2.png);
+}
+.button-sty4
+{
+	background-image: url(../images/button-yes.png);
+}
+.bot-pic
+{
+	position: absolute;
+	top: auto;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.ckp-content
+{
+	min-height: 100%;
+	position: relative;
+	background : -webkit-radial-gradient(center center,circle cover, rgb(255, 255, 255) 0%, rgb(0, 0, 12) 80%);
+	background : -moz-linear-gradient(center center,circle cover, rgb(255, 255, 255) 0%, rgb(0, 0, 12) 80%);
+	background : -o-linear-gradient(center center,circle cover, rgb(255, 255, 255) 0%, rgb(0, 0, 12) 80%);
+	background : -ms-linear-gradient(center center,circle cover, rgb(255, 255, 255) 0%, rgb(0, 0, 12) 80%); 
+	background : -linear-gradient(center center,circle cover, rgb(255, 255, 255) 0%, rgb(0, 0, 12) 80%);
+}
+.ckp-top-img-wrap
+{
+	position: relative;
+	text-align: center;
+}
+.ckp-top-img-wrap img
+{
+	vertical-align: top;
+	max-width: 100%;
+}
+.ckp-form .inner
+{
+	padding: 20px;
+}
+.ckp-form th:after
+{
+	content: ' :';
+}
+.ckp-form td 
+{
+	height: 42px
+}
+.ckp-form th
+{
+	text-align: left;
+	padding-right: 10px;
+}
+.ckp-form th,
+.ckp-form td
+{
+	padding-bottom: 10px;
+}
+.ckp-form
+{
+	position: relative;
+	border-radius: 20px;
+	display: block;
+	margin: 10px;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+.hasRadioSty label,
+.hasRadioSty input[type="radio"]
+{
+	vertical-align: middle;
+}
+
+.send-ckp .inputsty
+{
+	 -webkit-appearance: none;
+	border-right: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	
+}
+.send-ckp .send_btn
+{
+	 -webkit-appearance: none;
+	position: absolute;
+	width: 86px;
+	height: 100%;
+	right: 0;
+	top: 0;
+	border:none;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	color: #fff;
+	font-size: 14px;
+	background-color: #2294ff;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.send-ckp
+{
+	position: relative;
+	padding-right: 86px;
+}
+.ckp-text-sty01
+{
+	font-size: 1.2rem;
+	line-height: 1.4rem;
+}
+.ckp-text-sty02
+{
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	font-weight: bold;
+}
+.ckp-form .ckb-sub-btn
+{
+	text-align: center;
+	white-space: nowrap;
+	word-break: keep-all;
+	padding-bottom: 0px;
+	
+}
+
+.ckb-sub-btn .button-sty2
+{
+	margin: 0;
+	padding: 0;
+}
+.get_prc_content
+{
+	height: 100%;
+	background : -webkit-radial-gradient(bottom,circle cover, rgb(255, 255, 255) 43%, rgb(0, 0, 12) 99%);
+	background : -moz-linear-gradient(bottom,circle cover, rgb(255, 255, 255) 43%, rgb(0, 0, 12) 99%);
+	background : -o-linear-gradient(bottom,circle cover, rgb(255, 255, 255) 43%, rgb(0, 0, 12) 99%);
+	background : -ms-linear-gradient(bottom,circle cover, rgb(255, 255, 255) 43%, rgb(0, 0, 12) 99%); 
+	background : -linear-gradient(bottom,circle cover, rgb(255, 255, 255) 43%, rgb(0, 0, 12) 99%);
+}
+.get_prc_content .layout-top
+{
+	height: 30%;
+	text-align: center;
+}
+.get_prc_content .layout-top img
+{
+	vertical-align: top;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.get_prc_content .layout-bot
+{
+	height: 62%;
+	text-align: center;
+}
+.get_prc_content .layout-bot img
+{
+	vertical-align: top;
+	max-width: 100%;
+	max-height: 100%;
+}
