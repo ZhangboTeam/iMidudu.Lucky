@@ -91,8 +91,8 @@
         <%-- subscribe <%=r.subscribe %><%=r.subscribe==0?"No":"Yes" %><br />
            unionid <%=r.unionid %><br />--%>
        
-            <%--<%var c = wechat.Config(Request.Url.AbsoluteUri);%>
-       appId: '<%=c.appId %>',
+            <%var c = wechat.Config(Request.Url.AbsoluteUri);%>
+       <%--appId: '<%=c.appId %>',
                 timestamp: <%=c.timestamp %>, 
                 nonceStr: '<%=c.nonceStr %>',
                 signature: '<%=c.signature %>',--%>
