@@ -18,7 +18,7 @@
             {
 
                 totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Activity");
-                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("ActivityName",
+                var dr = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("UpdateActName_Procedure",
                    new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
                    new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex)
                    );
@@ -153,9 +153,9 @@
                                          value="<%#Eval("QRCode") %>"
                                          id="QRCode" type="text" style="width:100%;" /></td>--%>
                                     <%--<td><%#Eval("QRCode") %></td> --%>
-                                    <td>
+                                    <%--<td>
                                         <input type="submit" value="Update" class="alt_btn" onclick="UpdateAll()" />
-                                    </td>
+                                    </td>--%>
 
                                 </tr>
                         </ItemTemplate>

@@ -101,6 +101,13 @@
         }
 
         function DownLoad() {
+            var key1 = $("#key1").val();
+            var key2 = $("#key2").val();
+            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号,TicketUrl as 收银票图片, [district] as 昵称,os as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view where  ScanDate>=' " + key1 + "'   and ScanDate < '" + key2 + "'  ";
+            var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+            //alert(sql);
+            window.open(url);
+            return;
             var content = $("#content").html();
             var data = { body: content };
             $.ajax({

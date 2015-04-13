@@ -56,17 +56,17 @@ namespace iMidudu.Lucky.Web
             public string Prize6 ;
             public string Prize7 ;
         }
-        public ActivityName1 GetActivityName()
+        public Activity1 GetActivityName()
         {
             var table = iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select PrizeName from Activity,Prize where  Activity.QRCode = Prize.QRCode ")[0];
-            ActivityName1 row = new ActivityName1();
+            Activity1 row = new Activity1();
             row.ActivityName1 = table.Rows[0]["ActivityName"].ToString();
             row.ActivityName2 = table.Rows[1]["ActivityName"].ToString();
             row.ActivityName3 = table.Rows[2]["ActivityName"].ToString();
             return row;
 
         }
-        public class ActivityName1
+        public class Activity1
         {
             public string ActivityName1;
             public string ActivityName2;
@@ -88,7 +88,6 @@ namespace iMidudu.Lucky.Web
             public string ActivityName { get; set; }
             public Guid QRCode { get; set; }
         }
-
 
         [WebMethod]
         public void UpdateAllPrize(List<UpdateModelPrize> datasssss)

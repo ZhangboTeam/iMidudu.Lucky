@@ -109,11 +109,11 @@
   {%>
 <option value="<%=item.QRCode %>"><%=item.ActivityName%></option>
 <%}%></select>--%>
-            </div>
+            <%--</div>
              <td>
-                        <select name="" onchange="change();" id="Name" class="form_select">
-                            <option value="" selected="">Please Select</option>
-                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.GetTableText("select ActivityName from Activity"))
+                        <select name="" onchange="change();" id="Name" runat=server class="form_select">
+                            <option value="活动一" selected="">活动一</option>
+                            <%foreach (var item in iMidudu.Lucky.Web.SystemDAO.SqlHelper.)
                               {%>
                             <option value="<%=item %>"><%=item %></option>
                             <%} %>
@@ -127,7 +127,7 @@
                                 </div>
                         	</div>
           </td>
-    </div>
+    </div>--%>
 
 
 

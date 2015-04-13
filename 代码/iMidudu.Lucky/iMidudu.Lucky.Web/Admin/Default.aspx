@@ -47,23 +47,29 @@
 
            //    window.location.href = "UserManager.aspx?key=" + k;
            //}
-           //function DownLoad() {
-           //    var content = $("#content").html();
-           //    var data = { body: content };
-           //    $.ajax({
-           //        type: "POST",
-           //        contentType: "application/json",
-           //        url: "Webservice.asmx/ExcelContentSaveToTemp",
-           //        data: JSON.stringify(data),
-           //        dataType: 'json',
-           //        success: function (fn) {
+           function DownLoad() {
+               var k = $("#key").val();
+               var sql = "select ActivityName as 活动,PrizeName as奖项,Quantity as 奖项总数,getcount as 已领数量,rad as 剩余数量, Today as 今日领取次数,Yesterday as 昨日领取次数,WEeek as 近一周领取次数,Monse as 近一月领取次数 from View_Count";
+               var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+               //alert(sql);
+               window.open(url);
+               return;
+               var content = $("#content").html();
+               var data = { body: content };
+               $.ajax({
+                   type: "POST",
+                   contentType: "application/json",
+                   url: "Webservice.asmx/ExcelContentSaveToTemp",
+                   data: JSON.stringify(data),
+                   dataType: 'json',
+                   success: function (fn) {
+                       var url = "/Admin/OutExcel.ashx?filename=扫码用户.xls&ContentFile=" + fn.d;
+                       window.open(url, "_blank");
+                   }
+               });
 
-           //            var url = "/Admin/OutExcel.ashx?filename=扫码用户.xls&ContentFile=" + fn.d;
-           //            window.open(url, "_blank");
-           //        }
-           //    });
+           }
 
-           //}
     </script>
     <article class="module width_full">
          

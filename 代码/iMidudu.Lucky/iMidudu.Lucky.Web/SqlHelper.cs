@@ -409,7 +409,6 @@ namespace iMidudu.Lucky.Web
 
             #endregion
 
-
             /// <summary>
             /// add parameter array to the cache
             /// </summary>
