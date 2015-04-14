@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
       <s:element name="AccessToken">
         <s:complexType />
       </s:element>
@@ -68,6 +69,35 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="newBillNo">
+        <s:complexType />
+      </s:element>
+      <s:element name="newBillNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newBillNoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBounsToOpenId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Money" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="billNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Acitvity" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBounsToOpenIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendBounsToOpenIdResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paramstr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="responseXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Config">
         <s:complexType>
           <s:sequence>
@@ -94,6 +124,13 @@
         </s:sequence>
       </s:complexType>
     </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
   </wsdl:types>
   <wsdl:message name="AccessTokenSoapIn">
     <wsdl:part name="parameters" element="tns:AccessToken" />
@@ -113,6 +150,18 @@
   <wsdl:message name="getUserInfoSoapOut">
     <wsdl:part name="parameters" element="tns:getUserInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="newBillNoSoapIn">
+    <wsdl:part name="parameters" element="tns:newBillNo" />
+  </wsdl:message>
+  <wsdl:message name="newBillNoSoapOut">
+    <wsdl:part name="parameters" element="tns:newBillNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBounsToOpenIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBounsToOpenId" />
+  </wsdl:message>
+  <wsdl:message name="SendBounsToOpenIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBounsToOpenIdResponse" />
+  </wsdl:message>
   <wsdl:message name="ConfigSoapIn">
     <wsdl:part name="parameters" element="tns:Config" />
   </wsdl:message>
@@ -131,6 +180,14 @@
     <wsdl:operation name="getUserInfo">
       <wsdl:input message="tns:getUserInfoSoapIn" />
       <wsdl:output message="tns:getUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="newBillNo">
+      <wsdl:input message="tns:newBillNoSoapIn" />
+      <wsdl:output message="tns:newBillNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBounsToOpenId">
+      <wsdl:input message="tns:SendBounsToOpenIdSoapIn" />
+      <wsdl:output message="tns:SendBounsToOpenIdSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Config">
       <wsdl:input message="tns:ConfigSoapIn" />
@@ -159,6 +216,24 @@
     </wsdl:operation>
     <wsdl:operation name="getUserInfo">
       <soap:operation soapAction="http://tempuri.org/getUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newBillNo">
+      <soap:operation soapAction="http://tempuri.org/newBillNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBounsToOpenId">
+      <soap:operation soapAction="http://tempuri.org/SendBounsToOpenId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -198,6 +273,24 @@
     </wsdl:operation>
     <wsdl:operation name="getUserInfo">
       <soap12:operation soapAction="http://tempuri.org/getUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newBillNo">
+      <soap12:operation soapAction="http://tempuri.org/newBillNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBounsToOpenId">
+      <soap12:operation soapAction="http://tempuri.org/SendBounsToOpenId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

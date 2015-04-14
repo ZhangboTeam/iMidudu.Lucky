@@ -67,7 +67,6 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {
-                    //$("#msg").html("验证码已发送到手机:" + data.mobile);
                     var r = $(result).text();
                     //var rr = JSON.parse(r);
                     //if (rr.code != 0) {
@@ -93,34 +92,56 @@
                 }
             });
         }
-        $(function () {
-            $("#ok").click(
-                function () {
-                    //var bouns = $("#bouns").val();
-                    //var acitvity = $("#acitvity").val();
-                    //var openid = $("#openid").val();
-                    var UserName = $("#UserName").val();
-                    var Sex = $("input[name=Sex]:checked").val();
-                    var Mobile = $("#Mobile").val();
-                    var ValidCode = $("#Code").val();
-                    var Address = $("#Address").val();
-                    if (UserName =="") {
-                        alert("请输入姓名"); return;
+        function AcceptInsert() {
+            var UserName = $("#UserName").val();
+            var Sex = $("input[name=Sex]:checked").val();
+            var Mobile = $("#Mobile").val();
+            var ValidCode = $("#Code").val();
+            var Address = $("#Address").val();
+            var ScanHistoryId = $("#ScanHistoryId").val();
+            if (UserName == "") {
+                alert("请输入姓名"); return;
+            }
+            if (Mobile == "") {
+                alert("请输入手机"); return;
+            }
+            if (ValidCode == "") {
+                alert("请输入验证码"); return;
+            }
+            if (Address == "") {
+                alert("请输入地址"); return;
+            }
+            var data = {
+                UserName: UserName,
+                Sex: Sex,
+                Mobile: Mobile,
+                ValidCode: ValidCode,
+                Address: Address,
+                ScanHistoryId: ScanHistoryId
+            };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/InsertAccept",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {
+                    //alert(result.d);
+                    //var r = $(data).text();
+
+                    if (result.d == 1) {
+                        alert("验证码不正确");
+                        //window.location.reload();
+                    } else {
+                        window.location.href = "/BigPrizeNum.aspx?code=" + result.d;
                     }
-                    if (Mobile == "") {
-                        alert("请输入手机"); return;
-                    }
-                    if (ValidCode == "") {
-                        alert("请输入验证码"); return;
-                    }
-                    if (Address == "") {
-                        alert("请输入地址"); return;
-                    }
-                })
-        })
+                }
+            })
+        }
     </script>
 </head>
 <body>
+    <input id="ScanHistoryId" value="<%=this.Request["ScanHistoryId"]  %>" type="hidden" />
 <%--  ScanHistoryId:  <%=this.Request["ScanHistoryId" ]%>,
    PrizeId: <%=this.Request["PrizeId" ]%>
     <hr />
@@ -143,9 +164,9 @@
 						<tr>
 							<th>性别</th>
 							<td class="hasRadioSty">
-								<input type="radio" name="Sex"  value="radio" checked="checked">
+								<input type="radio" name="Sex"  value="1" checked="checked">
 								<label for="radio" style="margin-right:20px">男</label>
-								<input type="radio" name="Sex"  value="radio">
+								<input type="radio" name="Sex"  value="0">
 								<label for="radio">女</label>
 							</td>
 						</tr>
@@ -173,8 +194,8 @@
 						</tr>
 						<tr>
 							<td colspan="2" class="ckb-sub-btn">
-								<input type="button" id="ok" class="button-sty2 button-sty4" >
-                                <input type="button" class="button-sty2">
+								<input type="button" id="ok" class="button-sty2 button-sty4" onclick="AcceptInsert();" >
+                                <%--<input type="button" class="button-sty2">--%>
 							</td>
 						</tr>
 					</tbody>

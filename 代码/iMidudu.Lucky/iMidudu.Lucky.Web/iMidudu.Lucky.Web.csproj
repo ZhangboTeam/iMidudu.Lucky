@@ -148,6 +148,7 @@
     <Content Include="Admin\UpdateActivityName.aspx" />
     <Content Include="Admin\UpdatePrize.aspx" />
     <Content Include="Admin\UserManager.aspx" />
+    <Content Include="BigPrizeNum.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="css\animate.css" />
     <Content Include="css\ie.css" />
@@ -256,6 +257,9 @@
     <None Include="Service References\BizWebService\configuration91.svcinfo" />
     <None Include="Service References\BizWebService\configuration.svcinfo" />
     <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.Prize.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BizWebService\iMidudu.Lucky.Web.BizWebService.WXUser1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\BizWebService\Reference.svcmap">
