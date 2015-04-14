@@ -67,17 +67,97 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {
-                   // alert(result.d);
-                    $("#msg").html("验证码已发送到手机:" + data.mobile);
+                    //alert(result.d);
+                    //$("#msg").html("验证码已发送到手机:" + data.mobile);
+                    var r = $(result).text();
+                    //alert(r);
+                    //var rr = JSON.parse(r);
+                    //alert(rr.code);
+                    //if (rr.code != 0) {
+                    //     $("#r").html("短信验证码已发送到手机:" + m);
+                         var count = 60;
+                      //   alert(count);
+                         var iii = setInterval(function () {
+                             $("#smsCode").attr("disabled", true);
+                             $("#smsCode").val(count);
+                             $("#r").html(--count);
+                             //alert(count);
+                             if (count == 0) {
+                                 $("#smsCode").removeAttr("disabled");
+                                 $("#smsCode").val("获取验证码");
+                                      clearInterval(iii); $("#r").html("");
+                                }
+                             }, 1000);
+                      //}
+                      //else {
+                      //     alert(rr.msg);
+                      //}
                 },
                 error: function (result) {
                     alert(result.responseText);
                 }
             });
         }
-        function OK() {
-            //各种验证数据完整性
-        }
+        //function ssss() {
+        //    var m = $("#Mobile").val();
+        //    $.post("/WebService.asmx/SendValidCodeToMobile",
+        //        { mobile: m }, function (data) {
+        //            //if ($(data).text() == "take") {
+        //            //    alert("手机号被占用！");
+        //            //} else {
+        //            var r = $(data).text();
+        //            alert(r);
+        //                //var rr = JSON.parse(r);
+        //                //if (rr.code == 0) {
+        //                //    $("#r").html("短信验证码已发送到手机:" + m);
+        //                    var count = 60;
+        //                    var iii = setInterval(function () {
+        //                        $("#smsCode").attr("disabled", true);
+        //                        $("#smsCode").val(count);
+        //                        $("#r").html(--count);
+        //                        alert(r);
+        //                        if (count == 0) {
+        //                            $("#smsCode").removeAttr("disabled");
+        //                            $("#smsCode").val("获取验证码");
+        //                            clearInterval(iii); $("#r").html("");
+        //                        }
+        //                    }, 1000);
+        //                //}
+        //                //else {
+        //                //    alert(rr.msg);
+        //                //}
+        //           // }
+        //        });
+        //}
+        //$(function () {
+        //    $("#smsCode").click(ssss
+        //      );
+
+
+        //    $("#ok").click(
+        //        function () {
+        //            //var bouns = $("#bouns").val();
+        //            //var acitvity = $("#acitvity").val();
+        //            //var openid = $("#openid").val();
+        //            var UserName = $("#UserName").val();
+        //            var Sex = $("input[name=Sex]:checked").val();
+        //            var Mobile = $("#Mobile").val();
+        //            var ValidCode = $("#Code").val();
+        //            var Address = $("#Address").val();
+        //            if (UserName =="") {
+        //                alert("请输入姓名"); return;
+        //            }
+        //            if (Mobile == "") {
+        //                alert("请输入手机"); return;
+        //            }
+        //            if (ValidCode == "") {
+        //                alert("请输入验证码"); return;
+        //            }
+        //            if (Address == "") {
+        //                alert("请输入地址"); return;
+        //            }
+        //        })
+        //})
     </script>
 </head>
 <body>
@@ -103,9 +183,9 @@
 						<tr>
 							<th>性别</th>
 							<td class="hasRadioSty">
-								<input type="radio" name="radio"  value="radio">
+								<input type="radio" name="Sex"  value="radio" checked="checked">
 								<label for="radio" style="margin-right:20px">男</label>
-								<input type="radio" name="radio"  value="radio">
+								<input type="radio" name="Sex"  value="radio">
 								<label for="radio">女</label>
 							</td>
 						</tr>
@@ -133,7 +213,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" class="ckb-sub-btn">
-								<input type="button" id="Button1" class="button-sty2 button-sty4" onclick="OK();">
+								<input type="button" id="ok" class="button-sty2 button-sty4" >
                                 <input type="button" class="button-sty2">
 							</td>
 						</tr>
