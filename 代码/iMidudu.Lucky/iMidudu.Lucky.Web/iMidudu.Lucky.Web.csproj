@@ -201,6 +201,7 @@
     <Content Include="images\price-1.jpg" />
     <Content Include="images\price-2.jpg" />
     <Content Include="images\price-3.jpg" />
+    <Content Include="images\price-4.jpg" />
     <Content Include="images\secondary_bar.png" />
     <Content Include="images\secondary_bar_shadow.png" />
     <Content Include="images\sidebar.png" />
