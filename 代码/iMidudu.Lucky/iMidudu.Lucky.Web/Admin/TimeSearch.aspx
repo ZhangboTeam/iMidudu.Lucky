@@ -125,16 +125,6 @@
         }
 
     </script>
-     <section id="secondary_bar">
-
-            <div class="breadcrumbs_container">
-                <article class="breadcrumbs">
-                    <a class="current">红包历史查看</a>
-                    <div class="breadcrumb_divider"></div>
-                    <a class="current2">按时段查询</a>
-                </article>
-            </div>
-        </section>
         <div class="quick_search ">
             <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
 			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>

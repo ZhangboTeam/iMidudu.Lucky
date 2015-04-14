@@ -23,16 +23,6 @@
         });
     }
     </script>
-    <section id="secondary_bar">
-
-        <div class="breadcrumbs_container">
-            <<%--article class="breadcrumbs">
-                <a class="current">红包历史查看</a>
-                <div class="breadcrumb_divider"></div>
-                <a class="current2">领取金额TOP10</a>
-            </article>--%>
-        </div>
-    </section>
     <article class="module width_full">
         <header>
             <h3 class="tabs_involved">奖项记录TOP10 </h3>
