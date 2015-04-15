@@ -109,7 +109,7 @@
 		<div class="upload_inv_inner">
 			<h2 class="title">发票号码<span class="sub-title">（信息供抽奖需求）</span></h2>
 			<input type="text" class="inputsty mgb-sty1" id="TicketNumber"  placeholder="请输入发票号码">
-            <img id="Img1" width="300" />
+            <%--<img id="Img1" width="300" />--%>
 			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="请上传收银小票">
             <input type="button" id="uploadImage" value="上传小票照片" hidden  />
             <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
