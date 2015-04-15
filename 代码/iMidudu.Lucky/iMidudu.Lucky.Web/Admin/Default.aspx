@@ -74,7 +74,7 @@
     <article class="module width_full">
          
             <header> 
-
+                <h3 class="tabs_involved">奖项统计</h3>
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
