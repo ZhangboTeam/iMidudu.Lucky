@@ -30,7 +30,7 @@
         <div class="tab_container">
             <div id="tab1" class="tab_content">
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="
-                    SELECT   TOP (100) PERCENT OpenId, NickName, Pic, Sex, WXCity, WXProvince, WXCountry, RegisterDate, LastActiveTime,
+                    SELECT   TOP 10  OpenId, NickName, Pic, Sex, WXCity, WXProvince, WXCountry, RegisterDate, LastActiveTime,
                     (SELECT   COUNT(*) AS Expr1
                      FROM      dbo.ScanHistory
                      WHERE   (OpenId = dbo.WXUser.OpenId)) AS TotalCount,
@@ -49,7 +49,7 @@
                                      dbo.Prize AS Prize_1 ON ScanHistory_1.PrizeId = Prize_1.PrizeId
                      WHERE   (ScanHistory_1.OpenId = dbo.WXUser.OpenId) AND 
                                      (Prize_1.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')) AS TotalCount3
-FROM      dbo.WXUser
+FROM      dbo.WXUser 
 ORDER BY TotalCount DESC"></asp:SqlDataSource>
 
                 <div  id="content">
