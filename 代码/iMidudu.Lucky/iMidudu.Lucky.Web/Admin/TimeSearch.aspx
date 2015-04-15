@@ -1,6 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  Debug="true"%>
 <script runat="server"> 
-
     private int totalCount;
     private int totalCount2;
     private int totalCount50;
@@ -103,7 +102,8 @@
         function DownLoad() {
             var key1 = $("#key1").val();
             var key2 = $("#key2").val();
-            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号,TicketUrl as 收银票图片, [district] as 昵称,os as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view where  ScanDate>=' " + key1 + "' and ScanDate <= '" + key2 + "'  ";
+            var k3 = $("#key3").val();
+            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号,TicketUrl as 收银票图片, [district] as 昵称,os as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view where  ScanDate>=' " + key1 + "' and ScanDate <= '" + k3 + "' order by ScanDate desc  ";
             var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
             //alert(sql);
             window.open(url);
@@ -126,8 +126,10 @@
 
     </script>
         <div class="quick_search ">
+            
             <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
 			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
+            <input type="text"id="key3" value="<%=DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")%>"  style="width:auto;" hidden="hidden"/>
                 <input type="submit" value="搜索" onclick="dosearch();" class="alt_btn"/>
 		</div> 
     <article class="module width_full">
