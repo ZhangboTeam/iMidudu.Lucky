@@ -104,7 +104,7 @@
 
     </script>
 </head>
-<body>
+<body onclick="beginLottery();">
     <%--<%=this.Request["ScanHistoryId" ]%>,
     <%=this.Request["QRCode" ]%>--%>
 <div class="container"><!-- Everything started here -->

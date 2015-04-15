@@ -133,7 +133,7 @@
                         alert("验证码不正确");
                         //window.location.reload();
                     } else {
-                        window.location.href = "/BigPrizeNum.aspx?code=" + result.d;
+                        window.location.href = "/BigPrizeNum.aspx";
                     }
                 }
             })

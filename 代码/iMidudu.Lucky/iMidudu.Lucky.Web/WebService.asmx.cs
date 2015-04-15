@@ -135,18 +135,18 @@ namespace iMidudu.Lucky.Web
                 try
                 {
 
-                    var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
-                    var code1 = WebServieFactiory.SMS.SendValidCode(apiKey, "【不凡帝】您的验证码是{0}", Mobile);
+                    //var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
+                    //var code1 = WebServieFactiory.SMS.SendValidCode(apiKey, "【不凡帝】您的验证码是{0}", Mobile);
                     iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryText("insert into Acception(ScanHistoryId,Address,Mobile,UserName,ValidCode,Remark,Status) values (@ScanHistoryId,@Address,@Mobile,@UserName,@ValidCode,@Remark,@Status)",
                          new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId),
                          new System.Data.SqlClient.SqlParameter("@Address", Address),
                          new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
-                         new System.Data.SqlClient.SqlParameter("@ValidCode", code1),
+                         new System.Data.SqlClient.SqlParameter("@ValidCode", ValidCode),
                          new System.Data.SqlClient.SqlParameter("@UserName", UserName),
                         // new System.Data.SqlClient.SqlParameter("@Sex", Sex),
                          new System.Data.SqlClient.SqlParameter("@Remark", "2"),
                          new System.Data.SqlClient.SqlParameter("@Status", "1"));
-                    return code1;
+                    return ValidCode;
                 }catch (Exception ex)
                 {
                     return ex.Message;
@@ -155,6 +155,21 @@ namespace iMidudu.Lucky.Web
             else{
                 return "1";
             }
+        }
+        [WebMethod(EnableSession = true)]
+        public string IsExist(Guid ScanHistoryId)
+        {
+            var PrizeId="";
+                try
+                {
+                    PrizeId = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select PrizeId from ScanHistory where ScanHistoryId=@ScanHistoryId",
+                         new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId)).ToString();
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+                return PrizeId;
         }
         [WebMethod]
         public void UpdateAllSetPrize(List<UpdateModelSetPrize> datasssss)

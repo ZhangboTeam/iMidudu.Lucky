@@ -104,7 +104,7 @@
 				</li>
 			</ul>
 		</div>
-        <a href="index2.html">
+        <a>
 			<input type="button" class="button-sty2 button-next" onclick="auth();">
 		</a> 
 	</div>
