@@ -245,14 +245,16 @@
     <Content Include="LotteryResult\Activity1\Result3.aspx" />
     <Content Include="LotteryResult\Activity1\Result2.aspx" />
     <Content Include="LotteryResult\Activity1\Result1.aspx" />
-    <Content Include="LotteryResult\Activity1\Result4.aspx" />
-    <Content Include="LotteryResult\Activity1\Result5.aspx" />
-    <Content Include="LotteryResult\Activity1\Result6.aspx" />
     <Content Include="LotteryResult\Activity1\Result7.aspx" />
+    <Content Include="Over5.aspx" />
     <Content Include="packages.config" />
     <Content Include="Admin\OutExcel.ashx" />
     <Content Include="Admin\SiteAdmin.Master" />
     <Content Include="Admin\OutExcelDown.ashx" />
+    <Content Include="SuccessUpload.aspx" />
+    <Content Include="__MACOSX\images\._price-3.jpg" />
+    <Content Include="__MACOSX\images\._price-404.jpg" />
+    <Content Include="__MACOSX\images\._uld.jpg" />
     <None Include="Service References\BizWebService\BizWebService.disco" />
     <None Include="Service References\BizWebService\configuration91.svcinfo" />
     <None Include="Service References\BizWebService\configuration.svcinfo" />
@@ -298,6 +300,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="WebService.asmx" />
+    <Content Include="__MACOSX\images\._.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AdminHelper.cs" />

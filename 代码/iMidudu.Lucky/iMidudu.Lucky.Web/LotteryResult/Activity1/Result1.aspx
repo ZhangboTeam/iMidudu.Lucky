@@ -195,7 +195,7 @@
 						<tr>
 							<td colspan="2" class="ckb-sub-btn">
 								<input type="button" id="ok" class="button-sty2 button-sty4" onclick="AcceptInsert();" >
-                                <%--<input type="button" class="button-sty2">--%>
+                                <input type="button" class="button-sty2">
 							</td>
 						</tr>
 					</tbody>

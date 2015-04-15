@@ -67,7 +67,7 @@
         }
     </script>
 </head>
-<body onclick="auth();"> 
+<body> 
 <div class="container"><!-- Everything started here -->
 	<div class="mtx-price-detail">
 		<div class="inner">
@@ -104,9 +104,9 @@
 				</li>
 			</ul>
 		</div>
-    <center>  
-    <input  type="button" value="确定" onclick="auth();" />
-    </center>  
+        <a href="index2.html">
+			<input type="button" class="button-sty2 button-next" onclick="auth();">
+		</a> 
 	</div>
 </div>
     <%

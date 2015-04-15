@@ -12,7 +12,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>title</title>
+	<title>上传小票</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
@@ -105,7 +105,7 @@
 			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="请上传收银小票">
             <input type="button" id="uploadImage" value="上传小票照片" hidden  />
             <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
-			<input type="button" id="ok" class="buttonsty2 mgb-sty1"  value="确定" onclick="goOn();">
+			<a href="getprc_new.html"><input type="button" class="buttonsty2 mgb-sty1" value="确定" onclick="goOn();"></a>
             <%--<%= SuuSee.UserInfo.CurrentUser().data.city%>--%>
 		</div>
 	</div>

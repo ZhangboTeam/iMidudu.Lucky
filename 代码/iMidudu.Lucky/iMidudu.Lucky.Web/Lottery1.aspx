@@ -107,13 +107,27 @@
 <body>
     <%--<%=this.Request["ScanHistoryId" ]%>,
     <%=this.Request["QRCode" ]%>--%>
-    <div class="container"><!-- Everything started here -->
+<div class="container"><!-- Everything started here -->
 	<div class="get_prc_content">
 		<div class="layout-top">
 			<img src="images/get_prc_layout_top.png" alt="">
 		</div>
-		<div class="layout-bot">
-			<a href="#"><img src="images/get_prc_layout_bot.png" alt="" onclick="beginLottery();"></a>
+			<div class="turntable">
+				<img src="images/circle-3.png" alt="" width="100%">
+				<div class="rotate ubox">
+					<div class="rotate-cont">
+						<img src="images/circle-4.png" alt="" width="100%">
+						<div class="rotate-arrow">
+							<img src="images/circle-5.png" class="arrow-img" alt="" style="-webkit-transform: rotate(-85deg);">
+						</div>
+						<div class="rotate-arrow-text">
+							<img src="images/start-text.png">
+						</div>
+					</div>
+				</div>
+			<!-- <a href="#">
+			<img src="images/get_prc_layout_bot.png" alt="">
+			</a> -->
 		</div>
 	</div>
 </div>

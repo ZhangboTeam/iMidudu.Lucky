@@ -1,9 +1,8 @@
-﻿<%@ Page Language="C#"   %>
+﻿<%@ Page Language="C#" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" class="mtx-app">
-<head runat="server">
+<html class="mtx-app">
+<head>
 <!-- 
 * 开发人员书写规范:
 * 1.所有缩进都用 TAB， 而不是空格。
@@ -33,8 +32,8 @@
 	<meta name="apple-mobile-web-app-title" content="title2">
 	<!-- CSS
 	================================================== -->
-	<link href="/css/reset.css" rel="stylesheet" type="text/css">
-	<link href="/css/style.css" rel="stylesheet" type="text/css">
+	<link href="css/reset.css" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" >
@@ -50,20 +49,21 @@
 	
 	<!-- Tile icon for Win8 (144x144 + tile color) -->
 	<!-- win 8 磁贴图标 -->
-	<meta name="msapplication-TileImage" content="/images/touch/ms-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
 </head>
 <body>
-<%--  ScanHistoryId:  <%=this.Request["ScanHistoryId" ]%>,
-   PrizeId: <%=this.Request["PrizeId" ]%>--%>
 <div class="container"><!-- Everything started here -->
-	<img src="/images/price-1.jpg" alt="" class="prices">
-	<input type="button" class="button-sty2 btn-pos">
+	<img src="images/uld.jpg" alt="" class="prices">
 </div>
 </body>
 
 <!-- Javascript with AMD  -->
-<script src="/js/require.js" data-main="/js/main" ></script>
+<script src="js/require.js" data-main="js/main" ></script>
+
+
+
 </html>
+
