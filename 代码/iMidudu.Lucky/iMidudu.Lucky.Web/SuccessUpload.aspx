@@ -11,7 +11,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>恭喜中奖</title>
+	<title>上传成功</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
@@ -54,9 +54,18 @@
 	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
 </head>
-<body>
+<body onclick="Success();">
+        <script>
+            function Success() {
+                window.location.href = "/Lottery1.aspx?ScanHistoryId=<%=this.Request["ScanHistoryId" ] %>&QRCode=<%=this.Request["QRCode"]%>";
+            }
+    </script>
 <div class="container"><!-- Everything started here -->
 	<img src="images/uld.jpg" alt="" class="prices">
+    <div class="ckp-form">
+    <input type="button" class="buttonsty mgb-sty1"  onclick="Success();">
+
+    </div>
 </div>
 </body>
 

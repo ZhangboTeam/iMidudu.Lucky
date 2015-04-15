@@ -109,18 +109,19 @@
 		<div class="upload_inv_inner">
 			<h2 class="title">发票号码<span class="sub-title">（信息供抽奖需求）</span></h2>
 			<input type="text" class="inputsty mgb-sty1" id="TicketNumber"  placeholder="请输入发票号码">
+            <img id="Img1" width="300" />
 			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="请上传收银小票">
             <input type="button" id="uploadImage" value="上传小票照片" hidden  />
             <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
-			<input type="button" class="buttonsty2 mgb-sty1" value="确定" onclick="goOn();">
+			<%--<input type="button" class="buttonsty2 mgb-sty1" value="确定" onclick="goOn();">--%>
             <%--<%= SuuSee.UserInfo.CurrentUser().data.city%>--%>
 		</div>
 	</div>
 </div>
 
 <%--    <input type="button" id="chooseImage" value="选择小票照片" />--%>
-<%--    <img id="preview" width="300" />
-    <br />
+  <%-- <img id="preview" width="300" />--%>
+<%--     <br />
     <input type="text" id="TicketNumber" />
     <br />
      <input type="button" id="ok"  value="确定" onclick="goOn();"/>--%>
@@ -260,6 +261,7 @@
                         $("#preview").attr("src",result.d);
                         ticketUrl=result.d;
                         $("#mediaid").html(data.ACCESS_TOKEN+"<br/>"+data.MEDIA_ID);
+                        goOn();
                     }
                 });
                 return;
@@ -284,8 +286,10 @@
 
         function goOn() {
             var TicketNumber=$("#TicketNumber").val();
-            if (TicketNumber=="" &&ticketUrl=="") {
-                alert("上传收银小票或者输入流水号");
+            //if (TicketNumber=="" ||ticketUrl=="") {
+                if (ticketUrl=="") {
+                    //alert("上传收银小票或者输入流水号");
+                    alert("上传收银小票");
                 return false;
             } 
             var data = {OpenId:'<%=openResponse.openid%>',TicketUrl:ticketUrl,TicketNumber:TicketNumber};
@@ -301,7 +305,7 @@
                         //alert(result.d);
                         var historyId = result.d;
                         var qrCode = '<%=this.Request["QRCode"] %>';
-                        var nextUrl = 'Lottery1.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode;
+                        var nextUrl = 'SuccessUpload.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode;
                         window.location=nextUrl;
                     },
                     error:function(e){
