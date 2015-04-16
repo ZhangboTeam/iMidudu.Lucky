@@ -61,7 +61,7 @@
 <div class="container"><!-- Everything started here -->
 	<img src="/images/price-3.jpg" alt="" class="prices">
     
-	<input type="button" class="button-sty2 button-sty3 btn-pos" onclick="reg();">
+	<%--<input type="button" class="button-sty2 button-sty3 btn-pos" onclick="reg();">--%>
     您的奖品将于活动结束后三周内快递送达，敬请留意
 </div>
 </body>

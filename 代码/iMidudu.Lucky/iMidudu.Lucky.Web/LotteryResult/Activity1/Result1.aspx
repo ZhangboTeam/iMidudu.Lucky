@@ -59,6 +59,7 @@
     <script>
         function sendValidCode() {
             var Mobile = $("#Mobile").val();
+            $("#smsCode").attr("disabled", true);
             var data = { mobile: Mobile };
             $.ajax({
                 type: "POST",
@@ -195,7 +196,7 @@
 						<tr>
 							<td colspan="2" class="ckb-sub-btn">
 								<input type="button" id="ok" class="button-sty2 button-sty4" onclick="AcceptInsert();" >
-                                <input type="button" class="button-sty2">
+                                <%--<input type="button" class="button-sty2">--%>
 							</td>
 						</tr>
 					</tbody>

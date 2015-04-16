@@ -65,6 +65,19 @@
             var wechat = iMidudu.Lucky.Web.WebServieFactiory.WeChat;
             var openResponse =wechat.getOpenId(this.Request["wxcode"]);
             var r = wechat.getUserInfo(openResponse);
+
+            if (r.openid == null)
+            {
+
+                var returnUrl = string.Format("http://lucky.meduo.com.cn/Ticket1.aspx?QRCode={0}", this.Request["QRCode"]);
+                returnUrl = System.Web.HttpContext.Current.Server.UrlEncode(returnUrl);
+                var authUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8cabe7121f5369a3&redirect_uri=" + System.Web.Configuration.WebConfigurationManager.AppSettings["Domain"] + "/AuthCallback.aspx&response_type=code&scope=snsapi_userinfo&state=" + returnUrl + "#wechat_redirect";
+
+                Response.Redirect(authUrl);
+
+
+            }
+            
             int count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
             int count1 = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where OpenId=@OpenId and PrizeId is null", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
             int count2 = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where OpenId=@OpenId and PrizeId ='2eda98cd-326d-4da8-8a26-23aca4482717'", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
@@ -108,12 +121,12 @@
 	<div class="upload_invoice_modal">
 		<div class="upload_inv_inner">
 			<h2 class="title">发票号码<span class="sub-title">（信息供抽奖需求）</span></h2>
-			<input type="text" class="inputsty mgb-sty1" id="TicketNumber"  placeholder="请输入发票号码">
+			<input type="text" class="inputsty mgb-sty1 background-color：fff" id="TicketNumber"  placeholder="请输入发票号码" >
             <%--<img id="Img1" width="300" />--%>
-			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="请上传收银小票">
+			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="上传发票照片">
             <input type="button" id="uploadImage" value="上传小票照片" hidden  />
             <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
-			<%--<input type="button" class="buttonsty2 mgb-sty1" value="确定" onclick="goOn();">--%>
+			<input type="button" class="buttonsty2 mgb-sty1" value="确定" onclick="goOn();">
             <%--<%= SuuSee.UserInfo.CurrentUser().data.city%>--%>
 		</div>
 	</div>
@@ -261,7 +274,7 @@
                         $("#preview").attr("src",result.d);
                         ticketUrl=result.d;
                         $("#mediaid").html(data.ACCESS_TOKEN+"<br/>"+data.MEDIA_ID);
-                        goOn();
+                        alert("上传成功");
                     }
                 });
                 return;
@@ -305,7 +318,7 @@
                         //alert(result.d);
                         var historyId = result.d;
                         var qrCode = '<%=this.Request["QRCode"] %>';
-                        var nextUrl = 'SuccessUpload.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode;
+                        var nextUrl = 'Lottery1.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode;
                         window.location=nextUrl;
                     },
                     error:function(e){

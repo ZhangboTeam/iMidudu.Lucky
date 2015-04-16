@@ -60,7 +60,7 @@
    PrizeId: <%=this.Request["PrizeId" ]%>--%>
 <div class="container"><!-- Everything started here -->
 	<img src="/images/price-1.jpg" alt="" class="prices">
-	<input type="button" class="button-sty2 btn-pos">
+	<%--<input type="button" class="button-sty2 btn-pos">--%>
 </div>
 </body>
 

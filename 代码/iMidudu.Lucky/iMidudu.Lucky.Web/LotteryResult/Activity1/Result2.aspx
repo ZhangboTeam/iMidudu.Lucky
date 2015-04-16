@@ -77,7 +77,7 @@
         </script>
 <div class="container"><!-- Everything started here -->
 	<img src="/images/price-2.jpg" alt="" class="prices">
-	<input type="button" class="button-sty2 btn-pos" onclick="shareTimeline();">
+	<%--<input type="button" class="button-sty2 btn-pos" onclick="shareTimeline();">--%>
 </div>
 </body>
 
