@@ -299,11 +299,12 @@
 
         function goOn() {
             var TicketNumber=$("#TicketNumber").val();
-            //if (TicketNumber=="" ||ticketUrl=="") {
-                if (ticketUrl=="") {
-                    //alert("上传收银小票或者输入流水号");
-                    alert("上传收银小票");
-                return false;
+            if (TicketNumber=="" ||ticketUrl=="") {
+                alert("上传收银小票或者输入流水号");
+            //    if (ticketUrl=="") {
+            //        //alert("上传收银小票或者输入流水号");
+            //        alert("上传收银小票");
+            //    return false;
             } 
             var data = {OpenId:'<%=openResponse.openid%>',TicketUrl:ticketUrl,TicketNumber:TicketNumber};
               //alert(data.ACCESS_TOKEN);

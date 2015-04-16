@@ -97,6 +97,62 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/json2.js"></script>
     <script>
+        var deg = -67;
+        var old_p_idx = 0;
+        var prize = ["thanks", "kinder", "thanks", "kxt", "bag", "thanks", "kxt", "bag", "thanks", "kxt"];
+        var prize = ["2eda98cd-326d-4da8-8a26-23aca4482717", "2eda98cd-326d-4da8-8a26-23aca4482711", "2eda98cd-326d-4da8-8a26-23aca4482717", "2eda98cd-326d-4da8-8a26-23aca4482712", "2eda98cd-326d-4da8-8a26-23aca4482713", "2eda98cd-326d-4da8-8a26-23aca4482717", "2eda98cd-326d-4da8-8a26-23aca4482712", "2eda98cd-326d-4da8-8a26-23aca4482713", "2eda98cd-326d-4da8-8a26-23aca4482717", "2eda98cd-326d-4da8-8a26-23aca4482712"];
+
+        function getPrizeIndex(id) {
+            for (var i in prize) {
+                if (prize[i] == id) {
+                    return i;
+                }
+            }
+        }
+        function pan(prize, data) {
+            var _self = $(this);
+            _self = $(".rotate-arrow-text img");
+            //锁定按钮
+            if (_self.hasClass("act")) {
+                return false;
+            }
+            _self.addClass('act');
+            var new_p_idx = Math.floor(Math.random() * 10); //奖品索引
+            new_p_idx = getPrizeIndex(data.PrizeId);
+            //console.log(new_p_idx);
+            deg += 1440;
+            deg += (new_p_idx - old_p_idx) * 36;
+            old_p_idx = new_p_idx;
+            $(".arrow-img").css({
+                "-webkit-transform": "rotate(" + deg + "deg)",
+                "transform": "rotate(" + deg + "deg)"
+            });
+
+            setTimeout(function () {
+                //console.log("end");
+                //解锁按钮
+                _self.removeClass('act');
+                alert( prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId);
+                //window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
+                //var url = "price-4";
+                //switch (prize[new_p_idx]) {
+                //    case "thanks":
+                //        url = "price-4";
+                //        break;
+                //    case "kinder":
+                //        url = "price-3";
+                //        break;
+                //    case "kxt":
+                //        url = "price-2";
+                //        break;
+                //    case "bag":
+                //        url = "price-1";
+                //        break;
+                //    default: break;
+                //}
+                //location.href = url + ".html";
+            }, 4000);
+        }
         function beginLottery() {
             var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
 
@@ -133,7 +189,8 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {
-                    window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
+                    pan(prize, data);
+                   // window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 },
                 error: function (e) {
                     alert("SavePrize wrong");
@@ -180,5 +237,5 @@
 
 </body>
     <!-- Javascript with AMD  -->
-<script src="js/require.js" data-main="js/main" ></script>
+<%--<script src="js/require.js" data-main="js/main" ></script>--%>
 </html>

@@ -29,11 +29,12 @@ require(
         'jay'
     ],
     function(jquery, jay) {
-        $(function() {
+        $(function () {
+            return;
             //转盘 ---start
-            var deg = -67;
-            var old_p_idx = 0;
-            var prize = ["thanks", "kinder", "thanks", "kxt", "bag", "thanks", "kxt", "bag", "thanks", "kxt"];
+            //var deg = -67;
+            //var old_p_idx = 0;
+            //var prize = ["thanks", "kinder", "thanks", "kxt", "bag", "thanks", "kxt", "bag", "thanks", "kxt"];
             $(".rotate-arrow-text img").click(function() {
                 var _self = $(this);
                 //锁定按钮
