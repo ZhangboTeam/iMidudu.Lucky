@@ -146,31 +146,50 @@ namespace iMidudu.Lucky.Web
         [WebMethod(EnableSession = true)]
         public string InsertAccept(string UserName, string Sex, string Mobile, string ValidCode, string Address, Guid ScanHistoryId)
         {
-            var code = System.Web.HttpContext.Current.Session["smsCode"];
-            if (code.ToString().Equals(ValidCode))
+            bool exist = true;
+            try
             {
-                try
-                {
-
-                    //var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
-                    //var code1 = WebServieFactiory.SMS.SendValidCode(apiKey, "【不凡帝】您的验证码是{0}", Mobile);
-                    iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryText("insert into Acception(ScanHistoryId,Address,Mobile,UserName,ValidCode,Remark,Status) values (@ScanHistoryId,@Address,@Mobile,@UserName,@ValidCode,@Remark,@Status)",
-                         new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId),
-                         new System.Data.SqlClient.SqlParameter("@Address", Address),
-                         new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
-                         new System.Data.SqlClient.SqlParameter("@ValidCode", ValidCode),
-                         new System.Data.SqlClient.SqlParameter("@UserName", UserName),
-                         new System.Data.SqlClient.SqlParameter("@Sex", Sex),
-                         new System.Data.SqlClient.SqlParameter("@Remark", "2"),
-                         new System.Data.SqlClient.SqlParameter("@Status", "1"));
-                    return ValidCode;
-                }catch (Exception ex)
-                {
-                    return ex.Message;
-                }
+                exist = iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists("select * from Acception where ScanHistoryId=@ScanHistoryId",
+                             new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId));
             }
-            else{
-                return "1";
+            catch (Exception ex) {
+                return "a";
+            
+            }
+            if (exist)
+            {
+                return "a";
+            }
+            else
+            {
+                var code = System.Web.HttpContext.Current.Session["smsCode"];
+                if (code.ToString().Equals(ValidCode))
+                {
+                    try
+                    {
+
+                        //var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
+                        //var code1 = WebServieFactiory.SMS.SendValidCode(apiKey, "【不凡帝】您的验证码是{0}", Mobile);
+                        iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryText("insert into Acception(ScanHistoryId,Address,Mobile,UserName,ValidCode,Remark,Status) values (@ScanHistoryId,@Address,@Mobile,@UserName,@ValidCode,@Remark,@Status)",
+                             new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId),
+                             new System.Data.SqlClient.SqlParameter("@Address", Address),
+                             new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
+                             new System.Data.SqlClient.SqlParameter("@ValidCode", ValidCode),
+                             new System.Data.SqlClient.SqlParameter("@UserName", UserName),
+                             new System.Data.SqlClient.SqlParameter("@Sex", Sex),
+                             new System.Data.SqlClient.SqlParameter("@Remark", "2"),
+                             new System.Data.SqlClient.SqlParameter("@Status", "1"));
+                        return ValidCode;
+                    }
+                    catch (Exception ex)
+                    {
+                        return ex.Message;
+                    }
+                }
+                else
+                {
+                    return "1";
+                }
             }
         }
         [WebMethod(EnableSession = true)]

@@ -129,12 +129,16 @@
                 success: function (result) {
                     //alert(result.d);
                     //var r = $(data).text();
+                    if (result.d == "a") {
+                        alert("不能重复验证");
 
-                    if (result.d == 1) {
-                        alert("验证码不正确");
-                        //window.location.reload();
                     } else {
-                        window.location.href = "/BigPrizeNum.aspx";
+                        if (result.d == 1) {
+                            alert("验证码不正确");
+                            //window.location.reload();
+                        } else {
+                            window.location.href = "/BigPrizeNum.aspx";
+                        }
                     }
                 }
             })
