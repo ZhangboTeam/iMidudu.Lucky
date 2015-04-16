@@ -30,6 +30,7 @@ namespace iMidudu.Lucky.Web
                 return ex.Message;
             }
         }
+
         [WebMethod]
         public List<ActivityName> GetPrize(string ActivityId)
         {
@@ -83,6 +84,22 @@ namespace iMidudu.Lucky.Web
         {
             public string ActivityName { get; set; }
             public Guid QRCode { get; set; }
+        }
+
+        [WebMethod]
+        public void SetDayLimit(List<UpdateSetDayLimit> datasssss)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("SetDayLimitUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@DayLimit", d.DayLimit));
+            }
+        }
+        public class UpdateSetDayLimit
+        {
+            public string PrizeName { get; set; }
+            public int DayLimit { get; set; }
         }
 
         public void SearchActName(List<UpdateModelActivityName> ActivityName)

@@ -143,6 +143,7 @@
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\PrizeRecord.aspx" />
     <Content Include="Admin\PrizeSearch.aspx" />
+    <Content Include="Admin\SetDate.aspx" />
     <Content Include="Admin\SetPrize.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\UpdateActivityName.aspx" />
@@ -332,6 +333,13 @@
     </Compile>
     <Compile Include="Admin\OutExcelDown.ashx.cs">
       <DependentUpon>OutExcelDown.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SetDate.aspx.cs">
+      <DependentUpon>SetDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SetDate.aspx.designer.cs">
+      <DependentUpon>SetDate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
