@@ -99,7 +99,7 @@
                                         <th>获奖手机号</th>
                                         <th>获奖人地址</th>
                                         <th>获奖时间</th>
-                                        <th>是否发货</th>
+                                        <%--<th>是否发货</th>--%>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -112,9 +112,9 @@
                                      <td><%#Eval("Address") %></td>
                                      <td><%#Eval("ScanDate") %></td>
                                      <td>
-                                    <input tag="txt" onclick="this.select();"
+                                    <%--<input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
-                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("Status") %>" /></td>
+                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("Status") %>" />--%></td>
                                     
 
                                 </tr>
@@ -134,7 +134,7 @@
                 </webdiyer:AspNetPager>
                       </div>
                      <div class="submit_link">
-                <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>
+               <%-- <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>--%>
             </div>
                      <footer>
                         </footer>

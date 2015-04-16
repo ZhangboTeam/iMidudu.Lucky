@@ -139,6 +139,8 @@
     <Content Include="Admin\js\jquery.min.js" />
     <Content Include="Admin\js\jquery.tablesorter.min.js" />
     <Content Include="Admin\js\json2.js" />
+    <Content Include="Admin\js\Login.js" />
+    <Content Include="Admin\js\login2.js" />
     <Content Include="Admin\js\queryString.js" />
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\PrizeRecord.aspx" />

@@ -106,9 +106,8 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>活动名</th>
                                         <th width="200">奖项名</th>
-                                        <th>每小时限额</th>
+                                        <th width="100">每小时限额</th>
                                         <%--<th width="200">数量</th>--%>
                                     </tr>
                                 </thead>

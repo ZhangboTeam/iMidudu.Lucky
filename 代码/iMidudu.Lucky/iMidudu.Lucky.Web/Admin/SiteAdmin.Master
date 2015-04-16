@@ -75,7 +75,7 @@
                     <img src="/Admin/images/iMidudu.png" /></a></h1>
                 <h2 class="section_title">后台数据管理平台</h2>
              </hgroup>   
-            <input type="submit" value="退出登录" onclick="return logout();"/>
+            <input type="submit" value="退出登录" class="login" onclick="return logout();"/>
         </header>
         <!-- end of header bar -->
 
