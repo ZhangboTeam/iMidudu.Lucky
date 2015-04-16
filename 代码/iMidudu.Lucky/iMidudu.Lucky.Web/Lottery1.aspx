@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" class="mtx-app">
 <head runat="server">
-    <script type="text/javascript">
+<%--    <script type="text/javascript">
 
         //处理键盘事件 禁止后退键（Backspace）密码或单行、多行文本框除外  
         function banBackSpace(e) {
@@ -43,7 +43,7 @@
         //禁止后退键  作用于IE、Chrome  
         document.onkeydown = banBackSpace;
 
-</script>  
+</script> --%> 
     <!-- 
 * 开发人员书写规范:
 * 1.所有缩进都用 TAB， 而不是空格。
@@ -154,6 +154,7 @@
             }, 4000);
         }
         function beginLottery() {
+            $(".rotate-cont").attr("disabled", true);
             var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
 
             var str = JSON.stringify(data);
@@ -201,7 +202,7 @@
 
     </script>
 </head>
-<body onclick="beginLottery();">
+<body>
     <%--<%=this.Request["ScanHistoryId" ]%>,
     <%=this.Request["QRCode" ]%>--%>
 <div class="container"><!-- Everything started here -->
@@ -212,7 +213,7 @@
 			<div class="turntable">
 				<img src="images/circle-3.png" alt="" width="100%">
 				<div class="rotate ubox">
-					<div class="rotate-cont">
+					<div class="rotate-cont"  onclick="beginLottery();">
 						<img src="images/circle-4.png" alt="" width="100%">
 						<div class="rotate-arrow">
 							<img src="images/circle-5.png" class="arrow-img" alt="" style="-webkit-transform: rotate(-85deg);">

@@ -165,9 +165,9 @@
 						<tr>
 							<th>性别</th>
 							<td class="hasRadioSty">
-								<input type="radio" name="Sex"  value="1" checked="checked">
+								<input type="radio" name="Sex"  value="男" checked="checked">
 								<label for="radio" style="margin-right:20px">男</label>
-								<input type="radio" name="Sex"  value="0">
+								<input type="radio" name="Sex"  value="女">
 								<label for="radio">女</label>
 							</td>
 						</tr>

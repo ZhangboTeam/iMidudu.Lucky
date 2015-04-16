@@ -160,7 +160,7 @@ namespace iMidudu.Lucky.Web
                          new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
                          new System.Data.SqlClient.SqlParameter("@ValidCode", ValidCode),
                          new System.Data.SqlClient.SqlParameter("@UserName", UserName),
-                        // new System.Data.SqlClient.SqlParameter("@Sex", Sex),
+                         new System.Data.SqlClient.SqlParameter("@Sex", Sex),
                          new System.Data.SqlClient.SqlParameter("@Remark", "2"),
                          new System.Data.SqlClient.SqlParameter("@Status", "1"));
                     return ValidCode;
