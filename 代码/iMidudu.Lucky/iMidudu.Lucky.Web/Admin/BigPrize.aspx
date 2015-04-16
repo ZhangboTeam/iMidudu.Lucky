@@ -96,6 +96,7 @@
                                     <tr>
                                         <th>活动获奖</th>
                                         <th>获奖姓名</th>
+                                        <th>性别</th>
                                         <th>获奖手机号</th>
                                         <th>获奖人地址</th>
                                         <th>获奖时间</th>
@@ -108,6 +109,7 @@
                                  <tr>  
                                     <td><%#Eval("ActivityName") %>+<%#Eval("PrizeName") %></td>
                                     <td><%#Eval("UserName") %></td>
+                                     <td><%#Eval("Sex") %></td>
                                     <td><%#Eval("Mobile") %></td>
                                      <td><%#Eval("Address") %></td>
                                      <td><%#Eval("ScanDate") %></td>
