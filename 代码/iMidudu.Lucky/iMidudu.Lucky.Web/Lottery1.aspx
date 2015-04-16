@@ -132,8 +132,8 @@
                 //console.log("end");
                 //解锁按钮
                 _self.removeClass('act');
-                alert( prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId);
-                //window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
+                //alert( prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId);
+                window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 //var url = "price-4";
                 //switch (prize[new_p_idx]) {
                 //    case "thanks":
