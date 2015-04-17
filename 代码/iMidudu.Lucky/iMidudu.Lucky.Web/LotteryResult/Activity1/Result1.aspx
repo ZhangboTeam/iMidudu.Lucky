@@ -162,7 +162,7 @@
     <hr />--%>
     <div class="container"><!-- Everything started here -->
 	<div class="ckp-content">
-		<img src="images/bot-pic-01.png" alt="" class="bot-pic">
+		<img src="/images/bot-pic-01.png" alt="" class="bot-pic">
 		<div class="ckp-top-img-wrap">
 			<img src="/images/top-pic-01.png" alt="">
 		</div>
