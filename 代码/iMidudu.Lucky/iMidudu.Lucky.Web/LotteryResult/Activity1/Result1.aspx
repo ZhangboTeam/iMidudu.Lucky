@@ -1,7 +1,15 @@
 ﻿<%@ Page Language="C#"   %>
 
 <!DOCTYPE html>
-
+    <%
+        var sql = "select count(1) from Acception where scanhistoryid='" + this.Request["ScanHistoryId" ] + "'  ";
+      //  Response.Write(sql);Response.End();
+        if (iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists(sql))
+        {
+            Response.Write("该大奖已被领取");
+            Response.End();
+        }
+         %>
 <html xmlns="http://www.w3.org/1999/xhtml" class="mtx-app">
 <head runat="server">
 <!-- 
@@ -137,7 +145,7 @@
                             alert("验证码不正确");
                             //window.location.reload();
                         } else {
-                            window.location.href = "/BigPrizeNum.aspx";
+                            window.location.href = "/BigPrizeNum.aspx?ScanHistoryId=" + ScanHistoryId;
                         }
                     }
                 }
