@@ -189,7 +189,23 @@
         'openCard'
                 ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             });
-     
+        function onBridgeReady(){
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+
+        
+        wx.ready(function () {
+            if (typeof WeixinJSBridge == "undefined"){
+                if( document.addEventListener ){
+                    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                }else if (document.attachEvent){
+                    document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+                    document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                }
+            }else{
+                onBridgeReady();
+            }
+        });
         // 5 图片接口
         // 5.1 拍照、本地选图
         var images = {

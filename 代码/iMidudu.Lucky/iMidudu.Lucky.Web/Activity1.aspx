@@ -148,7 +148,7 @@
                 onBridgeReady();
             }
         });
-        alert(WeixinJSBridge);
+        //alert(WeixinJSBridge);
 
     </script>
 <!-- Javascript with AMD  -->
