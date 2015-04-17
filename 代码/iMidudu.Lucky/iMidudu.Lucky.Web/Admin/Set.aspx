@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Set.aspx.cs" Inherits="iMidudu.Lucky.Web.Admin.Set" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <script runat="server">
 
