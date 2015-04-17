@@ -2,6 +2,16 @@
 
 <%
     var QRCode = this.Request["brandcode"];
+    QRCode = Server.UrlEncode(QRCode);
+        QRCode = QRCode.Replace("+", "");
+   // Response.Write(QRCode); Response.End();
+    
+    
+    
+    if (QRCode.IndexOf("%20")>-1)
+    {
+        QRCode = QRCode.Replace("%20", "");
+    }
     if (string.IsNullOrEmpty(QRCode))
     {
         this.Response.Write("no brandcode");

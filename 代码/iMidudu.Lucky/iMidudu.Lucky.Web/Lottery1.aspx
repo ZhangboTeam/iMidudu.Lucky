@@ -3,6 +3,15 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" class="mtx-app">
+    <%
+        var sql = "select count(1) from ScanHistory where scanhistoryid='" + this.Request["ScanHistoryId" ] + "' and not PrizeId   is null";
+      //  Response.Write(sql);Response.End();
+        if (iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists(sql))
+        {
+            Response.Write("该次扫码已失效");
+            Response.End();
+        }
+         %>
 <head runat="server">
 <%--    <script type="text/javascript">
 
