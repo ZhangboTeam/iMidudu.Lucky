@@ -27,13 +27,26 @@
         <header>
             <h3 class="tabs_involved">奖项记录TOP10 </h3>
         </header>
+<%--        SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory
+                     WHERE   (OpenId = dbo.WXUser.OpenId))--%>
         <div class="tab_container">
             <div id="tab1" class="tab_content">
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="
                     SELECT   TOP 10  OpenId, NickName, Pic, Sex, WXCity, WXProvince, WXCountry, RegisterDate, LastActiveTime,
-                    (SELECT   COUNT(*) AS Expr1
-                     FROM      dbo.ScanHistory
-                     WHERE   (OpenId = dbo.WXUser.OpenId)) AS TotalCount,
+                      ((SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe81'))+   (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'))+  (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')))AS TotalCount,
                     (SELECT   COUNT(*) AS Expr1
                      FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
                                      dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
@@ -49,7 +62,19 @@
                                      dbo.Prize AS Prize_1 ON ScanHistory_1.PrizeId = Prize_1.PrizeId
                      WHERE   (ScanHistory_1.OpenId = dbo.WXUser.OpenId) AND 
                                      (Prize_1.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')) AS TotalCount3
-FROM      dbo.WXUser 
+FROM      dbo.WXUser WHERE ((SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe81'))+   (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'))+  (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')))>0
 ORDER BY TotalCount DESC"></asp:SqlDataSource>
 
                 <div  id="content">

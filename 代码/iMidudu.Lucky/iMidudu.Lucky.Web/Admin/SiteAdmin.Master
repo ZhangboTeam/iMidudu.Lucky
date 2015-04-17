@@ -75,7 +75,7 @@
                     <img src="/Admin/images/iMidudu.png" /></a></h1>
                 <h2 class="section_title">后台数据管理平台</h2>
              </hgroup>   
-            <input type="submit" value="退出登录" onclick="return logout();"/>
+            <input type="submit" value="退出登录" class="login" onclick="return logout();"/>
         </header>
         <!-- end of header bar -->
 
@@ -104,6 +104,7 @@
                 <li class="icn_tags"><a href="/Admin/SetPrize.aspx">设置数量</a></li>
                 <li class="icn_tags"><a href="/Admin/Default.aspx">统计奖项</a></li>
                 <li class="icn_tags"><a href="/Admin/BigPrize.aspx">大奖统计</a></li>
+                <li class="icn_tags"><a href="/Admin/SetDate.aspx">限时设置</a></li>
                 <li class="icn_profile"><a href="/Admin/ChangePassword.aspx">修改密码</a></li>
                 <li class="icn_profile"></li>
             </ul>

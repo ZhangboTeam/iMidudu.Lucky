@@ -96,10 +96,11 @@
                                     <tr>
                                         <th>活动获奖</th>
                                         <th>获奖姓名</th>
+                                        <th>性别</th>
                                         <th>获奖手机号</th>
                                         <th>获奖人地址</th>
                                         <th>获奖时间</th>
-                                        <th>是否发货</th>
+                                        <%--<th>是否发货</th>--%>
                                     </tr>
                                 </thead>
                         </HeaderTemplate>
@@ -108,13 +109,14 @@
                                  <tr>  
                                     <td><%#Eval("ActivityName") %>+<%#Eval("PrizeName") %></td>
                                     <td><%#Eval("UserName") %></td>
+                                     <td><%#Eval("Sex") %></td>
                                     <td><%#Eval("Mobile") %></td>
                                      <td><%#Eval("Address") %></td>
                                      <td><%#Eval("ScanDate") %></td>
                                      <td>
-                                    <input tag="txt" onclick="this.select();"
+                                    <%--<input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
-                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("Status") %>" /></td>
+                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("Status") %>" />--%></td>
                                     
 
                                 </tr>
@@ -123,7 +125,6 @@
 
                             </tbody>
                     </table>
-                            
                         </FooterTemplate>
                     </asp:Repeater>
                         <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuckyConnectionString %>" SelectCommand="SELECT * FROM [View_BigSearch] ORDER BY [QRCode], [PrizeId]"></asp:SqlDataSource>--%>
@@ -134,7 +135,7 @@
                 </webdiyer:AspNetPager>
                       </div>
                      <div class="submit_link">
-                <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>
+               <%-- <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>--%>
             </div>
                      <footer>
                         </footer>
