@@ -105,6 +105,7 @@
                 <li class="icn_tags"><a href="/Admin/Default.aspx">统计奖项</a></li>
                 <li class="icn_tags"><a href="/Admin/BigPrize.aspx">大奖统计</a></li>
                 <li class="icn_tags"><a href="/Admin/SetDate.aspx">限时设置</a></li>
+                <%--<li class="icn_tags"><a href="/Admin/Set.aspx">所有设置</a></li>--%>
                 <li class="icn_profile"><a href="/Admin/ChangePassword.aspx">修改密码</a></li>
                 <li class="icn_profile"></li>
             </ul>
