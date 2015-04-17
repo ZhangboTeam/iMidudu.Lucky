@@ -62,7 +62,19 @@
                                      dbo.Prize AS Prize_1 ON ScanHistory_1.PrizeId = Prize_1.PrizeId
                      WHERE   (ScanHistory_1.OpenId = dbo.WXUser.OpenId) AND 
                                      (Prize_1.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')) AS TotalCount3
-FROM      dbo.WXUser 
+FROM      dbo.WXUser WHERE ((SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe81'))+   (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'))+  (SELECT   COUNT(*) AS Expr1
+                     FROM      dbo.ScanHistory AS ScanHistory_3 INNER JOIN
+                                     dbo.Prize ON ScanHistory_3.PrizeId = dbo.Prize.PrizeId
+                     WHERE   (ScanHistory_3.OpenId = dbo.WXUser.OpenId) AND 
+                                     (dbo.Prize.QRCode = '4d618408-d3f3-4d7b-8c0d-a42e9c31fe83')))>0
 ORDER BY TotalCount DESC"></asp:SqlDataSource>
 
                 <div  id="content">
