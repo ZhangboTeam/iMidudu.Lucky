@@ -1,6 +1,15 @@
 ﻿<%@ Page Language="C#"   %>
 <!DOCTYPE html>
 <html class="mtx-app">
+    <%
+        var sql = "select count(1) from Acception where scanhistoryid='" + this.Request["ScanHistoryId" ] + "'  ";
+      //  Response.Write(sql);Response.End();
+        if (iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists(sql))
+        {
+           // Response.Write("该大奖已被领取");
+         //   Response.End();
+        }
+         %>
 <head>
 <!-- 
 * 开发人员书写规范:
