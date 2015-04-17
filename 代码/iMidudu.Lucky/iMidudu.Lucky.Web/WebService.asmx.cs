@@ -232,6 +232,39 @@ namespace iMidudu.Lucky.Web
             public string Quantity { get; set; }
         }
 
+
+        [WebMethod]
+        public void UpdateAllSet(List<UpdateModelUpdateAllSet> datasssss, List<UpdateModelUpdateAllSet> datass, List<UpdateModelUpdateAllSet> datas)
+        {
+            foreach (var d in datasssss)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("AllSetUpdate_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId),
+                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName));
+            }
+            foreach (var d in datass)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("AllUpdateSet_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId),
+                     new System.Data.SqlClient.SqlParameter("@Quantity", d.Quantity));
+            }
+            foreach (var d in datas)
+            {
+                iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("AllUpdateSets_Procedure",
+                     new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId),
+                     new System.Data.SqlClient.SqlParameter("@DayLimit", d.DayLimit));
+            }
+
+        }
+        public class UpdateModelUpdateAllSet
+        {
+            public int Quantity { get; set; }
+            public Guid PrizeId { get; set; }
+            public string PrizeName { get; set; }
+            public int DayLimit { get; set; }
+        }
+
+ 
         [WebMethod]
         public void UpdateBigPrize(List<UpdateModelBigPrize> datasssss)
         {

@@ -107,7 +107,8 @@
                         <ItemTemplate>
                             <tbody>
                                  <tr>  
-                                    <td><%#Eval("ActivityName") %>+<%#Eval("PrizeName") %></td>
+                                     <%--+<%#Eval("PrizeName") %>--%>
+                                    <td><%#Eval("ActivityName") %></td>
                                     <td><%#Eval("UserName") %></td>
                                      <td><%#Eval("Sex") %></td>
                                     <td><%#Eval("Mobile") %></td>

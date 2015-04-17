@@ -51,14 +51,40 @@
             }
             function UpdateAll() {
                 var data = new Array();
+                var da = new Array();
+                var daa = new Array();
                 $("input[tag='txt']").each(function () {
                     data.push({
                         PrizeId: $(this).attr("code"),
-                        PrizeName: $(this).val()
+                        PrizeName: $(this).val(),
+                        Quantity : $(this).attr("oth")
+                        //,
+                        //Quantity: $('#NewQuantity').val()
+                        //Quantity: $(this).attr("code1").val()
+                    });
+                })
+                $("input[tag='int']").each(function () {
+                    da.push({
+                        PrizeId: $(this).attr("oth"),
+                        Quantity: $(this).val()
+                        //,
+                        //Quantity: $('#NewQuantity').val()
+                        //Quantity: $(this).attr("code1").val()
+                    });
+                })
+                $("input[tag='day']").each(function () {
+                    daa.push({
+                        PrizeId: $(this).attr("code3"),
+                        DayLimit: $(this).val()
+                        //,
+                        //Quantity: $('#NewQuantity').val()
+                        //Quantity: $(this).attr("code1").val()
                     });
                 })
                 var arg = {
-                    datasssss: data
+                    datasssss: data,
+                    datass: da,
+                    datas: daa
                 }
                 $.ajax({
                     type: "POST",
@@ -67,8 +93,6 @@
                     data: JSON.stringify(arg),
                     dataType: 'json',
                     success: function (result) {
-
-                        // alert("ok");
 
                         window.location.reload();
 
@@ -132,14 +156,14 @@
                                     <td>
                                     <input tag="txt" onclick="this.select();"
                                          code="<%#Eval("PrizeId") %>"
-                                         id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("PrizeName") %>" /></td>
+                                         id="NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("PrizeName")%>" /></td>                               
                                     <td>
-                                    <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("PrizeId") %>"
-                                         id="Text1" <%=this.Request["NewQuantity"] %>type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
+                                    <input tag="int" onclick="this.select();"
+                                        oth="<%#Eval("PrizeId")%>"
+                                         id="NewQuantity" <%=this.Request["NewQuantity"] %>type="text" style="width:100%;" value="<%#Eval("Quantity") %>" /></td>
                                     <td>
-                                    <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("PrizeId") %>"
+                                    <input tag="day" onclick="this.select();"
+                                         code3="<%#Eval("PrizeId") %>"
                                          id="Text2" <%=this.Request["NewDayLimit"] %>type="text" style="width:100%;" value="<%#Eval("DayLimit") %>" />
                                     </td>
 
