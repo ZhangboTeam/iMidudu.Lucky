@@ -178,12 +178,38 @@
                 dataType: 'json',
                 success: function (result) {
                     var prize = result.d;
+                   // IsExist(prize);
                     SavePrize(prize);
                 },
                 error: function (e) {
                     //alert("PrizeLottery");
                     //alert("PrizeLottery" + e.responseText);
                     $("#msg").html(e.responseText);
+                }
+            });
+        }
+        function IsExist(prize) {
+            var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>'};
+
+            var str = JSON.stringify(data);
+            //alert(str);
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/IsExist",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {
+                    var PrizeId = result.d;
+                    if (PrizeId=="b") {
+
+                    }
+                    SavePrize(PrizeId);
+                    // window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
+                },
+                error: function (e) {
+                    alert("SavePrize wrong");
+                    alert(e.responseText);
                 }
             });
         }
@@ -224,11 +250,25 @@
 				<div class="rotate ubox">
 					<div class="rotate-cont"  onclick="beginLottery();">
 						<img src="images/circle-4.png" alt="" width="100%">
-						<div class="rotate-arrow">
+<%--						<div class="rotate-arrow">
 							<img src="images/circle-5.png" class="arrow-img" alt="" style="-webkit-transform: rotate(-85deg);">
 						</div>
 						<div class="rotate-arrow-text">
 							<img src="images/start-text.png">
+						</div>--%>
+                         <div class="rotate-arrow">
+							<table>
+								<tr>
+									<td><img src="images/circle-5.png" class="arrow-img" alt="" style="-webkit-transform: rotate(-85deg);"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="rotate-arrow-text">
+							<table>
+								<tr>
+									<td><img src="images/start-text.png"></td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>

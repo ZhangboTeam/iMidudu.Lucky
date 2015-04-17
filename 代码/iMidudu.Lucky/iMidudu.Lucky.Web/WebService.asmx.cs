@@ -195,7 +195,7 @@ namespace iMidudu.Lucky.Web
         [WebMethod(EnableSession = true)]
         public string IsExist(Guid ScanHistoryId)
         {
-            var PrizeId="";
+            var PrizeId="b";
                 try
                 {
                     PrizeId = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select PrizeId from ScanHistory where ScanHistoryId=@ScanHistoryId",
@@ -203,9 +203,17 @@ namespace iMidudu.Lucky.Web
                 }
                 catch (Exception ex)
                 {
-                    return ex.Message;
+                    return "b";
                 }
-                return PrizeId;
+                if (PrizeId!=null)
+                {
+                    return PrizeId;
+                }
+                else
+                {
+                    PrizeId = "b";
+                    return PrizeId;
+                }
         }
         [WebMethod]
         public void UpdateAllSetPrize(List<UpdateModelSetPrize> datasssss)
