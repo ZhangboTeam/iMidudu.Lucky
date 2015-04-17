@@ -53,7 +53,7 @@
                 var data = new Array();
                 $("input[tag='txt']").each(function () {
                     data.push({
-                        PrizeName: $(this).attr("code"),
+                        PrizeId: $(this).attr("code"),
                         DayLimit: $(this).val()
                     });
                 })
@@ -106,6 +106,7 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th width="200">PrizeId</th>
                                         <th width="200">奖项名</th>
                                         <th width="100">每小时限额</th>
                                         <%--<th width="200">数量</th>--%>
@@ -115,10 +116,11 @@
                         <ItemTemplate>
                             <tbody>
                                 <tr>
+                                    <td><%#Eval("PrizeId") %></td>
                                     <td><%#Eval("PrizeName") %></td>
                                     <td>
                                     <input tag="txt" onclick="this.select();"
-                                         code="<%#Eval("PrizeName") %>"
+                                         code="<%#Eval("PrizeId") %>"
                                          id=" NewPrizeName" <%=this.Request["NewPrizeName"] %>type="text" style="width:100%;" value="<%#Eval("DayLimit") %>" /></td>
                                 </tr>
                         </ItemTemplate>

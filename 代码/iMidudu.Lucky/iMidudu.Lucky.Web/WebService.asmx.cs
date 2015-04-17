@@ -92,13 +92,13 @@ namespace iMidudu.Lucky.Web
             foreach (var d in datasssss)
             {
                 iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryProcedure("SetDayLimitUpdate_Procedure",
-                     new System.Data.SqlClient.SqlParameter("@PrizeName", d.PrizeName),
+                     new System.Data.SqlClient.SqlParameter("@PrizeId", d.PrizeId),
                      new System.Data.SqlClient.SqlParameter("@DayLimit", d.DayLimit));
             }
         }
         public class UpdateSetDayLimit
         {
-            public string PrizeName { get; set; }
+            public Guid PrizeId { get; set; }
             public int DayLimit { get; set; }
         }
 
