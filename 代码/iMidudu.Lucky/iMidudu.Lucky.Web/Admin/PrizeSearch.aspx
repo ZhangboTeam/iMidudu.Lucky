@@ -183,6 +183,7 @@
                                         <th>国家(扫码)</th>
                                         <th>省(扫码)</th>
                                         <th>市(区)（扫码）</th>
+                                        <th>时间（扫码）</th>
                                         <th>最近活跃时间</th>
                                         <th>第一次活跃时间</th>
                                     </tr>
@@ -203,6 +204,7 @@
                                     <td><%#Eval("Country")%></td> 
                                     <td><%#Eval("Province") %></td>
                                     <td><%#Eval("City")%></td>
+                                    <td><%#Eval("ScanDate")%></td>
                                     <td><%#Eval("LastActiveTime") %></td>
                                     <td><%#Eval("RegisterDate")%></td> 
                                 </tr>
