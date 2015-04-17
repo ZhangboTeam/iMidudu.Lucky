@@ -307,6 +307,7 @@
                 return false;
             } 
             var data = {OpenId:'<%=openResponse.openid%>',TicketUrl:ticketUrl,TicketNumber:TicketNumber};
+          //  alert(JSON.stringify(data));return;
               //alert(data.ACCESS_TOKEN);
                //return;
                 $.ajax({
