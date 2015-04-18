@@ -170,7 +170,7 @@ namespace iMidudu.Lucky.Web
 
                         //var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
                         //var code1 = WebServieFactiory.SMS.SendValidCode(apiKey, "【不凡帝】您的验证码是{0}", Mobile);
-                        iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryText("insert into Acception(ScanHistoryId,Address,Mobile,UserName,ValidCode,Remark,Status) values (@ScanHistoryId,@Address,@Mobile,@UserName,@ValidCode,@Remark,@Status)",
+                        iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecteNonQueryText("insert into Acception(ScanHistoryId,Address,Mobile,UserName,ValidCode,Sex,Remark,Status) values (@ScanHistoryId,@Address,@Mobile,@UserName,@ValidCode,@Sex,@Remark,@Status)",
                              new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId),
                              new System.Data.SqlClient.SqlParameter("@Address", Address),
                              new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
