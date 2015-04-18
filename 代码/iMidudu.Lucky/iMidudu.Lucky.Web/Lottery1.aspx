@@ -188,7 +188,7 @@
                 }
             });
         }
-        function IsExist(prize) {
+        function IsExist() {
             var data = { ScanHistoryId: '<%=this.Request["ScanHistoryId" ]%>'};
 
             var str = JSON.stringify(data);
@@ -200,12 +200,13 @@
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (result) {
-                    var PrizeId = result.d;
-                    if (PrizeId=="b") {
-
+                    var url = result.d;
+                    //alert(url);
+                    if (url == -2) {
+                        beginLottery();
+                    } else {
+                        window.location.href = url + "?ScanHistoryId=" + data.ScanHistoryId;
                     }
-                    SavePrize(PrizeId);
-                    // window.location.href = prize.URL + "?ScanHistoryId=" + data.ScanHistoryId + "&PrizeId=" + data.PrizeId;
                 },
                 error: function (e) {
                     alert("SavePrize wrong");
@@ -248,7 +249,7 @@
 			<div class="turntable">
 				<img src="images/circle-3.png" alt="" width="100%">
 				<div class="rotate ubox">
-					<div class="rotate-cont"  onclick="beginLottery();">
+					<div class="rotate-cont"  onclick="IsExist();">
 						<img src="images/circle-4.png" alt="" width="100%">
 <%--						<div class="rotate-arrow">
 							<img src="images/circle-5.png" class="arrow-img" alt="" style="-webkit-transform: rotate(-85deg);">

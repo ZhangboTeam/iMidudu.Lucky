@@ -195,24 +195,27 @@ namespace iMidudu.Lucky.Web
         [WebMethod(EnableSession = true)]
         public string IsExist(Guid ScanHistoryId)
         {
-            var PrizeId="b";
+            var PrizeId="21345";
                 try
                 {
                     PrizeId = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select PrizeId from ScanHistory where ScanHistoryId=@ScanHistoryId",
-                         new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId)).ToString();
+                         new System.Data.SqlClient.SqlParameter("@ScanHistoryId", ScanHistoryId.ToString())).ToString();
                 }
                 catch (Exception ex)
                 {
-                    return "b";
+                    return "-1";
                 }
-                if (PrizeId!=null)
+                if (PrizeId == null || PrizeId == "")
                 {
+                    PrizeId = "-2";
                     return PrizeId;
                 }
                 else
                 {
-                    PrizeId = "b";
-                    return PrizeId;
+
+                    var url = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select URL from Prize where PrizeId=@PrizeId",
+                         new System.Data.SqlClient.SqlParameter("@PrizeId", PrizeId)).ToString();
+                    return url;
                 }
         }
         [WebMethod]
