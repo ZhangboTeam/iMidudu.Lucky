@@ -77,11 +77,10 @@
 
 
             }
-            
-            int count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
-            int count1 = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where OpenId=@OpenId and PrizeId is null", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
-            int count2 = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ScanHistory where OpenId=@OpenId and PrizeId ='2eda98cd-326d-4da8-8a26-23aca4482717'", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
-            count = count - count1 - count2;
+
+            int count = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from Prize INNER JOIN ScanHistory ON Prize.PrizeId = ScanHistory.PrizeId where OpenId=@OpenId and Prize.QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe81'", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
+            int count1 = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from Prize INNER JOIN ScanHistory ON Prize.PrizeId = ScanHistory.PrizeId where OpenId=@OpenId and  Prize.PrizeId=ScanHistory.PrizeId and Prize.QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe81' and ScanHistory.PrizeId ='2eda98cd-326d-4da8-8a26-23aca4482717'", new System.Data.SqlClient.SqlParameter("@OpenId", r.openid));
+            count = count - count1;
             if (count >= 5)
             {
                 Response.Redirect("/Over5.aspx");

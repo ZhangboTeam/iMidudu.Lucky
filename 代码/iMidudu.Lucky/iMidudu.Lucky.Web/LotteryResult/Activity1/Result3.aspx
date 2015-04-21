@@ -56,6 +56,25 @@
 	<meta http-equiv="Cache-Control" content="no-siteapp">
 </head>
 <body>
+        <script>
+            function shareTimeline() {
+                WeixinJSBridge.invoke('shareTimeline', {
+                    "img_url": window.shareData.imgUrl,
+                    "img_width": "640",
+                    "img_height": "640",
+                    "link": window.location.href,
+                    "desc": '描述',
+                    "title": '标题',
+                }, function (res) {
+                    _report('timeline', res.err_msg);
+                });
+            }
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+                    shareTimeline();
+                });
+            }, false)
+        </script>
 <%--  ScanHistoryId:  <%=this.Request["ScanHistoryId" ]%>,
    PrizeId: <%=this.Request["PrizeId" ]%>--%>
 <div class="container"><!-- Everything started here -->

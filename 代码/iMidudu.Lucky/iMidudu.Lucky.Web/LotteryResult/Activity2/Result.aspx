@@ -1,7 +1,15 @@
 ﻿<%@ Page Language="C#"   %>
-
 <!DOCTYPE html>
 <html class="mtx-app">
+    <%
+        var sql = "select count(1) from Acception where scanhistoryid='" + this.Request["ScanHistoryId" ] + "'  ";
+      //  Response.Write(sql);Response.End();
+        if (iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists(sql))
+        {
+           // Response.Write("该大奖已被领取");
+         //   Response.End();
+        }
+         %>
 <head>
 <!-- 
 * 开发人员书写规范:
@@ -11,7 +19,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>谢谢惠顾</title>
+	<title>恭喜中奖</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
@@ -53,17 +61,25 @@
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#ebce74">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
+    <script>
+        function reg() {
+            window.location.href = "/LotteryResult/Activity2/Result1.aspx?ScanHistoryId=<%=this.Request["ScanHistoryId" ] %>&PrizeId=<%=this.Request["PrizeId"]%>";
+            }
+    </script>
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="/Alps/images/price-4.jpg" alt="" class="prices">
-    <%--<input type="button" class="button-sty2 btn-pos bt20">--%>
+	<img src="/Alps/images/price-3.jpg" alt="" class="prices">
+<!--
+	<div class="pctext">
+		<span>中奖码</span><span>8</span><span>8</span><span>8</span><span>8</span><span>9</span>
+	</div>
+-->
+	<input type="button" class="button-sty3 btn-pos" onclick="reg();">
 </div>
 </body>
 
 <!-- Javascript with AMD  -->
 <script src="/Alps/js/require.js" data-main="/Alps/js/main" ></script>
-
-
 
 </html>

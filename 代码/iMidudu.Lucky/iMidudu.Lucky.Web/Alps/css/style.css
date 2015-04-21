@@ -1,0 +1,448 @@
+@charset "utf-8";
+/* CSS 格式书写开发人员约束规范 ****************************************************************** 
+
+1.所有CSS属性，除了空属性可以单行之外，即使只有一个属性，也必须换行,但是后期发布版本压缩什么的请随意压缩。
+
+
+2.所有缩进都用 TAB， 而不是空格。
+
+
+3.绑定到HTML元素的CSS属性，除非经过深思熟虑，排除后期污染到其它HTML标签属性，不然一律通过CLASS或者ID来写CSS 
+	例如：  
+		a {xxxx},  
+		div{xxxx}, 
+		li {xxxx}, 
+		span {xxxx} 这种全局通用HTML标签样式是禁止书写。
+
+
+4.禁止样式过多嵌套，尽量不要超过3层
+	例如：
+		.a {xxx}
+		.a .b {xxx}
+		.a .b .c {xxxx}
+
+
+5.不要滥用缩写去耍帅or偷懒,省了几个字节会造成后面维护人员很大麻烦
+	例如:font:12px/20px "simsun"
+
+
+********************************************************************************************  */
+
+.mgb-sty1 {
+    margin-bottom: 20px;
+}
+.mgb-sty2 {
+    margin-bottom: 40px;
+}
+.mtx-app body,
+.mtx-app {
+    font-size: 10px;
+    height: 100%;
+}
+
+.mtx-app .container {
+    position: relative;
+    height: 100%;
+    background: -webkit-linear-gradient(top, rgb(235, 206, 116) 0%, rgb(255, 255, 255) 100%);
+    background: -moz-linear-gradient(top, rgb(235, 206, 116) 0%, rgb(255, 255, 255) 100%);
+    background: -o-linear-gradient(top, rgb(235, 206, 116) 0%, rgb(255, 255, 255) 100%);
+    background: -ms-linear-gradient(top, rgb(235, 206, 116) 0%, rgb(255, 255, 255) 100%);
+    background: -linear-gradient(top, rgb(235, 206, 116) 0%, rgb(255, 255, 255) 100%);
+}
+
+.bg-img-1 {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.upload_invoice_modal {
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    top: 18px;
+    background:url(../images/inforbg.png) no-repeat;
+	-webkit-background-size: 100% 100%;
+	background-size:100% 100%;
+}
+
+.upload_inv_inner .title .sub-title {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.upload_inv_inner .title {
+    padding: 10px 0 22px;
+    font-size: 19px;
+    line-height: normal;
+}
+
+.ckp-form .inputsty,
+.upload_inv_inner .buttonsty2,
+.upload_inv_inner .buttonsty,
+.upload_inv_inner .inputsty {
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 42px;
+    line-height: normal;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 4px;
+    border: solid 1px #c7c7c7;
+}
+
+.upload_inv_inner .buttonsty {
+	display:block;
+    border: none;
+    background-color: #2294ff;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+	line-height:42px;
+	text-decoration:none;
+	text-align:center;
+}
+
+.upload_inv_inner .buttonsty2 {
+    border-color: #dea74a;
+    color: #dea74a;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.upload_inv_inner {
+    padding: 20px;
+}
+
+.mtx-price-detail {
+    min-height: 100%;
+    background: url(../images/page_bg-02.jpg);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+	padding-bottom:30px;
+}
+
+.mtx-price-detail .inner li:before {
+    content: '·';
+    margin-left: -4px;
+}
+
+.mtx-price-detail .inner li {
+    padding-left: 10px;
+}
+
+.mtx-price-detail .inner {
+    padding: 20px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+
+.prices {
+    position: absolute;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.btn-pos {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 40px;
+    margin: auto;
+}
+
+.button-sty2:active {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+
+.button-sty3,
+.button-sty2 {
+    background-image: url(../images/button-share.png);
+    background-color: transparent;
+    background-size: 132px 59px;
+    width: 132px;
+    height: 59px;
+    cursor: pointer;
+    border: none;
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+}
+
+.button-sty3 {
+    background-image: url(../images/button-share2.png);
+}
+
+.button-sty4 {
+    background-image: url(../images/button-yes.png);
+}
+
+.button-next {
+    display: block;
+    margin: 0 auto;
+    background-image: url(../images/button-next.png);
+}
+
+.bot-pic {
+    position: absolute;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.ckp-content {
+    min-height: 100%;
+    position: relative;
+	background:url(../images/page_bg-05.jpg) no-repeat;
+	-webkit-background-size:100% 100%;
+	background-size:100% 100%;
+}
+
+.ckp-top-img-wrap {
+    position: relative;
+    text-align: center;
+	padding:18px 20px;
+}
+
+.ckp-top-img-wrap img {
+    vertical-align: top;
+    max-width: 100%;
+}
+
+.ckp-form .inner {
+    padding: 20px;
+}
+
+.ckp-form th:after {
+    content: ' :';
+}
+
+.ckp-form td {
+    height: 42px
+}
+
+.ckp-form th {
+    text-align: left;
+    padding-right: 10px;
+}
+
+.ckp-form th,
+.ckp-form td {
+    padding-bottom: 10px;
+}
+
+.ckp-form {
+    position: relative;
+    border-radius: 20px;
+    display: block;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.hasRadioSty label,
+.hasRadioSty input[type="radio"] {
+    vertical-align: middle;
+}
+
+.send-ckp .inputsty {
+    -webkit-appearance: none;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.send-ckp .send_btn {
+    -webkit-appearance: none;
+    position: absolute;
+    width: 86px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: #fff;
+    font-size: 14px;
+    background-color: #2294ff;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.send-ckp {
+    position: relative;
+    padding-right: 86px;
+}
+
+.ckp-text-sty01 {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+}
+
+.ckp-text-sty02 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: bold;
+}
+
+.ckp-form .ckb-sub-btn {
+    text-align: center;
+    white-space: nowrap;
+    word-break: keep-all;
+    padding-bottom: 0px;
+}
+
+.ckb-sub-btn .button-sty2 {
+    margin: 0;
+    padding: 0;
+}
+
+.get_prc_content {
+    height: 100%;
+	background:url(../images/page_bg-04.jpg) no-repeat;
+	-webkit-background-size:100% 100%;
+	background-size:100% 100%;
+	padding-bottom:50px;
+}
+
+.get_prc_content .layout-top {
+    height: 30%;
+    text-align: center;
+	padding:18px 20px 0;
+}
+
+.get_prc_content .layout-top img {
+    vertical-align: top;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.get_prc_content .layout-bot {
+    height: 62%;
+    text-align: center;
+}
+
+.get_prc_content .layout-bot img {
+    vertical-align: top;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.turntable {
+    position: relative;
+    margin-top: 10px;
+	margin-bottom:30px;
+}
+
+.rotate {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-image: url(../images/circle-2.png);
+}
+
+.rotate-cont {
+    position: relative;
+}
+
+.rotate-arrow,.rotate-arrow-text {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+.rotate-cont table{
+    width: 100%;
+    height: 100%;
+}
+.rotate-cont table td{
+    text-align:center;
+    vertical-align: middle; 
+}
+.rotate-arrow-text{
+    z-index: 2;
+}
+.rotate-arrow-text img{
+	width:16%;
+}
+.arrow-img {
+    width: 55%;
+    -webkit-transition: -webkit-transform 3.4s;
+    transition: transform 3.4s;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition-timing-function: cubic-bezier(0, .95, .33, 1);
+	transition-timing-function: cubic-bezier(0, .95, .33, 1);
+}
+.pctext span:last-child
+{
+	border-radius: 0 3px 3px 0 ;
+}
+.pctext span:first-child
+{
+	border-radius: 3px 0 0 3px;
+}
+.pctext span
+{
+	display: inline-block;
+	padding: 0 8px;
+	font-size: 16px;
+	background-color: #e1302b;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	margin-right: 1px;
+}
+.pctext
+{
+	position: absolute;
+	left: 0;
+	top: 64%;
+	width: 100%;
+	text-align: center;
+}
+
+/*登记资料*/
+.mtx-infor-detail {
+    min-height: 100%;
+    background: url(../images/page_bg-03.jpg);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.funInfor{
+	min-height: 100%;
+    background: url(../images/price-2.jpg);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.btn-pos.bt20{ bottom:20px;}
+
+.txt_file{
+	position:absolute;
+	left:25px;
+	top:139px;
+	opacity:0;
+	filter:alpha(opacity=0);
+	cursor:pointer;
+	width:80%;
+	height:40px;
+	line-height:25px;
+	overflow: hidden;
+}

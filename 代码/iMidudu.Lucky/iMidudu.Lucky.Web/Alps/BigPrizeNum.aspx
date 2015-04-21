@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#"   %>
-
+﻿
+<%@ Page Language="C#"   %>
 <!DOCTYPE html>
 <html class="mtx-app">
 <head>
@@ -11,7 +11,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>谢谢惠顾</title>
+	<title>恭喜中奖</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
@@ -56,8 +56,9 @@
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="/Alps/images/price-4.jpg" alt="" class="prices">
-    <%--<input type="button" class="button-sty2 btn-pos bt20">--%>
+	<img src="/Alps/images/price-3.jpg" alt="" class="prices">
+	<%--<input type="button" class="button-sty2 button-sty3 btn-pos" onclick="reg();">--%>
+    您的奖品将于活动结束后三周内快递送达，敬请留意
 </div>
 </body>
 
@@ -67,3 +68,4 @@
 
 
 </html>
+
