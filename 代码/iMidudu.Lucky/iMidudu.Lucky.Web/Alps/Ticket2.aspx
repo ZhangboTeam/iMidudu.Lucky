@@ -101,7 +101,7 @@
             <div class="upload_invoice_modal">
                 <div class="upload_inv_inner">
                     <h2 class="title">发票号码<span class="sub-title">（信息供抽奖需求）</span></h2>
-                    <input type="text" class="inputsty mgb-sty1" id="TicketNumber" placeholder="请输入发票号码">
+                    <input type="text" class="inputsty mgb-sty1" id="TicketNumber" placeholder="请输入购买凭证号码">
                     <input type="button" class="buttonsty mgb-sty2" id="chooseImage" value="上传发票照片">
                     <input type="button" id="uploadImage" value="上传小票照片" hidden  />
                     <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
