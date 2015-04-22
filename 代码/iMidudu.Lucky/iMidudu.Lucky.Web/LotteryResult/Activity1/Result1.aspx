@@ -171,7 +171,7 @@
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tbody>
 						<tr>
-							<th>姓名</th>
+							<th>收奖者姓名</th>
 							<td><input type="text" class="inputsty" id="UserName"></td>
 						</tr>
 						<tr>
@@ -188,7 +188,7 @@
 							<td><input type="text" class="inputsty" id="Mobile"></td>
 						</tr>
 						<tr>
-							<th>地址</th>
+							<th>收奖者地址</th>
 							<td><input type="text" id="Address" class="inputsty"></td>
 						</tr>
 						<tr>
@@ -203,7 +203,7 @@
 							<td colspan="2" class="ckp-text-sty01">验证码将在10分钟内发送到手机上，如果10分钟后没有收到验证码请重新获取验证码.</td>
 						</tr>
 						<tr>
-							<td colspan="2" class="ckp-text-sty02">请注意：请务必填写您真实准确的姓名、手机号码及地址，否则您将无法获得奖品.</td>
+							<td colspan="2" class="ckp-text-sty02">请注意：您提供的以上信息不得更改，主办方将根据以上地址及身份信息寄送奖品.</td>
 						</tr>
 						<tr>
 							<td colspan="2" class="ckb-sub-btn">
