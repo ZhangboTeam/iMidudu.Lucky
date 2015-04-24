@@ -11,7 +11,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>抽奖超限</title>
+	<title>恭喜中奖</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
@@ -32,8 +32,8 @@
 	<meta name="apple-mobile-web-app-title" content="title2">
 	<!-- CSS
 	================================================== -->
-	<link href="css/reset.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="/Alps/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/Alps/css/style.css" rel="stylesheet" type="text/css">
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="favicon.ico" >
@@ -49,19 +49,19 @@
 	
 	<!-- Tile icon for Win8 (144x144 + tile color) -->
 	<!-- win 8 磁贴图标 -->
-	<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileImage" content="/Alps/images/touch/ms-touch-icon-144x144-precomposed.png">
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="images/price-404.jpg" alt="" class="prices">
+	<img src="/Alps/images/price-404.jpg" alt="" class="prices">
 </div>
 </body>
 
 <!-- Javascript with AMD  -->
-<script src="js/require.js" data-main="js/main" ></script>
+<script src="/Alps/js/require.js" data-main="/Alps/js/main" ></script>
 
 
 

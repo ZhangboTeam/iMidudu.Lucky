@@ -120,12 +120,12 @@
 	<img src="images/page_bg-01.png" alt="" class="bg-img-1">
 	<div class="upload_invoice_modal">
 		<div class="upload_inv_inner">
-			<h2 class="title">发票号码<span class="sub-title">（信息供抽奖需求）</span></h2>
+			<h2 class="title">购买凭证号码<span class="sub-title">（信息供抽奖需求）</span></h2>
 			<input type="text" class="inputsty mgb-sty1 background-color：fff" id="TicketNumber"  placeholder="请输入购买凭证号码" >
             <%--<img id="Img1" width="300" />--%>
-			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="上传发票照片">
-            <input type="button" id="uploadImage" value="上传小票照片" hidden  />
-            <input type="button" id="downloadImage" value="下载小票照片"  hidden/> 
+			<input type="button" class="buttonsty mgb-sty1" id="chooseImage" value="上传购买凭证照片">
+            <input type="button" id="uploadImage" value="上传购买凭证照片" hidden  />
+            <input type="button" id="downloadImage" value="下载购买凭证照片"  hidden/> 
 			<input type="button" class="buttonsty2 mgb-sty1" value="确定" onclick="goOn();">
             <%--<%= SuuSee.UserInfo.CurrentUser().data.city%>--%>
 		</div>

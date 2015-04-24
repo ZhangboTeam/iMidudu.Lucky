@@ -166,7 +166,7 @@
 			<img src="/Alps/images/top-pic-01.png" alt="">
 		</div>
 		<form action="" class="ckp-form">
-			<div class="inner">
+			<div class="inner"> 
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tbody>
 						<tr>
@@ -174,7 +174,7 @@
 							<td><input type="text" class="inputsty" id="UserName"></td>
 						</tr>
 						<tr>
-							<th>收奖者地址</th>
+							<th>性别</th>
 							<td class="hasRadioSty">
 								<input type="radio" name="Sex"  value="男" checked="checked">
 								<label for="radio" style="margin-right:20px">男</label>
@@ -187,7 +187,7 @@
 							<td><input type="text" class="inputsty" id="Mobile"></td>
 						</tr>
 						<tr>
-							<th>地址</th>
+							<th>收奖者地址</th>
 							<td><input type="text" class="inputsty" id="Address"></td>
 						</tr>
 						<tr>
