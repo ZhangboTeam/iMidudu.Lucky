@@ -175,6 +175,7 @@
     <Content Include="Alps\images\page_bg-05.jpg" />
     <Content Include="Alps\images\price-1.jpg" />
     <Content Include="Alps\images\price-2.jpg" />
+    <Content Include="Alps\images\price-3-1.jpg" />
     <Content Include="Alps\images\price-3.jpg" />
     <Content Include="Alps\images\price-4.jpg" />
     <Content Include="Alps\images\price-404.jpg" />
@@ -247,6 +248,7 @@
     <Content Include="images\post_message.png" />
     <Content Include="images\price-1.jpg" />
     <Content Include="images\price-2.jpg" />
+    <Content Include="images\price-3-1.jpg" />
     <Content Include="images\price-3.jpg" />
     <Content Include="images\price-4.jpg" />
     <Content Include="images\price-404.jpg" />
