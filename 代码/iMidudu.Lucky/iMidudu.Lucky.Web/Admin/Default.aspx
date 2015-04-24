@@ -90,7 +90,7 @@
                                         <th>已领数量</th>
                                         <th>剩余数量</th>
                                         <th>今日领取数量</th>
-                                        <th>昨日领取数量</th>
+                                        <%--<th>昨日领取数量</th>--%>
                                         <th>近一周领取数量</th>
                                         <th>近一月领取数量</th>
                                     </tr>
@@ -104,7 +104,7 @@
                                     <td><%#Eval("getcount") %></td>
                                      <td><%#Eval("rad") %></td>
                                     <td><%#Eval("Today") %></td>
-                                    <td><%#Eval("Yesterday") %></td>
+                                    <%--<td><%#Eval("Yesterday") %></td>--%>
                                      <td><%#Eval("WEeek") %></td>
                                     <td><%#Eval("Monse") %></td>
                                 </tr>
