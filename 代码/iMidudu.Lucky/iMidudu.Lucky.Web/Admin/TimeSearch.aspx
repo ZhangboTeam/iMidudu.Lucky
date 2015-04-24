@@ -5,10 +5,11 @@
     private int totalCount50;
     private int totalOpenId;
     private double totalMoney;
-
+    private string ky1 = "";
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
+        ky1 = this.Request["key"];
         if (!IsPostBack)
         {
             if (string.IsNullOrEmpty(this.Request["key1"]) ||string.IsNullOrEmpty(this.Request["key2"]))
@@ -23,6 +24,7 @@
 
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
+        var key = (ky1 == null ? "" : ky1);
         var keyb = new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"]));
         var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1));
         Console.WriteLine(DateTime.Parse(this.Request["key2"]));
@@ -30,23 +32,31 @@
         var cn = new System.Data.SqlClient.SqlConnection(System.Web.Configuration.WebConfigurationManager.AppSettings["con"]);
         cmd.Connection = cn;
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        cmd.CommandText = "TimeSearch_Procedure";
+        cmd.CommandText = "TimeSearchs_Procedure";
         cmd.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
            new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
            new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
+           new System.Data.SqlClient.SqlParameter("@key", key),
            keyb,keye
+           
         });
         cn.Open();
         var dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
         var key4=this.Request["key2"];
         DateTime key3 = Convert.ToDateTime(key4);
         key3 = key3.AddDays(1);
-        string sql1 = string.Format("select  count(*) from record_view") ;
-        string sql2 = string.Format("select  isnull(count(*),0) from record_view");
-        string sql3 = string.Format("select  isnull(count(*),0) from record_view ");
-        string sql4 = string.Format("select  isnull(count(*),0) from record_view ");
-        string sql5 = string.Format("select  isnull(count(distinct([OpenId] )),0) from record_view");
-        string sql6 = string.Format("select  isnull(SUM(amount),0) from record_view ");
+        string sql1 = string.Format("select  count(*) from record_view where ActivityName='{0}'",
+            this.Request["key"]);
+        string sql2 = string.Format("select  isnull(count(*),0) from record_view where ActivityName='{0}'",
+            this.Request["key"]);
+        string sql3 = string.Format("select  isnull(count(*),0) from record_view where ActivityName='{0}'",
+            this.Request["key"]);
+        string sql4 = string.Format("select  isnull(count(*),0) from record_view where ActivityName='{0}'",
+            this.Request["key"]);
+        string sql5 = string.Format("select  isnull(count(distinct([OpenId] )),0) from record_view where ActivityName='{0}'",
+            this.Request["key"]);
+        string sql6 = string.Format("select  isnull(SUM(amount),0) from record_view where ActivityName='{0}'",
+            this.Request["key"]);
         this.totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText(sql1);
 
         this.totalCount = (int)iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText(sql2);
@@ -90,20 +100,25 @@
         function dosearch() {
             var key1 = $("#key1").val();
             var key2 = $("#key2").val();
+            var key = $("#key").val();
             if (key1 == "" || key1 == null) {
                 // return;
             }
             if (key2 == "" || key2 == null) {
                 // return;
             }
-            window.location = "TimeSearch.aspx?key1=" + key1 + "&key2=" + key2;
+            if (key == "" || key == null) {
+                // return;
+            }
+            window.location = "TimeSearch.aspx?key1=" + key1 + "&key2=" + key2 + "&key=" + key;
         }
 
         function DownLoad() {
+            var key = $("#key").val();
             var key1 = $("#key1").val();
             var key2 = $("#key2").val();
             var k3 = $("#key3").val();
-            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号, [district] as 昵称,Sex as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view where  ScanDate>=' " + key1 + "' and ScanDate <= '" + k3 + "' order by LastActiveTime desc  ";
+            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号, [district] as 昵称,Sex as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view  where ActivityName='<%=this.Request["key"]%>'  and  ScanDate>=' " + key1 + "' and ScanDate <= '" + k3 + "' order by LastActiveTime desc  ";
             var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
             //alert(sql);
             window.open(url);
@@ -126,7 +141,7 @@
 
     </script>
         <div class="quick_search ">
-            
+            <input type="text"  id="key"  placeholder="请输入活动"/>
             <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
 			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
             <input type="text"id="key3" value="<%=DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")%>"  style="width:auto;" hidden="hidden"/>
