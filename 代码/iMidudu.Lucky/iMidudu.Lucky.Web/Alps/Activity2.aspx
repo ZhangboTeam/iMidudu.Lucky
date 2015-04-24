@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html class="mtx-app">
 <head id="Head1" runat="server">
     <%
         var returnUrl = string.Format("http://lucky.meduo.com.cn/Alps/Ticket2.aspx?QRCode={0}", this.Request["QRCode"]);
