@@ -294,8 +294,8 @@
 
         function goOn() {
             var TicketNumber=$("#TicketNumber").val();
-            if (TicketNumber=="" && ticketUrl=="") {
-                alert("上传收银小票或者输入流水号");
+            if (ticketUrl=="") {
+                alert("上传购买凭证");
                 //    if (ticketUrl=="") {
                 //        //alert("上传收银小票或者输入流水号");
                 //        alert("上传收银小票");
