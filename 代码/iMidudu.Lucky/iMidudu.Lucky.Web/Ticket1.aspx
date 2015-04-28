@@ -315,13 +315,20 @@
 
         function goOn() {
             var TicketNumber=$("#TicketNumber").val();
-            if (ticketUrl=="") {
+            if (ticketUrl==""||ticketUrl==null) {
                 alert("上传购买凭证");
             //    if (ticketUrl=="") {
             //        //alert("上传收银小票或者输入流水号");
             //        alert("上传收银小票");
                 return false;
             } 
+            if (TicketNumber==""||TicketNumber==null) {
+                alert("请输入购买凭证号码");
+                //    if (ticketUrl=="") {
+                //        //alert("上传收银小票或者输入流水号");
+                //        alert("上传收银小票");
+                return false;
+            }
             var data = {OpenId:'<%=openResponse.openid%>',TicketUrl:ticketUrl,TicketNumber:TicketNumber};
           //  alert(JSON.stringify(data));return;
               //alert(data.ACCESS_TOKEN);
