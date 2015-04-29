@@ -119,7 +119,7 @@
             var key1 = $("#key1").val();
             var key2 = $("#key2").val();;
             var k3 = $("#key3").val();
-            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号, NickName as 昵称,(case Sex when 1 then '男' else '女' end) as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,ScanDate as 抽奖时间, LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view  where ActivityName='<%=this.Request["key"]%>'  and  ScanDate>=' " + key1 + "' and ScanDate <= ' " + k3 + "' order by ScanDate desc  ";
+            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号, NickName as 昵称,(case Sex when 1 then '男' else '女' end) as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,UserName as 收奖人姓名,TrueSex as 真实性别,Mobile as 电话,Address as 收奖人地址,ScanDate as 抽奖时间, LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from view_AllInfoByActivity  where ActivityName='<%=this.Request["key"]%>'  and  ScanDate>=' " + key1 + "' and ScanDate <= ' " + k3 + "' order by ScanDate desc  ";
             
             var url = "/Admin/OutExcelDown.ashx?filename=时间搜索<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
             //alert(sql);
@@ -193,7 +193,11 @@
                                         <th>国家(扫码)</th>
                                         <th>省(扫码)</th>
                                         <th>市(区)（扫码）</th>
-                                        <th>领奖时间（扫码）</th>
+                                        <th>收奖人姓名</th>
+                                        <th>真实性别</th>
+                                        <th>电话</th>
+                                        <th>收奖人地址</th>
+                                        <th>领奖时间</th>
                                         <th>最近活跃时间</th>
                                         <th>第一次活跃时间</th>
                                     </tr>
@@ -214,6 +218,10 @@
                                     <td><%#Eval("Country")%></td> 
                                     <td><%#Eval("Province") %></td>
                                     <td><%#Eval("City")%></td>
+                                     <td><%#Eval("UserName")%></td>
+                                     <td><%#Eval("TrueSex")%></td>
+                                     <td><%#Eval("Mobile")%></td>
+                                     <td><%#Eval("Address")%></td>
                                     <td><%#Eval("ScanDate")%></td>
                                     <td><%#Eval("LastActiveTime") %></td>
                                     <td><%#Eval("RegisterDate")%></td> 
