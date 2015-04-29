@@ -107,7 +107,7 @@
 
              <td>
                         <select name="" onchange="change();" id="Name"  class="form_select">
-                            <option value="" selected="">请选择活动</option>
+                            <option value="" selected="">请选择活动名</option>
                             <%
                                 var data1 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity").ToString();
                                 var data2 = iMidudu.Lucky.Web.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where QRCode='4d618408-d3f3-4d7b-8c0d-a42e9c31fe82'").ToString();

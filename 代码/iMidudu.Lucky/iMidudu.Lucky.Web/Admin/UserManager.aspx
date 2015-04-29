@@ -50,8 +50,8 @@
         }
         function DownLoad() {
             var k = $("#key").val();
-            var sql = "select NickName as 昵称,WXCountry as 国家,WXProvince as 省,WXCity as 市, TotalCount as 扫码次数,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from UserManager_view where NickName  like '%" + k + "%' order by LastActiveTime desc ";
-            var url = "/Admin/OutExcelDown.ashx?filename=用户管理.xls&sql=" + sql;
+            var sql = "select NickName as 昵称,WXCountry as 国家,WXProvince as 省,WXCity as 市, TotalCount as 扫码次数,LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from UserManager_view where NickName  like '%<%=this.Request["key"]%>%' order by LastActiveTime desc ";
+            var url = "/Admin/OutExcelDown.ashx?filename=用户信息<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
             //alert(sql);
             window.open(url);
             return;
@@ -73,8 +73,8 @@
         }
     </script>
     <div align="center">
-        <input type="text" id="key" value="" placeholder="按微信名查询" />
-        <input type="button" onclick="dosearch();" value="按微信名查询" class="alt_btn" />
+        <input type="text" id="key" value="" placeholder="按昵称查询" />
+        <input type="button" onclick="dosearch();" value="按昵称查询" class="alt_btn" />
     </div>
     <article class="module width_full">
 
@@ -92,9 +92,9 @@
                                     <tr>
                                         <th>昵称</th>
                                         <th>性别</th>
-                                        <th>国家(微信)</th>
-                                        <th>省(微信)</th>
-                                        <th>市(区)（微信）</th>
+                                        <th>国家</th>
+                                        <th>省</th>
+                                        <th>市(区)</th>
                                         <th>扫码次数</th>
                                         <th>最近活跃时间</th>
                                         <th>第一次活跃时间</th>

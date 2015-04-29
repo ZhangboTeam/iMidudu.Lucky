@@ -85,7 +85,7 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>活动奖项</th>
+                                        <th>活动+奖项</th>
                                         <th>奖项总数</th>
                                         <th>已领数量</th>
                                         <th>剩余数量</th>

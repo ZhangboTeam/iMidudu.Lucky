@@ -119,9 +119,9 @@
             var key1 = $("#key1").val();
             var key2 = $("#key2").val();;
             var k3 = $("#key3").val();
-            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号, NickName as 昵称,(case Sex when 1 then '男' else '女' end) as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,ScanDate as 抽奖时间, LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view  where ActivityName='<%=this.Request["key"]%>'  and  ScanDate>=' " + key1 + "' and ScanDate <= ' " + k3 + "' order by LastActiveTime desc  ";
+            var sql = "select ActivityName as 活动名,PrizeName as 奖项名,TicketNumber as 流水号, NickName as 昵称,(case Sex when 1 then '男' else '女' end) as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市,Country as 国家扫码,Province as 省扫码,City as 市扫码,ScanDate as 抽奖时间, LastActiveTime as 最近活跃时间,RegisterDate as 最后一次活跃时间 from record_view  where ActivityName='<%=this.Request["key"]%>'  and  ScanDate>=' " + key1 + "' and ScanDate <= ' " + k3 + "' order by ScanDate desc  ";
             
-            var url = "/Admin/OutExcelDown.ashx?filename=时间搜索.xls&sql=" + sql;
+            var url = "/Admin/OutExcelDown.ashx?filename=时间搜索<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
             //alert(sql);
             window.open(url);
             return;
@@ -158,7 +158,7 @@
 
                 }
                  %>
-            <input type="text"  id="key"  placeholder="请输入活动"/>
+            <input type="text"  id="key"  placeholder="请输入活动名"/>
             <input type="text" id="key1" value="<%=d1 %>" style="width:auto;" />
 			<input type="text"id="key2" value="<%=d2 %>"  style="width:auto;"/>
             <%--<input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />

@@ -81,7 +81,7 @@
 
            function DownLoad() {
                var sql = "select ActivityName as 活动获奖,UserName as 获奖姓名,Sex as 性别,Mobile as 获奖手机号,Address as 获奖人地址, ScanDate as 获奖时间 from View_BigSearch ";
-               var url = "/Admin/OutExcelDown.ashx?filename=大奖统计.xls&sql=" + sql;
+               var url = "/Admin/OutExcelDown.ashx?filename=大奖统计<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
                //alert(sql);
                window.open(url);
                return;
