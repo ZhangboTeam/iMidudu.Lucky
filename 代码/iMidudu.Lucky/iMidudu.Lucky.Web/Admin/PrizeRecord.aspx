@@ -4,7 +4,7 @@
         function DownLoad() {
             var k = $("#key").val();
             var sql = "select NickName as 昵称,Sex as 性别,WXCountry as 国家,WXProvince as 省,WXCity as 市, TotalCount1 as 活动一领取次数,TotalCount2 as 活动二领取次数,TotalCount3 as 活动三领取次数,TotalCount as 领取总次数 from View_top10 ";
-            var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+            var url = "/Admin/OutExcelDown.ashx?filename=奖项记录.xls&sql=" + sql;
             //alert(sql);
             window.open(url);
             return;

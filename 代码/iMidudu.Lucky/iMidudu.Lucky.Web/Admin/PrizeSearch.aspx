@@ -86,15 +86,15 @@
          //alert(Id);
          window.location = "PrizeSearch.aspx?key1=" + Id;
      }
-     function DownLoad() {
-         var k = $("#PrizeNames").val();
-         var sql = "select ActivityName as 活动名,PrizeName as 奖项名,NickName as 昵称, Sex as 性别,WXCountry as 国家,WXProvince as 省, WXCity as 市,Country as 国家扫码,Province as 省扫码,city as 市扫码 ,LastActiveTime as 最近一次活跃时间,RegisterDate as 第一次活跃时间 from record_view where PrizeName ='<%=this.Request["key1"]%>'";
-         var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+     function DownLoad() {;
+         var k = $("#PrizeNames").val();;
+         var sql = "select ActivityName as 活动名,PrizeName as 奖项名,NickName as 昵称, Sex as 性别,WXCountry as 国家,WXProvince as 省, WXCity as 市,Country as 国家扫码,Province as 省扫码,city as 市扫码 ,ScanDate as 抽奖时间,LastActiveTime as 最近一次活跃时间,RegisterDate as 第一次活跃时间 from record_view where PrizeName ='<%=this.Request["key1"]%>'";
+         var url = "/Admin/OutExcelDown.ashx?filename=奖项搜索.xls&sql=" + sql;
          //alert(sql);
          window.open(url);
          return;
          var content = $("#content").html();
-         var data = { body: content };
+         var data = { body: content };;
          $.ajax({
              type: "POST",
              contentType: "application/json",
