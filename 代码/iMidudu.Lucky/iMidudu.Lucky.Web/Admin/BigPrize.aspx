@@ -78,6 +78,27 @@
                    }
                });
            }
+
+           function DownLoad() {
+               var sql = "select ActivityName as 活动获奖,UserName as 获奖姓名,Sex as 性别,Mobile as 获奖手机号,Address as 获奖人地址, ScanDate as 获奖时间 from View_BigSearch ";
+               var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+               //alert(sql);
+               window.open(url);
+               return;
+               var content = $("#content").html();
+               var data = { body: content };
+               $.ajax({
+                   type: "POST",
+                   contentType: "application/json",
+                   url: "/Webservice.asmx/ExcelContentSaveToTemp",
+                   data: JSON.stringify(data),
+                   dataType: 'json',
+                   success: function (fn) {
+                       var url = "/Admin/OutExcel.ashx?filename=领取金额TOP10.xls&ContentFile=" + fn.d;
+                       window.open(url, "_blank");
+                   }
+               });
+           }
     </script>
     <article class="module width_full">
          
@@ -137,10 +158,13 @@
                       </div>
                      <div class="submit_link">
                <%-- <input type="submit" value="批量更新" class="alt_btn" onclick="UpdateAll();"/>--%>
+           </div>
+                <footer>
+                    <div class="submit_link">
+                        <input type="submit" value="导出表格" class="alt_btn" onclick="DownLoad();">
+                    </div>
+                </footer>
             </div>
-                     <footer>
-                        </footer>
-                </div>
                 <!-- end of #tab1 -->
 
             </div>
