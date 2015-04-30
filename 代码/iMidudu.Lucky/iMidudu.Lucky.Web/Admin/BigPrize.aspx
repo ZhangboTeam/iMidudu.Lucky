@@ -115,8 +115,17 @@
                             <table class="tablesorter" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>活动获奖</th>
-                                        <th>获奖姓名</th>
+                                        <th>活动名</th>
+                                        <th>奖项名</th>
+                                        <th>流水号</th>
+                                        <th>收银票图片</th>
+                                        <th>性别</th>
+                                        <th>国家(微信)</th>
+                                        <th>省(微信)</th>
+                                        <th>市(区)（微信）</th>
+                                        <th>国家(扫码)</th>
+                                        <th>省(扫码)</th>
+                                        <th>市(区)（扫码）</th>
                                         <th>性别</th>
                                         <th>获奖手机号</th>
                                         <th>获奖人地址</th>
@@ -128,8 +137,17 @@
                         <ItemTemplate>
                             <tbody>
                                  <tr>  
-                                     <%--+<%#Eval("PrizeName") %>--%>
-                                    <td><%#Eval("ActivityName") %></td>
+                                    <td><%#Eval("ActivityName")%></td>
+                                    <td><%#Eval("PrizeName")%></td>
+                                    <td><%#Eval("TicketNumber") %></td>
+                                    <td> <a href="http://lucky.meduo.com.cn/<%#Eval("TicketUrl") %>" target="_blank" ><img src='<%#Eval("TicketUrl") %>' width="30" /> </a>  </td>
+                                    <td><%#Eval("NickName")%></td> 
+                                    <td><%#Eval("WXCountry")%></td> 
+                                    <td><%#Eval("WXProvince") %></td>
+                                    <td><%#Eval("WXCity")%></td> 
+                                    <td><%#Eval("Country")%></td> 
+                                    <td><%#Eval("Province") %></td>
+                                    <td><%#Eval("City")%></td>
                                     <td><%#Eval("UserName") %></td>
                                      <td><%#Eval("Sex") %></td>
                                     <td><%#Eval("Mobile") %></td>
