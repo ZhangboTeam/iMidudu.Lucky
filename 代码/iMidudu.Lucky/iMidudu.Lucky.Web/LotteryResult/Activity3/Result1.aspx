@@ -145,7 +145,7 @@
                             alert("验证码不正确");
                             //window.location.reload();
                         } else {
-                            window.location.href = "/Alps/BigPrizeNum.aspx?ScanHistoryId=" + ScanHistoryId;
+                            window.location.href = "/Alps61/BigPrizeNum.aspx?ScanHistoryId=" + ScanHistoryId;
                         }
                     }
                 }
@@ -173,9 +173,9 @@
 						<tr>
 							<th>性别</th>
 							<td class="hasRadioSty">
-								<input type="radio" name="radio"  value="radio">
+								<input type="radio" name="Sex"  value="radio">
 								<label for="radio" style="margin-right:20px">男</label>
-								<input type="radio" name="radio"  value="radio" checked>
+								<input type="radio" name="Sex"  value="radio" checked>
 								<label for="radio">女</label>
 							</td>
 						</tr>
