@@ -1,7 +1,15 @@
 ﻿<%@ Page Language="C#"   %>
-
 <!DOCTYPE html>
 <html class="mtx-app">
+    <%
+        var sql = "select count(1) from Acception where scanhistoryid='" + this.Request["ScanHistoryId" ] + "'  ";
+      //  Response.Write(sql);Response.End();
+        if (iMidudu.Lucky.Web.SystemDAO.SqlHelper.Exists(sql))
+        {
+           // Response.Write("该大奖已被领取");
+         //   Response.End();
+        }
+         %>
 <head>
 <!-- 
 * 开发人员书写规范:
@@ -53,17 +61,25 @@
 	<!-- win 8 磁贴颜色 -->
 	<meta name="msapplication-TileColor" content="#ebce74">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
+    <script>
+        function reg() {
+            window.location.href = "/LotteryResult/Activity3/Result1.aspx?ScanHistoryId=<%=this.Request["ScanHistoryId" ] %>&PrizeId=<%=this.Request["PrizeId"]%>";
+        }
+    </script>
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="/Alps61/images/price-4.jpg" alt="" class="prices">
-    <input type="button" class="join-button btn-position">
+	<img src="/Alps61/images/price-300.jpg" alt="" class="prices">
+<!--
+	<div class="pctext">
+		<span>中奖码</span><span>8</span><span>8</span><span>8</span><span>8</span><span>9</span>
+	</div>
+-->
+	<input type="button" class="button-sty3 btn-pos bt22" onclick="reg();">
 </div>
 </body>
 
 <!-- Javascript with AMD  -->
 <script src="/Alps61/js/require.js" data-main="/Alps61/js/main" ></script>
-
-
 
 </html>

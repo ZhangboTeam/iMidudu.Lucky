@@ -164,7 +164,10 @@
         }
         function beginLottery() {
             $(".rotate-cont").attr("disabled", true);
-            var data = { QRCode: '<%=this.Request["QRCode" ]%>' };
+            var data = { QRCode: '<%=this.Request["QRCode" ]%>',
+                OpenId:'<%=this.Request["OpenId" ]%>'
+            
+            };
 
             var str = JSON.stringify(data);
             //alert(str);

@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#"   %>
-
+﻿
+<%@ Page Language="C#"   %>
 <!DOCTYPE html>
 <html class="mtx-app">
 <head>
@@ -56,8 +56,13 @@
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="/Alps61/images/price-4.jpg" alt="" class="prices">
-    <input type="button" class="join-button btn-position">
+	<img src="/Alps61/images/price-3.jpg" alt="" class="prices">
+<!--
+	<div class="pctext">
+		<span>中奖码</span><span>8</span><span>8</span><span>8</span><span>8</span><span>9</span>
+	</div>
+
+	<input type="button" class="button-sty2 btn-pos">-->
 </div>
 </body>
 
@@ -67,3 +72,4 @@
 
 
 </html>
+

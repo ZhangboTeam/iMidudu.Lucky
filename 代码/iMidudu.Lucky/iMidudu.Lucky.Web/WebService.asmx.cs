@@ -356,9 +356,9 @@ namespace iMidudu.Lucky.Web
             return data.ScanHistoryId;
         }
         [WebMethod]
-        public BizWebService.Prize PrizeLottery(Guid QRCode)
+        public BizWebService.Prize PrizeLottery(Guid QRCode , string OpenId)
         {
-            return WebServieFactiory.Biz.PrizeLottery(QRCode);
+            return WebServieFactiory.Biz.PrizeLottery(QRCode,OpenId);
         }
 
         /// <summary>

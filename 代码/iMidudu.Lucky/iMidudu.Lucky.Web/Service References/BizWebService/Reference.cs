@@ -750,7 +750,7 @@ namespace iMidudu.Lucky.Web.BizWebService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePrize", ReplyAction="*")]
         void UpdatePrize(System.Guid PrizeId, int Quantity);
         
-        // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 PrizeLotteryResult 以后生成的消息协定未标记为 nillable
+        // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 OpenId 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PrizeLottery", ReplyAction="*")]
         iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse PrizeLottery(iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest request);
         
@@ -1036,11 +1036,15 @@ namespace iMidudu.Lucky.Web.BizWebService {
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public System.Guid QRCode;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string OpenId;
+        
         public PrizeLotteryRequestBody() {
         }
         
-        public PrizeLotteryRequestBody(System.Guid QRCode) {
+        public PrizeLotteryRequestBody(System.Guid QRCode, string OpenId) {
             this.QRCode = QRCode;
+            this.OpenId = OpenId;
         }
     }
     
@@ -1235,10 +1239,11 @@ namespace iMidudu.Lucky.Web.BizWebService {
             return base.Channel.PrizeLottery(request);
         }
         
-        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode) {
+        public iMidudu.Lucky.Web.BizWebService.Prize PrizeLottery(System.Guid QRCode, string OpenId) {
             iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest inValue = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequest();
             inValue.Body = new iMidudu.Lucky.Web.BizWebService.PrizeLotteryRequestBody();
             inValue.Body.QRCode = QRCode;
+            inValue.Body.OpenId = OpenId;
             iMidudu.Lucky.Web.BizWebService.PrizeLotteryResponse retVal = ((iMidudu.Lucky.Web.BizWebService.BizWebServiceSoap)(this)).PrizeLottery(inValue);
             return retVal.Body.PrizeLotteryResult;
         }

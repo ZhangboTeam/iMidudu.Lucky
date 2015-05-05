@@ -322,7 +322,8 @@
                     //alert(result.d);
                     var historyId = result.d;
                     var qrCode = '<%=this.Request["QRCode"] %>';
-                        var nextUrl = '/Alps/Lottery2.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode;
+                    var openId = '<%=openResponse.openid%>';
+                        var nextUrl = '/Alps/Lottery2.aspx?ScanHistoryId=' + historyId + "&QRCode="+qrCode+"&OpenId="+openId;
                         window.location=nextUrl;
                     },
                     error:function(e){

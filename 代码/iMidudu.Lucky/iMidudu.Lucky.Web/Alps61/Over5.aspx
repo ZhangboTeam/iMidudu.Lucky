@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"   %>
+﻿<%@ Page Language="C#" %>
 
 <!DOCTYPE html>
 <html class="mtx-app">
@@ -51,13 +51,12 @@
 	<!-- win 8 磁贴图标 -->
 	<meta name="msapplication-TileImage" content="/Alps61/images/touch/ms-touch-icon-144x144-precomposed.png">
 	<!-- win 8 磁贴颜色 -->
-	<meta name="msapplication-TileColor" content="#ebce74">
+	<meta name="msapplication-TileColor" content="#3372DF">
 	<meta http-equiv="Cache-Control" content="no-siteapp">
 </head>
 <body>
 <div class="container"><!-- Everything started here -->
-	<img src="/Alps61/images/price-4.jpg" alt="" class="prices">
-    <input type="button" class="join-button btn-position">
+	<img src="/Alps61/images/price-404.jpg" alt="" class="prices">
 </div>
 </body>
 
@@ -67,3 +66,4 @@
 
 
 </html>
+

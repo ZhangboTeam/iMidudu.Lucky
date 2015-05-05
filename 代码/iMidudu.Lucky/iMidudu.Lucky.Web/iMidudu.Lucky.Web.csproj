@@ -83,8 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Activity1.aspx" />
+    <Content Include="Alps61\BigPrizeNum.aspx" />
+    <Content Include="Alps61\Over5.aspx" />
     <Content Include="Alps\Activity2.aspx" />
-    <Content Include="Activity3.aspx" />
+    <Content Include="Alps61\Activity3.aspx" />
     <Content Include="Admin\BigPrize.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\css\animate.css" />
@@ -190,6 +192,37 @@
     <Content Include="Alps\js\modernizr.custom.js" />
     <Content Include="Alps\js\require.js" />
     <Content Include="Alps\Over5.aspx" />
+    <Content Include="Alps61\css\reset.css" />
+    <Content Include="Alps61\css\style.css" />
+    <Content Include="Alps61\images\button-next.png" />
+    <Content Include="Alps61\images\button-share2.png" />
+    <Content Include="Alps61\images\button-uploadnum.png" />
+    <Content Include="Alps61\images\button-yes.png" />
+    <Content Include="Alps61\images\circle-2.png" />
+    <Content Include="Alps61\images\circle-3.png" />
+    <Content Include="Alps61\images\circle-4.png" />
+    <Content Include="Alps61\images\circle-5.png" />
+    <Content Include="Alps61\images\get_prc_layout_bot.png" />
+    <Content Include="Alps61\images\get_prc_layout_top.png" />
+    <Content Include="Alps61\images\inforbg.png" />
+    <Content Include="Alps61\images\joinbtn.png" />
+    <Content Include="Alps61\images\page_bg-02.jpg" />
+    <Content Include="Alps61\images\page_bg-03.jpg" />
+    <Content Include="Alps61\images\page_bg-04.jpg" />
+    <Content Include="Alps61\images\price-3.jpg" />
+    <Content Include="Alps61\images\price-300.jpg" />
+    <Content Include="Alps61\images\price-4.jpg" />
+    <Content Include="Alps61\images\price-404.jpg" />
+    <Content Include="Alps61\images\start-text.png" />
+    <Content Include="Alps61\images\text-input.png" />
+    <Content Include="Alps61\images\verify-inforbg.png" />
+    <Content Include="Alps61\js\css-builder.js" />
+    <Content Include="Alps61\js\css.min.js" />
+    <Content Include="Alps61\js\jay.js" />
+    <Content Include="Alps61\js\jquery.min.js" />
+    <Content Include="Alps61\js\main.js" />
+    <Content Include="Alps61\js\modernizr.custom.js" />
+    <Content Include="Alps61\js\require.js" />
     <Content Include="BigPrizeNum.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="css\animate.css" />
@@ -277,15 +310,11 @@
     <Content Include="login.aspx" />
     <Content Include="Lottery1.aspx" />
     <Content Include="Alps\Lottery2.aspx" />
-    <Content Include="Lottery3.aspx" />
+    <Content Include="Alps61\Lottery3.aspx" />
     <Content Include="LotteryResult\Activity1\Result.aspx" />
     <Content Include="LotteryResult\Activity2\Result.aspx" />
+    <Content Include="LotteryResult\Activity3\Result.aspx" />
     <Content Include="LotteryResult\Activity3\Result1.aspx" />
-    <Content Include="LotteryResult\Activity3\Result2.aspx" />
-    <Content Include="LotteryResult\Activity3\Result3.aspx" />
-    <Content Include="LotteryResult\Activity3\Result4.aspx" />
-    <Content Include="LotteryResult\Activity3\Result5.aspx" />
-    <Content Include="LotteryResult\Activity3\Result6.aspx" />
     <Content Include="LotteryResult\Activity3\Result7.aspx" />
     <Content Include="LotteryResult\Activity2\Result1.aspx" />
     <Content Include="LotteryResult\Activity2\Result2.aspx" />
@@ -345,7 +374,7 @@
     </None>
     <Content Include="Ticket1.aspx" />
     <Content Include="Alps\Ticket2.aspx" />
-    <Content Include="Ticket3.aspx" />
+    <Content Include="Alps61\Ticket3.aspx" />
     <Content Include="uploadedImages\null.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
