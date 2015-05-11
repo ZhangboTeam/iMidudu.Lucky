@@ -57,8 +57,6 @@
     <script src="js/json2.js"></script>
 </head>
 <body>  
-    <%//=this.Request["QRCode"]    %>
-    <%//=this.Request["wxcode"] %> 
 
         <%
             var wechat = iMidudu.Lucky.Web.WebServieFactiory.WeChat;
@@ -110,9 +108,9 @@
     </div>
 </div>    
          
-    <div id="mediaid">
+<%--    <div id="mediaid">
 
-    </div>
+    </div--%>>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
     <script> 
         var ticketUrl="";

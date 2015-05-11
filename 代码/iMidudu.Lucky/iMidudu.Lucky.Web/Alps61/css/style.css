@@ -515,10 +515,9 @@
 
 .btn-position {
     position: absolute;
-    left: 0;
-    right: -55%;
+    left: 13%;
     top: auto;
-    bottom: 28.8%;
+    bottom: 34%;
     margin: auto;
 }
 .btn-pos.bt22{ bottom:22%;}
