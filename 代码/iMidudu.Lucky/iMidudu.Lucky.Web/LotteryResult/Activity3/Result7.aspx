@@ -57,7 +57,7 @@
 <body>
 <div class="container"><!-- Everything started here -->
 	<img src="/Alps61/images/price-4.jpg" alt="" class="prices">
-    <input type="button" class="join-button btn-position">
+    <a href="http://chupabites.qq.com"><input type="button" class="join-button btn-position"></a>
 </div>
 </body>
 
