@@ -11,7 +11,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>恭喜中奖</title>
+	<title>谢谢惠顾</title>
 	<meta name="description" content="">
 	<meta name="author" content="J.Chen">
 	<!-- 让360双核浏览器用webkit内核渲染页面 !!! 注意，这行最好放在前面，防止浏览器开始解析的时候采用其它内置的渲染方案
