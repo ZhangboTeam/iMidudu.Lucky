@@ -80,7 +80,7 @@
                     //var rr = JSON.parse(r);
                     //if (rr.code != 0) {
                     //     $("#r").html("短信验证码已发送到手机:" + m);
-                    var count = 60;
+                    var count = 600;
                     var iii = setInterval(function () {
                         $("#smsCode").attr("disabled", true);
                         $("#smsCode").val(count);
