@@ -407,5 +407,34 @@ namespace iMidudu.Lucky.Web
             System.Web.HttpContext.Current.Session["UserName"] = null;
             return true;
         }
+        [WebMethod(EnableSession = true)]
+        public bool DeleteActivity3()
+        {
+            try
+            {
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from ScanHistory where PrizeId='2eda98cd-326d-4da8-8a26-23aca4482737'");
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            try
+            {
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from Acception where ScanHistoryId in (select ScanHistory.ScanHistoryId from Acception,ScanHistory where Acception.ScanHistoryId=ScanHistory.ScanHistoryId and ScanHistory.PrizeId='2eda98cd-326d-4da8-8a26-23aca4482731')");
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            try
+            {
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from ScanHistory where PrizeId='2eda98cd-326d-4da8-8a26-23aca4482731'");
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

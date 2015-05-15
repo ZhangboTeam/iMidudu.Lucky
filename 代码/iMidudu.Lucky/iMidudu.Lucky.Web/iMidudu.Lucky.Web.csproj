@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Activity1.aspx" />
+    <Content Include="Admin\DeleteActivity3.aspx" />
     <Content Include="Alps61\BigPrizeNum.aspx" />
     <Content Include="Alps61\Over5.aspx" />
     <Content Include="Alps\Activity2.aspx" />
