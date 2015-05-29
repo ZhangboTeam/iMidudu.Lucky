@@ -25,6 +25,12 @@
         }
         else
         {
+            var qrcode="4d618408-d3f3-4d7b-8c0d-a42e9c31fe81";
+            if (QRCode==qrcode)
+            {
+                this.Response.Write("活动已结束！欢迎参与活动，尽情关注下次活动，谢谢！！！");
+                this.Response.End();
+            }
             this.Response.Redirect(url+"?QRCode=" + QRCode);
         }
     }
